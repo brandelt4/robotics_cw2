@@ -13,7 +13,7 @@ class ExplorerNode(ExplorerNodeBase):
         self.blackList = []
 
     def updateFrontiers(self):
-        pass
+        print("IM HERE TWO")
 
     def chooseNewDestination(self):
 

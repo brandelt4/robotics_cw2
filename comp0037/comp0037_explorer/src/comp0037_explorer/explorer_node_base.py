@@ -104,6 +104,7 @@ class ExplorerNodeBase(object):
     # explorer will exit.
     def updateFrontiers(self):
 
+        print("IM HEREEEEE")
         if self.counter == 1:
             for x in range(0, self.occupancyGrid.getWidthInCells()):
                 for y in range(0, self.occupancyGrid.getHeightInCells()):
