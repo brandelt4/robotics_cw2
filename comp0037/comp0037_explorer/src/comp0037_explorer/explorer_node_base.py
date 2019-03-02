@@ -74,6 +74,7 @@ class ExplorerNodeBase(object):
     # This method determines if a cell is a frontier cell or not. A
     # frontier cell is open and has at least one neighbour which is
     # unknown.
+
     def isFrontierCell(self, x, y):
 
         # Check the cell to see if it's open
@@ -99,7 +100,9 @@ class ExplorerNodeBase(object):
     # False, it is assumed that the map is completely explored and the
     # explorer will exit.
     def updateFrontiers(self):
-        raise NotImplementedError()
+        self.frontier = []
+
+
 
     def chooseNewDestination(self):
         raise NotImplementedError()
@@ -167,7 +170,7 @@ class ExplorerNodeBase(object):
             threading.Thread.__init__(self)
             self.explorer = explorer
             self.running = False
-            self.completed = False;
+            self.completed = False
 
 
         def isRunning(self):

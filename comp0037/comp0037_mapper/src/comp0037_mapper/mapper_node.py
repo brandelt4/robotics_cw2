@@ -270,6 +270,8 @@ class MapperNode(object):
                         self.deltaOccupancyGridForShow.setCell(lastPoint[0], lastPoint[1], 1.0)
                     gridHasChanged = True
 
+        print(str(self.deltaOccupancyGrid.getCell()))
+
         return gridHasChanged
 
     def ray_trace(self, dist, x, y, angle, scanmsg):

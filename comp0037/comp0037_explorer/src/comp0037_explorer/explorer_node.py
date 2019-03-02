@@ -22,6 +22,8 @@ class ExplorerNode(ExplorerNodeBase):
 #         for coords in self.blackList:
 #             print str(coords)
 
+
+        # Iterates through coordinates X and Y
         for x in range(0, self.occupancyGrid.getWidthInCells()):
             for y in range(0, self.occupancyGrid.getHeightInCells()):
                 candidate = (x, y)
