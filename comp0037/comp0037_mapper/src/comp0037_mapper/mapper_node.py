@@ -271,10 +271,10 @@ class MapperNode(object):
                     gridHasChanged = True
 
 
-        for x in range(0, self.occupancyGrid.getWidthInCells()):
-            for y in range(0, self.occupancyGrid.getHeightInCells()):
-                print self.deltaOccupancyGrid.getCell(x,y),
-            print " "
+        # for x in range(0, self.occupancyGrid.getWidthInCells()):
+        #     for y in range(0, self.occupancyGrid.getHeightInCells()):
+        #         print self.deltaOccupancyGrid.getCell(x,y),
+        #     print " "
 
         return gridHasChanged
 

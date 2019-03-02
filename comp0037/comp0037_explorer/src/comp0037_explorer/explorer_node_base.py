@@ -131,6 +131,8 @@ class ExplorerNodeBase(object):
                         if self.isFrontierCell(x,y) is True:
                             self.frontier.append((x,y))
 
+        print("Frontier updated {}".format(self.counter))
+        print(self.frontier)
         self.counter += 1
 
 
