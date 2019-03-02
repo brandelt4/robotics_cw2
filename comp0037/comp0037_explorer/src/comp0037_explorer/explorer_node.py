@@ -4,9 +4,10 @@ sys.path.append('/home/ros_user/catkin_ws/src/comp0037/comp0037_reactive_planner
 
 import rospy
 from math import sqrt
-
+from mapper_node import MapperNode
 from explorer_node_base import ExplorerNodeBase
 from reactive_planner_controller import ReactivePlannerController
+import copy
 
 # This class implements a super dumb explorer. It goes through the
 # current map and marks the first cell it sees as the one to go for
@@ -34,8 +35,12 @@ class ExplorerNode(ExplorerNodeBase):
         candidateGood = False
 
 
-        pose = ReactivePlannerController.controller.getCurrentPose()
-        start = (pose.x, pose.y)
+        currentPose = copy.deepcopy(MapperNode.mostRecentOdometry.pose.pose)
+
+        x = currentPose.position.x
+        y = currentPose.position.y
+
+        start = (x, y)
         startCellCoords = ReactivePlannerController.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
         # Iterates through coordinates X and Y
 
