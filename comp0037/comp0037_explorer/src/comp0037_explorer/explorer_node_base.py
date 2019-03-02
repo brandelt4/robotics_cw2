@@ -225,6 +225,7 @@ class ExplorerNodeBase(object):
 
                 print("FIRST UPDATE")
                 self.explorer.updateFrontiers()
+                print(self.explorer.frontier)
 
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
@@ -234,8 +235,7 @@ class ExplorerNodeBase(object):
 
                 # Convert to world coordinates, because this is what the robot understands
                 if newDestinationAvailable is True:
-                    print
-                    'newDestination = ' + str(newDestination)
+                    print 'newDestination = ' + str(newDestination)
                     newDestinationInWorldCoordinates = self.explorer.occupancyGrid.getWorldCoordinatesFromCellCoordinates(
                         newDestination)
                     attempt = self.explorer.sendGoalToRobot(newDestinationInWorldCoordinates)
