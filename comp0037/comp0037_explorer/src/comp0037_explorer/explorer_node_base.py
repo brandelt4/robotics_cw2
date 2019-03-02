@@ -32,6 +32,8 @@ class ExplorerNodeBase(object):
         self.occupancyGrid = None
         self.deltaOccupancyGrid = None
 
+        self.counter = 0
+
         # Flags used to control the graphical output. Note that we
         # can't create the drawers until we receive the first map
         # message.
@@ -100,7 +102,38 @@ class ExplorerNodeBase(object):
     # False, it is assumed that the map is completely explored and the
     # explorer will exit.
     def updateFrontiers(self):
+
         self.frontier = []
+
+        if self.counter == 1:
+            for x in range(0, self.occupancyGrid.getWidthInCells()):
+                for y in range(0, self.occupancyGrid.getHeightInCells()):
+                    if self.isFrontierCell(x, y) == True:
+                        self.frontier.append((x,y))
+                    else:
+                        continue
+
+        else:
+
+            # First, check all current frontier points
+
+            for idx, cell_coords in enumerate(self.frontier):
+                if self.isFrontierCell(cell_coords[0], cell_coords[1]) is True:
+                    continue
+                else:
+                    self.frontier.pop(idx)
+
+            # Second, get access to the cells just discovered
+
+            for x in range(0, self.deltaOccupancyGrid.getWidthInCells()):
+                for y in range(0, self.deltaOccupancyGrid.getHeightInCells()):
+                    if self.deltaOccupancyGrid.getCell(x,y) == 1.0:
+                        if self.isFrontierCell(x,y) is True:
+                            self.frontier.append((x,y))
+
+        self.counter += 1
+
+
 
 
 

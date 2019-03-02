@@ -24,18 +24,16 @@ class ExplorerNode(ExplorerNodeBase):
 
 
         # Iterates through coordinates X and Y
-        for x in range(0, self.occupancyGrid.getWidthInCells()):
-            for y in range(0, self.occupancyGrid.getHeightInCells()):
-                candidate = (x, y)
-                if self.isFrontierCell(x, y) is True:
-                    candidateGood = True
-                    for k in range(0, len(self.blackList)):
-                        if self.blackList[k] == candidate:
-                            candidateGood = False
-                            break
 
-                    if candidateGood is True:
-                        return True, candidate
+        for candidate in self.frontier:
+            candidateGood = True
+            for k in range(0, len(self.blackList)):
+                if self.blackList[k] == candidate:
+                    candidateGood = False
+                    break
+
+            if candidateGood is True:
+                return True, candidate
 
         return False, None
 
