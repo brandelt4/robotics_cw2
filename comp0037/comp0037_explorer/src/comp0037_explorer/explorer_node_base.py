@@ -222,21 +222,27 @@ class ExplorerNodeBase(object):
                 # Special case. If this is the first time everything
                 # has started, stdr needs a kicking to generate laser
                 # messages. To do this, we get the robot to
-                
+
+                print("FIRST UPDATE")
                 self.explorer.updateFrontiers()
+
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
+                print("FIRST DESTINATIONS")
+                print(newDestinationAvailable)
+                print(newDestinationAvailable)
 
                 # Convert to world coordinates, because this is what the robot understands
                 if newDestinationAvailable is True:
-                    print 'newDestination = ' + str(newDestination)
-                    newDestinationInWorldCoordinates = self.explorer.occupancyGrid.getWorldCoordinatesFromCellCoordinates(newDestination)
+                    print
+                    'newDestination = ' + str(newDestination)
+                    newDestinationInWorldCoordinates = self.explorer.occupancyGrid.getWorldCoordinatesFromCellCoordinates(
+                        newDestination)
                     attempt = self.explorer.sendGoalToRobot(newDestinationInWorldCoordinates)
                     self.explorer.destinationReached(newDestination, attempt)
                 else:
                     self.completed = True
-                    
-       
+
     def run(self):
 
         explorerThread = ExplorerNodeBase.ExplorerThread(self)
