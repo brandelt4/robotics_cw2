@@ -33,6 +33,7 @@ class ExplorerNodeBase(object):
         self.deltaOccupancyGrid = None
 
         self.counter = 0
+        self.frontier = []
 
         # Flags used to control the graphical output. Note that we
         # can't create the drawers until we receive the first map
@@ -102,8 +103,6 @@ class ExplorerNodeBase(object):
     # False, it is assumed that the map is completely explored and the
     # explorer will exit.
     def updateFrontiers(self):
-
-        self.frontier = []
 
         if self.counter == 1:
             for x in range(0, self.occupancyGrid.getWidthInCells()):
