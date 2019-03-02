@@ -2,7 +2,7 @@ import sys
 sys.path.append('/home/ros_user/catkin_ws/src/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller')
 sys.path.append('/home/ros_user/catkin_ws/src/comp0037/comp0037_mapper/src/comp0037_mapper')
 
-
+from geometry_msgs.msg  import Pose2D
 import rospy
 from math import sqrt
 from mapper_node import MapperNode
@@ -43,7 +43,7 @@ class ExplorerNode(ExplorerNodeBase):
             return True, self.frontier[0]
 
         else:
-            pose = ReactivePlannerController.controller.getCurrentPose()
+            pose = Pose2D()
             start = (pose.x, pose.y)
             startCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
             for idx, candidate in enumerate(self.frontier):
