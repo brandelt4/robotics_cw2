@@ -273,7 +273,7 @@ class MapperNode(object):
 
         for x in range(0, self.occupancyGrid.getWidthInCells()):
             for y in range(0, self.occupancyGrid.getHeightInCells()):
-                print(str(self.deltaOccupancyGrid.getCell(x,y)), end=" ")
+                print self.deltaOccupancyGrid.getCell(x,y), end=" "
             print(" ", end='\n')
 
         return gridHasChanged
