@@ -34,6 +34,7 @@ class ExplorerNodeBase(object):
 
         self.counter = 0
         self.frontier = []
+        self.previousFrontier = []
 
         # Flags used to control the graphical output. Note that we
         # can't create the drawers until we receive the first map
@@ -104,6 +105,8 @@ class ExplorerNodeBase(object):
     # explorer will exit.
     def updateFrontiers(self):
 
+        self.previousFrontier = self.frontier.copy()
+
         print("IM HEREEEEE")
         if self.counter == 1:
             for x in range(0, self.occupancyGrid.getWidthInCells()):
@@ -135,7 +138,7 @@ class ExplorerNodeBase(object):
         print(self.frontier)
         self.counter += 1
 
-        if self.frontier == []:
+        if self.frontier is self.previousFrontier:
             return False
         else:
             return True
