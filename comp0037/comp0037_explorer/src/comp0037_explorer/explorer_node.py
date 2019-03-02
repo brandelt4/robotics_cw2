@@ -12,8 +12,6 @@ class ExplorerNode(ExplorerNodeBase):
 
         self.blackList = []
 
-    def updateFrontiers(self):
-        print("IM HERE TWO")
 
     def chooseNewDestination(self):
 
