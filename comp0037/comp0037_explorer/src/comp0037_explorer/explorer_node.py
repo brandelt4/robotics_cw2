@@ -26,6 +26,7 @@ class ExplorerNode(ExplorerNodeBase):
         # Iterates through coordinates X and Y
 
         for candidate in self.frontier:
+            print(candidate)
             candidateGood = True
             for k in range(0, len(self.blackList)):
                 if self.blackList[k] == candidate:
