@@ -223,7 +223,7 @@ class ExplorerNodeBase(object):
                 # has started, stdr needs a kicking to generate laser
                 # messages. To do this, we get the robot to
                 
-                self.updateFrontiers()
+                self.explorer.updateFrontiers()
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
 
