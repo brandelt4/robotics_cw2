@@ -135,6 +135,10 @@ class ExplorerNodeBase(object):
         print(self.frontier)
         self.counter += 1
 
+        if self.frontier == []:
+            return False
+        else:
+            return True
 
 
 

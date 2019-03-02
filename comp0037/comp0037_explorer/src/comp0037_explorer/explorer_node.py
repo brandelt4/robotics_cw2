@@ -35,26 +35,25 @@ class ExplorerNode(ExplorerNodeBase):
         costs = []
         candidateGood = False
 
-
-        currentPose = copy.deepcopy(MapperNode.mostRecentOdometry.pose.pose)
-
-        x = currentPose.position.x
-        y = currentPose.position.y
-
-        start = (x, y)
-        startCellCoords = ReactivePlannerController.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
         # Iterates through coordinates X and Y
 
         # NOW IMPLEMENT THE BEST WAY TO CHOOSE THE NEW DESTINATION
 
-        for idx, candidate in enumerate(self.frontier):
-            candidateGood = True
-            costs.append(self.calculateHeuristic(candidate, startCellCoords))
+        if self.counter == 1:
+            return True, self.frontier[0]
 
-        nextOne = costs.index(min(costs))
+        else:
+            pose = ReactivePlannerController.controller.getCurrentPose()
+            start = (pose.x, pose.y)
+            startCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+            for idx, candidate in enumerate(self.frontier):
+                candidateGood = True
+                costs.append(self.calculateHeuristic(startCellCoords, candidate))
 
-        if candidateGood is True:
-            return True, self.frontier[nextOne]
+            nextOne = costs.index(min(costs))
+
+            if candidateGood is True:
+                return True, self.frontier[nextOne]
 
 
 
