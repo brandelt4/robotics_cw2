@@ -6,7 +6,7 @@ import rospy
 from math import sqrt
 
 from explorer_node_base import ExplorerNodeBase
-import reactive_planner_controller
+from reactive_planner_controller import ReactivePlannerController
 
 # This class implements a super dumb explorer. It goes through the
 # current map and marks the first cell it sees as the one to go for
@@ -34,9 +34,9 @@ class ExplorerNode(ExplorerNodeBase):
         candidateGood = False
 
 
-        pose = self.controller.getCurrentPose()
+        pose = ReactivePlannerController.controller.getCurrentPose()
         start = (pose.x, pose.y)
-        startCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+        startCellCoords = ReactivePlannerController.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
         # Iterates through coordinates X and Y
 
         # NOW IMPLEMENT THE BEST WAY TO CHOOSE THE NEW DESTINATION
