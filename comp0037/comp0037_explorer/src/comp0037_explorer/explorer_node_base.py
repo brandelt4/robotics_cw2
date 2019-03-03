@@ -108,6 +108,7 @@ class ExplorerNodeBase(object):
 
         self.previousFrontier = copy.copy(self.frontier)
 
+        # If it's the first time
         if self.counter == 1:
             for x in range(0, self.occupancyGrid.getWidthInCells()):
                 for y in range(0, self.occupancyGrid.getHeightInCells()):
