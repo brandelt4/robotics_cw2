@@ -135,7 +135,7 @@ class ExplorerNodeBase(object):
         print("Frontier updated {}".format(self.counter))
         self.counter += 1
 
-        if self.frontier is self.previousFrontier:
+        if self.frontier == self.previousFrontier:
             return False
         else:
             print('hereeee-----------')
