@@ -108,7 +108,6 @@ class ExplorerNodeBase(object):
 
         self.previousFrontier = copy.copy(self.frontier)
 
-        print("IM HEREEEEE")
         if self.counter == 1:
             for x in range(0, self.occupancyGrid.getWidthInCells()):
                 for y in range(0, self.occupancyGrid.getHeightInCells()):
@@ -120,7 +119,6 @@ class ExplorerNodeBase(object):
         else:
 
             # First, check all current frontier points
-
             for idx, cell_coords in enumerate(self.frontier):
                 if self.isFrontierCell(cell_coords[0], cell_coords[1]) is True:
                     continue
@@ -128,7 +126,6 @@ class ExplorerNodeBase(object):
                     self.frontier.pop(idx)
 
             # Second, get access to the cells just discovered
-
             for x in range(0, self.deltaOccupancyGrid.getWidthInCells()):
                 for y in range(0, self.deltaOccupancyGrid.getHeightInCells()):
                     if self.deltaOccupancyGrid.getCell(x,y) == 1.0:
@@ -136,12 +133,12 @@ class ExplorerNodeBase(object):
                             self.frontier.append((x,y))
 
         print("Frontier updated {}".format(self.counter))
-        print(self.frontier)
         self.counter += 1
 
         if self.frontier is self.previousFrontier:
             return False
         else:
+            print('hereeee-----------')
             return True
 
 
