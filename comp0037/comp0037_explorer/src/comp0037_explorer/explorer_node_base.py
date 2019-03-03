@@ -1,6 +1,7 @@
 import rospy
 import threading
 import math
+import copy
 
 from comp0037_mapper.msg import *
 from comp0037_mapper.srv import *
@@ -105,7 +106,7 @@ class ExplorerNodeBase(object):
     # explorer will exit.
     def updateFrontiers(self):
 
-        self.previousFrontier = self.frontier.copy()
+        self.previousFrontier = copy.copy(self.frontier)
 
         print("IM HEREEEEE")
         if self.counter == 1:
