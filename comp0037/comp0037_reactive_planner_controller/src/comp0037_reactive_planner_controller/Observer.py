@@ -25,7 +25,7 @@ def MyThread1(controller):
     start = time.time()  # START
     total_distance = 0.0
     total_angle = 0.0
-
+    print("crazy90\n"*90)
     while True:
         total_angle = total_angle + shortestAngularDistance(controller.pose.theta, last_theta)
         total_distance = total_distance + get_distance(controller, last_x, last_y)
