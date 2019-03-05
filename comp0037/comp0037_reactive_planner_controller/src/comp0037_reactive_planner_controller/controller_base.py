@@ -41,6 +41,8 @@ class ControllerBase(object):
 
         # This flag says if the current goal should be aborted
         self.abortCurrentGoal = False
+
+
         
 
     # Get the pose of the robot. Store this in a Pose2D structure because
