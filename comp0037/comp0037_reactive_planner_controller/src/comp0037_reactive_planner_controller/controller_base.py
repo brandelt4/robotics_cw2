@@ -89,6 +89,11 @@ class ControllerBase(object):
 
         rospy.loginfo('Driving path to goal with ' + str(len(path.waypoints)) + ' waypoint(s)')
         
+	start = time.time() # START
+	self.total_distance = 0.0	
+	self.total_angle = 0.0
+	self.total_angle_asked = 0.0
+
         # Drive to each waypoint in turn
         for waypointNumber in range(0, len(path.waypoints)):
             cell = path.waypoints[waypointNumber]
@@ -107,6 +112,14 @@ class ControllerBase(object):
             # Handle ^C
             if rospy.is_shutdown() is True:
                 return False
+
+	f = open('../recorded_data.csv', "a")
+	f.write("{}, {},".format(path.waypoints[0].coords, path.waypoints[len(path.waypoints)-1].coords))
+	f.write("{},".format(str(time.time() - start)))
+	f.write("{},".format(str(self.total_distance)))
+	f.write("{},".format(str(self.total_angle*360.0/6.28)))
+	f.write("{}\n".format(str(self.total_angle_asked*360.0/6.28)))
+	f.close()
 
         rospy.loginfo('Rotating to goal orientation (' + str(goalOrientation) + ')')
         
