@@ -8,7 +8,7 @@ from math import pow,atan2,sqrt,pi
 from planned_path import PlannedPath
 import time
 import math
-
+import  Observer
 # This is the base class of the controller which moves the robot to its goal.
 # could do.
 
@@ -85,16 +85,17 @@ class ControllerBase(object):
     # the planner drawer because we have to keep updating it to
     # make sure the graphics are redrawn properly.
     def drivePathToGoal(self, path, goalOrientation, plannerDrawer):
+        Observer.runMyThread(self)
 
         self.abortCurrentGoal = False
         self.plannerDrawer = plannerDrawer
 
         rospy.loginfo('Driving path to goal with ' + str(len(path.waypoints)) + ' waypoint(s)')
         
-	start = time.time() # START
-	self.total_distance = 0.0	
-	self.total_angle = 0.0
-	self.total_angle_asked = 0.0
+        # start = time.time() # START
+        # self.total_distance = 0.0
+        # self.total_angle = 0.0
+        # self.total_angle_asked = 0.0
 
         # Drive to each waypoint in turn
         for waypointNumber in range(0, len(path.waypoints)):
@@ -110,18 +111,20 @@ class ControllerBase(object):
             if self.driveToWaypoint(waypoint) is False:
                 self.stopRobot()
                 return False
-                
+
             # Handle ^C
             if rospy.is_shutdown() is True:
                 return False
 
-	f = open('../recorded_data.csv', "a")
-	f.write("{}, {},".format(path.waypoints[0].coords, path.waypoints[len(path.waypoints)-1].coords))
-	f.write("{},".format(str(time.time() - start)))
-	f.write("{},".format(str(self.total_distance)))
-	f.write("{},".format(str(self.total_angle*360.0/6.28)))
-	f.write("{}\n".format(str(self.total_angle_asked*360.0/6.28)))
-	f.close()
+
+
+        # f = open('../recorded_data.csv', "a")
+        # f.write("{}, {},".format(path.waypoints[0].coords, path.waypoints[len(path.waypoints)-1].coords))
+        # f.write("{},".format(str(time.time() - start)))
+        # f.write("{},".format(str(self.total_distance)))
+        # f.write("{},".format(str(self.total_angle*360.0/6.28)))
+        # f.write("{}\n".format(str(self.total_angle_asked*360.0/6.28)))
+        # f.close()
 
         rospy.loginfo('Rotating to goal orientation (' + str(goalOrientation) + ')')
         

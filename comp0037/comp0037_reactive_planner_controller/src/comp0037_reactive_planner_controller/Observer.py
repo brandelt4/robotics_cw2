@@ -1,8 +1,9 @@
 import math
 import threading
+import time
 
 
-def shortestAngularDistance(self, fromAngle, toAngle):
+def shortestAngularDistance(fromAngle, toAngle):
     delta = toAngle - fromAngle
     if delta < -math.pi:
         delta = delta + 2.0 * math.pi
@@ -19,9 +20,28 @@ def get_distance(controller, last_x, last_y):
 def MyThread1(controller):
     last_x = controller.pose.x
     last_y = controller.pose.y
+    last_theta = controller.pose.theta
 
-    # while True:
+    start = time.time()  # START
+    total_distance = 0.0
+    total_angle = 0.0
 
+    while True:
+        total_angle = total_angle + shortestAngularDistance(controller.pose.theta, last_theta)
+        total_distance = total_distance + get_distance(controller, last_x, last_y)
+
+        last_x = controller.pose.x
+        last_y = controller.pose.y
+        last_theta = controller.pose.theta
+
+        f = open('../recorded_data.csv', "w")
+        f.write(str(controller.goal).format())
+        f.write("{},".format(str(time.time() - start)))
+        f.write("{},".format(str(total_distance)))
+        f.write("{},".format(str(total_angle * 360.0 / 6.28)))
+        f.close()
+
+        time.sleep(1)
 
 
 def runMyThread(controller):
