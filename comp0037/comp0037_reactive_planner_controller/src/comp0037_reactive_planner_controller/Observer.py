@@ -26,13 +26,15 @@ def MyThread1(controller):
     total_distance = 0.0
     total_angle = 0.0
     print("crazy90\n"*90)
-    while True:
+    while time.time() - start < 1000000000000000:
         total_angle = total_angle + shortestAngularDistance(controller.pose.theta, last_theta)
         total_distance = total_distance + get_distance(controller, last_x, last_y)
 
         last_x = controller.pose.x
         last_y = controller.pose.y
         last_theta = controller.pose.theta
+
+        print("================================" + str(total_distance))
 
         f = open('../recorded_data.csv', "a")
         f.write(str(controller.goal).format())
