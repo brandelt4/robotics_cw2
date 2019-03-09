@@ -21,6 +21,7 @@ class ExplorerNode(ExplorerNodeBase):
     def __init__(self):
         ExplorerNodeBase.__init__(self)
 
+        self.selection = 'closest' # 'farthest', 'entropy'
         self.previousDestination = (0,0)
         self.blackList = []
 
@@ -28,6 +29,7 @@ class ExplorerNode(ExplorerNodeBase):
         dX = start[0] - goal[0]
         dY = start[1] - goal[1]
         return sqrt(dX ** 2 + dY ** 2)
+
 
     def chooseNewDestination(self):
 
@@ -72,7 +74,17 @@ class ExplorerNode(ExplorerNodeBase):
                 if nextOne == len(self.frontier):
                     return False, None
                 else:
-                    nextOne+=1
+                    # Find the next smallest number
+                    nextSmallest = max(costs)
+                    i = 0
+                    for cost in costs:
+                        # If the cost is smaller than the current smallest and the index is not the same
+                        if cost < nextSmallest and i != nextOne:
+                            nextSmallest = cost
+                        i += 1
+                    # Find index of the next smallest
+                    nextOne = costs.index(nextSmallest)
+
 
             print("Next cell coordinates: {}".format(self.frontier[nextOne]))
 
