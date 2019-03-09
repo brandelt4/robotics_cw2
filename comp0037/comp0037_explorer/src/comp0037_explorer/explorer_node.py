@@ -69,7 +69,10 @@ class ExplorerNode(ExplorerNodeBase):
 
             # Check if in blacklist
             while self.frontier[nextOne] in self.blackList or self.frontier[nextOne] == startCellCoords:
-                nextOne+=1
+                if nextOne == len(self.frontier):
+                    return False, None
+                else:
+                    nextOne+=1
 
             print("Next cell coordinates: {}".format(self.frontier[nextOne]))
 
