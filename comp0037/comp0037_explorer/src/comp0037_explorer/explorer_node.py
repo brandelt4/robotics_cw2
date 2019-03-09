@@ -46,16 +46,16 @@ class ExplorerNode(ExplorerNodeBase):
             pose = Pose2D()
             start = (pose.x, pose.y)
             startCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+            print("Start cell coordinates: {}".format(startCellCoords))
             for idx, candidate in enumerate(self.frontier):
                 candidateGood = True
                 costs.append(self.calculateHeuristic(startCellCoords, candidate))
 
             nextOne = costs.index(min(costs))
+            print("Next cell coordinates: {}".format(self.frontier[nextOne]))
 
-            if candidateGood is True:
+            if candidateGood is True and self.frontier[nextOne] != self.previousDestination:
                 return True, self.frontier[nextOne]
-
-
 
         return False, None
 

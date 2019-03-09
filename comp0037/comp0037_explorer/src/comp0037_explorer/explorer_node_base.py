@@ -139,7 +139,7 @@ class ExplorerNodeBase(object):
         if self.frontier == self.previousFrontier:
             return False
         else:
-            print('hereeee-----------')
+
             return True
 
 
@@ -235,8 +235,8 @@ class ExplorerNodeBase(object):
 
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
+                self.previousDestination = newDestination
                 print("FIRST DESTINATIONS")
-                print(newDestinationAvailable)
                 print(newDestinationAvailable)
 
                 # Convert to world coordinates, because this is what the robot understands
