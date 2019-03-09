@@ -53,7 +53,9 @@ class ExplorerNode(ExplorerNodeBase):
 
             with open('position.txt', 'r') as file:
                 positionX = float(file.readline(1))
+                print('POSITION X {}'.format(positionX))
                 positionY = float(file.readline(2))
+                print('POSITION X {}'.format(positionX))
                 start = (positionX, positionY)
 
             startCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)

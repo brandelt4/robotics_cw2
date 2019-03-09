@@ -62,6 +62,7 @@ class ControllerBase(object):
 
         with open('position.txt', 'w') as file:
             file.write(str(position.x))
+            print("POSITION X: {}".format(str(position.x)))
             file.write(str(position.y))
 
 
