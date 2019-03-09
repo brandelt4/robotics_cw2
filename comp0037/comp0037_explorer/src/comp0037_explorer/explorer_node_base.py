@@ -222,6 +222,7 @@ class ExplorerNodeBase(object):
 
         def run(self):
 
+            print("ARE YOU EVER HERE ******************")
             self.running = True
 
             while (rospy.is_shutdown() is False) & (self.completed is False):
