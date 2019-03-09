@@ -81,15 +81,16 @@ class ExplorerNode(ExplorerNodeBase):
                         # Find the next smallest number
                         nextSmallest = max(costs)
                         i = 0
-                        print(costs)
                         for cost in costs:
                             # If the cost is smaller than the current smallest and the index is not the same
                             if (cost < nextSmallest) and not (i in nextOne_blacklist):
                                 nextSmallest = cost
                             i += 1
                         # Find index of the next smallest
-                        nextOne = costs.index(nextSmallest)
-                        print(nextOne)
+                        for idx, cost in enumerate(costs):
+                            if cost == nextSmallest and not (idx in nextOne_blacklist):
+                                nextOne = idx
+
 
 
                 print("Next cell coordinates: {}".format(self.frontier[nextOne]))
