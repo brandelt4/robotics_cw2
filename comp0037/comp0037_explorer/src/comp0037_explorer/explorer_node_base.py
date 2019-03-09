@@ -125,6 +125,7 @@ class ExplorerNodeBase(object):
                 if self.isFrontierCell(cell_coords[0], cell_coords[1]) is True:
                     continue
                 else:
+                    print('POPPING')
                     self.frontier.pop(idx)
 
             # Second, get access to the cells just discovered
