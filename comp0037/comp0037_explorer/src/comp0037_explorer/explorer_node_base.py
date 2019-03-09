@@ -232,7 +232,6 @@ class ExplorerNodeBase(object):
 
                 print("FIRST UPDATE")
                 self.explorer.updateFrontiers()
-                print(self.explorer.frontier)
 
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
