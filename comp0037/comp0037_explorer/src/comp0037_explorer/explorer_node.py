@@ -18,6 +18,7 @@ class ExplorerNode(ExplorerNodeBase):
     def __init__(self):
         ExplorerNodeBase.__init__(self)
 
+        self.previousDestination = (0,0)
         self.blackList = []
 
     def calculateHeuristic(self, start, goal):
