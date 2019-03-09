@@ -51,13 +51,10 @@ class ExplorerNode(ExplorerNodeBase):
             # start = (pose.x, pose.y)
             # print(pose.x, pose.y)
 
-            print("------HERE-------")
-
             with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/position.txt', 'r') as file:
                 positionX = float(file.readline())
                 positionY = float(file.readline())
                 start = (positionX, positionY)
-            print('%^&*()*%^$%^&*(): ' + str(start))
 
             startCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
             print("Start cell coordinates: {}".format(startCellCoords))
@@ -73,7 +70,8 @@ class ExplorerNode(ExplorerNodeBase):
 
             print("Next cell coordinates: {}".format(self.frontier[nextOne]))
 
-            if candidateGood is True and self.frontier[nextOne] != self.previousDestination:
+            if candidateGood is True and self.frontier[nextOne] != self.previousDestination and self.frontier != startCellCoords:
+                print("RETURNING THIS SHIT")
                 return True, self.frontier[nextOne]
 
         return False, None
