@@ -61,8 +61,8 @@ class ControllerBase(object):
         self.pose = pose
 
         with open('position.txt', 'w') as file:
-            file.write(position.x)
-            file.write(position.y)
+            file.write(str(position.x))
+            file.write(str(position.y))
 
 
     # Return the most up-to-date pose of the robot
