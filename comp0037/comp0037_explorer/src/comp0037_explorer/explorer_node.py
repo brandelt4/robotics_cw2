@@ -9,6 +9,9 @@ from mapper_node import MapperNode
 from explorer_node_base import ExplorerNodeBase
 from reactive_planner_controller import ReactivePlannerController
 import copy
+from nav_msgs.msg import Odometry
+from geometry_msgs.msg  import Pose2D
+
 
 # This class implements a super dumb explorer. It goes through the
 # current map and marks the first cell it sees as the one to go for
@@ -47,7 +50,12 @@ class ExplorerNode(ExplorerNodeBase):
             # pose = Pose2D()
             # start = (pose.x, pose.y)
             # print(pose.x, pose.y)
-            start = (self.pose.x, self.pose.y)
+
+            with open('position.txt', 'r') as file:
+                positionX = float(file.readline(1))
+                positionY = float(file.readline(2))
+                start = (positionX, positionY)
+
             startCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
             print("Start cell coordinates: {}".format(startCellCoords))
             for idx, candidate in enumerate(self.frontier):

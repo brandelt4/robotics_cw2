@@ -7,6 +7,7 @@ from nav_msgs.msg import Odometry
 from math import pow,atan2,sqrt,pi
 from planned_path import PlannedPath
 import time
+import pickle
 import math
 
 # This is the base class of the controller which moves the robot to its goal.
@@ -58,6 +59,11 @@ class ControllerBase(object):
         pose.y = position.y
         pose.theta = 2 * atan2(orientation.z, orientation.w)
         self.pose = pose
+
+        with open('position.txt', 'w') as file:
+            file.write(position.x)
+            file.write(position.y)
+
 
     # Return the most up-to-date pose of the robot
     def getCurrentPose(self):
