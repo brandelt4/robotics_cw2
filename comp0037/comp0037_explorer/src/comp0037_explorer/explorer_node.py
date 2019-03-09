@@ -54,9 +54,9 @@ class ExplorerNode(ExplorerNodeBase):
             print("------HERE-------")
 
             with open('position.txt', 'r') as file:
-                positionX = float(file.readline(1))
+                positionX = float(file.readline())
                 print('POSITION X {}'.format(positionX))
-                positionY = float(file.readline(2))
+                positionY = float(file.readline())
                 print('POSITION Y {}'.format(positionX))
                 start = (positionX, positionY)
 
