@@ -71,6 +71,7 @@ class ExplorerNodeBase(object):
         self.deltaOccupancyGrid.updateGridFromVector(msg.deltaOccupancyGrid)
         
         # Update the frontiers
+        print("THIS IS WHERE I UPDATE FRONTIERS")
         self.updateFrontiers()
 
         # Flag there's something to show graphically
