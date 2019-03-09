@@ -52,9 +52,12 @@ class ExplorerNode(ExplorerNodeBase):
             # print(pose.x, pose.y)
 
             with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/position.txt', 'r') as file:
-                positionX = float(file.readline())
-                positionY = float(file.readline())
-                start = (positionX, positionY)
+                try:
+                    positionX = float(file.readline())
+                    positionY = float(file.readline())
+                    start = (positionX, positionY)
+                except:
+                    pass
 
             startCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
             print("Start cell coordinates: {}".format(startCellCoords))
