@@ -230,14 +230,11 @@ class ExplorerNodeBase(object):
                 # has started, stdr needs a kicking to generate laser
                 # messages. To do this, we get the robot to
 
-                print("FIRST UPDATE")
                 self.explorer.updateFrontiers()
 
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
                 self.previousDestination = newDestination
-                print("FIRST DESTINATIONS")
-                print(newDestinationAvailable)
 
                 # Convert to world coordinates, because this is what the robot understands
                 if newDestinationAvailable is True:

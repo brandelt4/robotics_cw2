@@ -44,9 +44,10 @@ class ExplorerNode(ExplorerNodeBase):
             return True, self.frontier[0]
 
         else:
-            pose = Pose2D()
-            start = (pose.x, pose.y)
-            print(pose.x, pose.y)
+            # pose = Pose2D()
+            # start = (pose.x, pose.y)
+            # print(pose.x, pose.y)
+            start = (self.pose.x, self.pose.y)
             startCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
             print("Start cell coordinates: {}".format(startCellCoords))
             for idx, candidate in enumerate(self.frontier):
