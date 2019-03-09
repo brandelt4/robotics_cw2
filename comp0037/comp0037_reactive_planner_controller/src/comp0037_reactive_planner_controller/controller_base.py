@@ -60,7 +60,11 @@ class ControllerBase(object):
         pose.theta = 2 * atan2(orientation.z, orientation.w)
         self.pose = pose
 
-        with open('position.txt', 'w') as file:
+
+        # Change the location to match the one I changed on Linux already
+        # put \n at the end of the line so it writes on the new line
+        # Check the format - should be float or round up to another position?
+        with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/position.txt', 'w') as file:
             file.write(str(position.x))
             print("POSITION X: {}".format(str(position.x)))
             file.write(str(position.y))
