@@ -64,7 +64,6 @@ class ControllerBase(object):
         # Check the format - should be float or round up to another position?
         with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/position.txt', 'w') as file:
             file.write(str(position.x)+'\n')
-            print("POSITION X: {}".format(str(position.x)))
             file.write(str(position.y))
 
 
