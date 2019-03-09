@@ -230,6 +230,7 @@ class ExplorerNodeBase(object):
                 print("I AM HERE")
                 # Special case. If this is the first time everything
                 # has started, stdr needs a kicking to generate laser
+                # has started, stdr needs a kicking to generate laser
                 # messages. To do this, we get the robot to
 
                 self.explorer.updateFrontiers()

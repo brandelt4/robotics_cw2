@@ -66,6 +66,11 @@ class ExplorerNode(ExplorerNodeBase):
                 costs.append(self.calculateHeuristic(startCellCoords, candidate))
 
             nextOne = costs.index(min(costs))
+
+            # Check if in blacklist
+            while self.frontier[nextOne] in self.blackList:
+                nextOne+=1
+
             print("Next cell coordinates: {}".format(self.frontier[nextOne]))
 
             if candidateGood is True and self.frontier[nextOne] != self.previousDestination:
