@@ -71,7 +71,6 @@ class ExplorerNodeBase(object):
         self.deltaOccupancyGrid.updateGridFromVector(msg.deltaOccupancyGrid)
         
         # Update the frontiers
-        print("THIS IS WHERE I UPDATE FRONTIERS")
         self.updateFrontiers()
 
         # Flag there's something to show graphically
@@ -134,8 +133,7 @@ class ExplorerNodeBase(object):
                         if self.isFrontierCell(x,y) is True:
                             self.frontier.append((x,y))
 
-        print("Frontier updated {}".format(self.counter))
-        print(self.frontier)
+        print("Frontier updated #{}".format(self.counter))
         self.counter += 1
 
         if self.frontier == self.previousFrontier:
@@ -227,7 +225,6 @@ class ExplorerNodeBase(object):
 
             while (rospy.is_shutdown() is False) & (self.completed is False):
 
-                print("I AM HERE")
                 # Special case. If this is the first time everything
                 # has started, stdr needs a kicking to generate laser
                 # has started, stdr needs a kicking to generate laser
@@ -237,7 +234,6 @@ class ExplorerNodeBase(object):
 
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
-                print("NEW DESTINATION {}".format(newDestinationAvailable))
                 self.previousDestination = copy.copy(newDestination)
 
                 # Convert to world coordinates, because this is what the robot understands
