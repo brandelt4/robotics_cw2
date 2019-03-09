@@ -70,7 +70,7 @@ class ExplorerNode(ExplorerNodeBase):
 
             print("Next cell coordinates: {}".format(self.frontier[nextOne]))
 
-            if candidateGood is True and self.frontier[nextOne] != self.previousDestination and self.frontier != startCellCoords:
+            if (candidateGood is True) and (self.frontier[nextOne] != self.previousDestination) and (self.frontier[nextOne] != startCellCoords):
                 print("RETURNING THIS SHIT")
                 return True, self.frontier[nextOne]
 

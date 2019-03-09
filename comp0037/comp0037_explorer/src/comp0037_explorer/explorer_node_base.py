@@ -130,7 +130,7 @@ class ExplorerNodeBase(object):
             # Second, get access to the cells just discovered
             for x in range(0, self.deltaOccupancyGrid.getWidthInCells()):
                 for y in range(0, self.deltaOccupancyGrid.getHeightInCells()):
-                    if self.deltaOccupancyGrid.getCell(x,y) == 1.0:
+                    if (self.deltaOccupancyGrid.getCell(x,y) == 1.0) and not ((x,y) in self.frontier):
                         if self.isFrontierCell(x,y) is True:
                             self.frontier.append((x,y))
 
