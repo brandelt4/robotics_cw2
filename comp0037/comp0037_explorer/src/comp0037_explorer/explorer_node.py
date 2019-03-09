@@ -67,28 +67,30 @@ class ExplorerNode(ExplorerNodeBase):
                 candidateGood = True
                 costs.append(self.calculateHeuristic(startCellCoords, candidate))
 
-            nextOne = costs.index(min(costs))
+            # CHOOSES THE CLOSEST CELL
+            if self.selection == 'closest':
+                nextOne = costs.index(min(costs))
+                nextOne_blacklist = []
+                # Check if in blacklist
+                while self.frontier[nextOne] in self.blackList or self.frontier[nextOne] == startCellCoords:
+                    # List of those indeces that you should not choose
+                    nextOne_blacklist.append(nextOne)
+                    if nextOne == len(self.frontier):
+                        return False, None
+                    else:
+                        # Find the next smallest number
+                        nextSmallest = max(costs)
+                        i = 0
+                        for cost in costs:
+                            # If the cost is smaller than the current smallest and the index is not the same
+                            if (cost < nextSmallest) and not (i in nextOne_blacklist):
+                                nextSmallest = cost
+                            i += 1
+                        # Find index of the next smallest
+                        nextOne = costs.index(nextSmallest)
 
-            # Check if in blacklist
-            while self.frontier[nextOne] in self.blackList or self.frontier[nextOne] == startCellCoords:
-                if nextOne == len(self.frontier):
 
-                    return False, None
-                else:
-                    print('here')
-                    # Find the next smallest number
-                    nextSmallest = max(costs)
-                    i = 0
-                    for cost in costs:
-                        # If the cost is smaller than the current smallest and the index is not the same
-                        if cost < nextSmallest and i != nextOne:
-                            nextSmallest = cost
-                        i += 1
-                    # Find index of the next smallest
-                    nextOne = costs.index(nextSmallest)
-
-
-            print("Next cell coordinates: {}".format(self.frontier[nextOne]))
+                print("Next cell coordinates: {}".format(self.frontier[nextOne]))
 
             if (candidateGood is True) and (self.frontier[nextOne] != self.previousDestination) and (self.frontier[nextOne] != startCellCoords):
                 return True, self.frontier[nextOne]
