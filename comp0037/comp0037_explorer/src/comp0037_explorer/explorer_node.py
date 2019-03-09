@@ -72,8 +72,10 @@ class ExplorerNode(ExplorerNodeBase):
             # Check if in blacklist
             while self.frontier[nextOne] in self.blackList or self.frontier[nextOne] == startCellCoords:
                 if nextOne == len(self.frontier):
+
                     return False, None
                 else:
+                    print('here')
                     # Find the next smallest number
                     nextSmallest = max(costs)
                     i = 0
