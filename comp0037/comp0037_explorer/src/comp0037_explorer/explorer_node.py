@@ -53,7 +53,7 @@ class ExplorerNode(ExplorerNodeBase):
 
             print("------HERE-------")
 
-            with open('position.txt', 'r') as file:
+            with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/position.txt', 'r') as file:
                 positionX = float(file.readline())
                 print('POSITION X {}'.format(positionX))
                 positionY = float(file.readline())
