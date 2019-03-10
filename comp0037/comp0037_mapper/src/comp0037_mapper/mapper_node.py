@@ -5,6 +5,7 @@ import rospy
 import math
 import tf
 import copy
+import time
 
 import numpy as np
 from nav_msgs.srv import GetMap
@@ -353,6 +354,7 @@ class MapperNode(object):
         while not rospy.is_shutdown():
             self.updateVisualisation()
             rospy.sleep(0.1)
+            time.sleep(0.1)
 
             if i % 50 == 0:
                 self.entropy = self.recordEntropy()
