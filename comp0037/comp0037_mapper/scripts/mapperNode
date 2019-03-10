@@ -7,6 +7,7 @@ from comp0037_mapper.mapper_node import MapperNode
 if __name__ == '__main__':
 
     try:
+        print("STARTED******"*40)
         counter = 0
         mapperNode = MapperNode()
         mapperNode.run()
