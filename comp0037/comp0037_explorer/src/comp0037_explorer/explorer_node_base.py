@@ -139,15 +139,13 @@ class ExplorerNodeBase(object):
         self.frontiers = []
         self.frontiers.append([0])
         for idx, frontierPoint in enumerate(self.frontier):
-            print('HERE 1')
-            for idx2 in range(len(self.frontier)):
+            for idx2, frontierPoint2 in enumerate(self.frontier):
                 # print("idx2 vs. len(self.frontier): {} - {}".format(idx2, len(self.frontier)))
                 # Get the second point
                 if idx == idx2:
                     continue
-                else:
-                    frontierPoint2 = self.frontier[idx2]
 
+                # If they are next to each other
                 if (frontierPoint[0] + 1, frontierPoint[1] + 1) == frontierPoint2 \
                     or (frontierPoint[0] + 1, frontierPoint[1]) == frontierPoint2 \
                     or (frontierPoint[0] + 1, frontierPoint[1]-1) == frontierPoint2 \
@@ -157,13 +155,23 @@ class ExplorerNodeBase(object):
                     or (frontierPoint[0], frontierPoint[1] + 1) == frontierPoint2 \
                     or (frontierPoint[0], frontierPoint[1] - 1) == frontierPoint2:
 
-                    print(self.frontiers)
+                    # Is idx already in self.frontiers?
+                    idxInFrontiers = False
                     for f, frontier in enumerate(self.frontiers):
                         if idx in frontier:
-                            self.frontiers[f].append(idx2)
+                            whereIsIdx = f
+                            idxInFrontiers = True
                         else:
-                            # If idx2 is near idx, append idx2 to list number idx
-                            self.frontiers.append([idx2])
+                            continue
+
+                    # If it is, add idx2 to that frontier:
+                    if idxInFrontiers:
+                        self.frontiers[idxInFrontiers].append(idx2)
+
+                    # Otherwise, add idx as a new frontier
+                    else:
+                        self.frontiers.append([idx])
+
 
 
         print(self.frontiers)
