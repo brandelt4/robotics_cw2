@@ -173,7 +173,7 @@ class ExplorerNodeBase(object):
 
 
 
-        print(self.frontiers)
+        # print(self.frontiers)
         print("Frontiers updated #{}".format(self.counter))
         self.counter += 1
 
@@ -270,7 +270,6 @@ class ExplorerNodeBase(object):
                 # messages. To do this, we get the robot to
 
                 self.explorer.updateFrontiers()
-                print('while...')
 
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
