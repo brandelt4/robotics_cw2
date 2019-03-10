@@ -160,7 +160,7 @@ class ExplorerNodeBase(object):
 
 
                     for f, frontier in enumerate(self.frontiers):
-                        print('f')
+                        print(f)
                         if idx in frontier:
                             self.frontiers[f].append(idx2)
                         else:
