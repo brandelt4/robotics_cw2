@@ -135,9 +135,10 @@ class ExplorerNodeBase(object):
 
         # Now that we have all frontier points, let's split into multiple frontiers
 
+        # Stores indices of frontiers from self.frontier
         self.frontiers = []
         for idx, frontierPoint in enumerate(self.frontier):
-            self.frontiers.append(list(idx))
+            self.frontiers.append([idx])
             for idx2 in range(len(self.frontier)):
                 # Get the second point
                 if frontierPoint == self.frontier[idx2]:
