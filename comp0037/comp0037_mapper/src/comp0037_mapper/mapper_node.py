@@ -338,7 +338,7 @@ class MapperNode(object):
 
 
     def recordEntropy(self):
-        threading.Timer(5.0, self.recordEntropy).start()
+        # threading.Timer(5.0, self.recordEntropy).start()
         unknowns = 0
         for x in range(self.occupancyGrid.getWidthInCells()):
             for y in range(self.occupancyGrid.getHeightInCells()):
@@ -361,7 +361,7 @@ class MapperNode(object):
         while not rospy.is_shutdown():
             self.updateVisualisation()
             rospy.sleep(0.1)
-            # self.recordEntropy()
+            self.recordEntropy()
 
 
         
