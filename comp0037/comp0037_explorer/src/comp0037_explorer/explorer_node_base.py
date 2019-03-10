@@ -140,7 +140,7 @@ class ExplorerNodeBase(object):
         for idx, frontierPoint in enumerate(self.frontier):
             self.frontiers.append([idx])
             for idx2 in range(len(self.frontier)):
-                print("idx2 vs. len(self.frontier): {} - {}".format(idx2, len(self.frontier)))
+                # print("idx2 vs. len(self.frontier): {} - {}".format(idx2, len(self.frontier)))
                 # Get the second point
                 if frontierPoint == self.frontier[idx2]:
                     continue
