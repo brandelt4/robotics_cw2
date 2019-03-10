@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1088f30f-7eec-4c2a-916b-630b90794dc7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py" afterPath="$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" afterPath="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mapperNode" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mapperNode" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp0037/comp0037_mapper/scripts/mapperNode">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -36,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="explorer_node.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="explorer_node.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="55" column="113" lean-forward="false" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="113" />
+            <state relative-caret-position="521">
+              <caret line="109" column="30" lean-forward="false" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -81,11 +80,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/controller_base.py" />
-        <option value="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_mapper/scripts/mapperNode" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py" />
+        <option value="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" />
       </list>
     </option>
   </component>
@@ -429,14 +428,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="55" column="113" lean-forward="false" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="113" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
@@ -451,6 +442,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="109" column="30" lean-forward="false" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
           <folding />
         </state>
       </provider>
