@@ -16,8 +16,8 @@
       <file leaf-file-name="explorer_node_base.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="150" column="53" lean-forward="false" selection-start-line="150" selection-start-column="53" selection-end-line="150" selection-end-column="53" />
+            <state relative-caret-position="233">
+              <caret line="141" column="12" lean-forward="false" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -316,8 +316,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="150" column="53" lean-forward="false" selection-start-line="150" selection-start-column="53" selection-end-line="150" selection-end-column="53" />
+        <state relative-caret-position="233">
+          <caret line="141" column="12" lean-forward="false" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
