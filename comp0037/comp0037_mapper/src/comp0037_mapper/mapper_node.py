@@ -344,9 +344,13 @@ class MapperNode(object):
             for y in self.occupancyGrid.getHeightInCells():
                 if self.occupancyGrid.getCell(x, y) == 0.5:
                     unknowns += 1
+
         self.entropy = -(unknowns * math.log(2))*math.log(unknowns * math.log(2))
-        print(self.entropy)
-        return self.entropy
+
+        with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/entropy.txt','a+') as file:
+            file.write(str(self.entropy) + ',')
+        # print(self.entropy)
+
 
 
 
