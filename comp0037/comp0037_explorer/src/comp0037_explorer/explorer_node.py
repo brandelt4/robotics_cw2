@@ -21,7 +21,7 @@ class ExplorerNode(ExplorerNodeBase):
     def __init__(self):
         ExplorerNodeBase.__init__(self)
 
-        self.selection = 'closest' # 'farthest', 'entropy'
+        self.selection = 'largest' # 'closest'
         self.previousDestination = (0,0)
         self.blackList = []
 
@@ -91,12 +91,28 @@ class ExplorerNode(ExplorerNodeBase):
                             if cost == nextSmallest and not (idx in nextOne_blacklist):
                                 nextOne = idx
 
+            # CHOOSES THE FARTHEST POINT
+            elif self.selection == 'largest':
+                largestSize = 0
+                frontier_index = None
+                for frontier in self.frontiers:
+                    if len(frontier) > largestSize:
+                        largestSize = len(frontier)
+                        frontier_index = self.frontiers.index(frontier)
+                    else:
+                        continue
 
+                # if no frontier larger than 0 was found
+                if frontier_index is None:
+                    return False, None
 
-                print("Next cell coordinates: {}".format(self.frontier[nextOne]))
+                # if all conditions are met
+                if largestSize != 0 and self.frontiers[frontier_index][0] != self.previousDestination and (self.frontiers[frontier_index][0] != startCellCoords) :
+                    print("Next cell coordinates: {}".format(self.frontiers[frontier_index][0]))
+                    return True, self.frontiers[frontier_index][0]
+                else:
+                    return False, None
 
-            if (candidateGood is True) and (self.frontier[nextOne] != self.previousDestination) and (self.frontier[nextOne] != startCellCoords):
-                return True, self.frontier[nextOne]
 
         return False, None
 

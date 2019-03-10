@@ -133,7 +133,36 @@ class ExplorerNodeBase(object):
                         if self.isFrontierCell(x,y) is True:
                             self.frontier.append((x,y))
 
-        print("Frontier updated #{}".format(self.counter))
+        # Now that we have all frontier points, let's split into multiple frontiers
+
+        self.frontiers = []
+        for idx, frontierPoint in enumerate(self.frontier):
+            self.frontiers.append(list(idx))
+            for idx2 in range(len(self.frontier)):
+                # Get the second point
+                if frontierPoint == self.frontier[idx2]:
+                    continue
+                else:
+                    frontierPoint2 = self.frontier[idx2]
+
+                if (frontierPoint[0] + 1, frontierPoint[1] + 1) == frontierPoint2 \
+                    or (frontierPoint[0] + 1, frontierPoint[1]) == frontierPoint2 \
+                    or (frontierPoint[0] + 1, frontierPoint[1]-1) == frontierPoint2 \
+                    or (frontierPoint[0] - 1, frontierPoint[1] + 1) == frontierPoint2 \
+                    or (frontierPoint[0] - 1, frontierPoint[1]) == frontierPoint2 \
+                    or (frontierPoint[0] - 1, frontierPoint[1]-1) == frontierPoint2 \
+                    or (frontierPoint[0], frontierPoint[1] + 1) == frontierPoint2 \
+                    or (frontierPoint[0], frontierPoint[1] - 1) == frontierPoint2:
+
+                    for frontier in self.frontiers:
+                        if idx2 in frontier:
+                            break
+                        else:
+                            # If idx2 is near idx, append idx2 to list number idx
+                            self.frontiers[idx].append(idx2)
+
+
+        print("Frontiers updated #{}".format(self.counter))
         self.counter += 1
 
         if self.frontier == self.previousFrontier:
