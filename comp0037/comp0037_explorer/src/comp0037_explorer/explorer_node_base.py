@@ -137,12 +137,12 @@ class ExplorerNodeBase(object):
 
         # Stores indices of frontiers from self.frontier
         self.frontiers = []
+        self.frontiers.append([0])
         for idx, frontierPoint in enumerate(self.frontier):
-            self.frontiers.append([idx])
             for idx2 in range(len(self.frontier)):
                 # print("idx2 vs. len(self.frontier): {} - {}".format(idx2, len(self.frontier)))
                 # Get the second point
-                if frontierPoint == self.frontier[idx2]:
+                if idx == idx2:
                     continue
                 else:
                     frontierPoint2 = self.frontier[idx2]
@@ -156,12 +156,13 @@ class ExplorerNodeBase(object):
                     or (frontierPoint[0], frontierPoint[1] + 1) == frontierPoint2 \
                     or (frontierPoint[0], frontierPoint[1] - 1) == frontierPoint2:
 
-                    for frontier in self.frontiers:
-                        if idx2 in frontier:
-                            break
+
+                    for f, frontier in enumerate(self.frontiers):
+                        if idx in frontier:
+                            self.frontiers[f].append(idx2)
                         else:
                             # If idx2 is near idx, append idx2 to list number idx
-                            self.frontiers[idx].append(idx2)
+                            self.frontiers.append([idx2])
 
 
         print("Frontiers updated #{}".format(self.counter))
