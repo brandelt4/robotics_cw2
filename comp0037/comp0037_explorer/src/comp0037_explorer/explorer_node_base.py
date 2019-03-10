@@ -33,10 +33,13 @@ class ExplorerNodeBase(object):
         self.occupancyGrid = None
         self.deltaOccupancyGrid = None
 
+<<<<<<< HEAD
         self.counter = 0
         self.frontier = []
         self.previousFrontier = []
 
+=======
+>>>>>>> original+master
         # Flags used to control the graphical output. Note that we
         # can't create the drawers until we receive the first map
         # message.
@@ -79,7 +82,6 @@ class ExplorerNodeBase(object):
     # This method determines if a cell is a frontier cell or not. A
     # frontier cell is open and has at least one neighbour which is
     # unknown.
-
     def isFrontierCell(self, x, y):
 
         # Check the cell to see if it's open
@@ -105,6 +107,7 @@ class ExplorerNodeBase(object):
     # False, it is assumed that the map is completely explored and the
     # explorer will exit.
     def updateFrontiers(self):
+<<<<<<< HEAD
 
         self.previousFrontier = copy.copy(self.frontier)
 
@@ -185,6 +188,9 @@ class ExplorerNodeBase(object):
 
 
 
+=======
+        raise NotImplementedError()
+>>>>>>> original+master
 
     def chooseNewDestination(self):
         raise NotImplementedError()
@@ -252,7 +258,7 @@ class ExplorerNodeBase(object):
             threading.Thread.__init__(self)
             self.explorer = explorer
             self.running = False
-            self.completed = False
+            self.completed = False;
 
 
         def isRunning(self):
@@ -271,9 +277,14 @@ class ExplorerNodeBase(object):
                 # has started, stdr needs a kicking to generate laser
                 # has started, stdr needs a kicking to generate laser
                 # messages. To do this, we get the robot to
+<<<<<<< HEAD
 
                 self.explorer.updateFrontiers()
                 print('while...')
+=======
+                
+
+>>>>>>> original+master
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
                 self.previousDestination = copy.copy(newDestination)
