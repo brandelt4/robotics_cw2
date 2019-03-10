@@ -352,6 +352,7 @@ class MapperNode(object):
     def run(self):
         # i = 1
         while not rospy.is_shutdown():
+            print('here')
             self.updateVisualisation()
             rospy.sleep(0.1)
             # time.sleep(0.1)
