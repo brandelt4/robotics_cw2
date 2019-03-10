@@ -139,7 +139,7 @@ class ExplorerNodeBase(object):
         self.frontiers = []
         self.frontiers.append([0])
         for idx, frontierPoint in enumerate(self.frontier):
-            
+            print('HERE 1')
             for idx2 in range(len(self.frontier)):
                 # print("idx2 vs. len(self.frontier): {} - {}".format(idx2, len(self.frontier)))
                 # Get the second point
