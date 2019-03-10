@@ -106,9 +106,8 @@ class ExplorerNodeBase(object):
     # True if any outstanding frontiers exist. If the method returns
     # False, it is assumed that the map is completely explored and the
     # explorer will exit.
-    def updateFrontiers(self):
-<<<<<<< HEAD
 
+    def updateFrontiers(self):
         self.previousFrontier = copy.copy(self.frontier)
 
         # If it's the first time
@@ -186,11 +185,6 @@ class ExplorerNodeBase(object):
         else:
             return True
 
-
-
-=======
-        raise NotImplementedError()
->>>>>>> original+master
 
     def chooseNewDestination(self):
         raise NotImplementedError()
@@ -277,14 +271,10 @@ class ExplorerNodeBase(object):
                 # has started, stdr needs a kicking to generate laser
                 # has started, stdr needs a kicking to generate laser
                 # messages. To do this, we get the robot to
-<<<<<<< HEAD
 
                 self.explorer.updateFrontiers()
                 print('while...')
-=======
-                
 
->>>>>>> original+master
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
                 self.previousDestination = copy.copy(newDestination)
