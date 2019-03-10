@@ -158,7 +158,9 @@ class ExplorerNodeBase(object):
                     or (frontierPoint[0], frontierPoint[1] - 1) == frontierPoint2:
 
 
+
                     for f, frontier in enumerate(self.frontiers):
+                        print('f')
                         if idx in frontier:
                             self.frontiers[f].append(idx2)
                         else:
