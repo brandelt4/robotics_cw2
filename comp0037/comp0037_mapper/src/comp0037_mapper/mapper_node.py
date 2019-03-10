@@ -350,19 +350,19 @@ class MapperNode(object):
 
 
     def run(self):
-        i = 1
+        # i = 1
         while not rospy.is_shutdown():
             self.updateVisualisation()
             rospy.sleep(0.1)
-            time.sleep(0.1)
-
-            if i % 50 == 0:
-                self.entropy = self.recordEntropy()
-                with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/entropy.txt', 'a') as file:
-                    file.write(str(self.entropy) + ',')
-
-
-            i+=1
+            # time.sleep(0.1)
+            #
+            # if i % 50 == 0:
+            #     self.entropy = self.recordEntropy()
+            #     with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/entropy.txt', 'a') as file:
+            #         file.write(str(self.entropy) + ',')
+            #
+            #
+            # i+=1
 
 
         
