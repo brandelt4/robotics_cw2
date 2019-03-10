@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1088f30f-7eec-4c2a-916b-630b90794dc7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py" afterPath="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" afterPath="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,10 +13,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="explorer_node_base.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="explorer_node_base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
+            <state relative-caret-position="-1242">
               <caret line="167" column="38" lean-forward="true" selection-start-line="167" selection-start-column="38" selection-end-line="167" selection-end-column="38" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
@@ -25,10 +25,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="part_1_exploration_mapping.launch" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="explorer_node.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
+            <state relative-caret-position="1224">
               <caret line="88" column="24" lean-forward="true" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
               <folding />
             </state>
@@ -60,8 +70,8 @@
       <find>pose2d</find>
       <find>updateFrontiers</find>
       <find>destinationRea</find>
-      <find>while</find>
       <find>with</find>
+      <find>while</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -73,6 +83,7 @@
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/controller_base.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py" />
+        <option value="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" />
       </list>
     </option>
   </component>
@@ -107,6 +118,19 @@
               <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
               <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
               <item name="comp0037" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
+              <item name="comp0037" type="462c0819:PsiDirectoryNode" />
+              <item name="comp0037_cw2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
+              <item name="comp0037" type="462c0819:PsiDirectoryNode" />
+              <item name="comp0037_cw2" type="462c0819:PsiDirectoryNode" />
+              <item name="launch" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
@@ -309,7 +333,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
+        <state relative-caret-position="1224">
           <caret line="88" column="24" lean-forward="true" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
           <folding />
         </state>
@@ -317,11 +341,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
+        <state relative-caret-position="-1242">
           <caret line="167" column="38" lean-forward="true" selection-start-line="167" selection-start-column="38" selection-end-line="167" selection-end-column="38" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
