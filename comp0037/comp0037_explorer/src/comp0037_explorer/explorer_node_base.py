@@ -166,6 +166,7 @@ class ExplorerNodeBase(object):
                             self.frontiers.append([idx2])
 
 
+        print(self.frontiers)
         print("Frontiers updated #{}".format(self.counter))
         self.counter += 1
 
