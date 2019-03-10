@@ -106,6 +106,9 @@ class ExplorerNode(ExplorerNodeBase):
                 if frontier_index is None:
                     return False, None
 
+                print("CHOOSING THE POINT")
+                print(self.frontiers)
+                print(self.frontier[self.frontiers[frontier_index][0]])
                 # if all conditions are met
                 if largestSize != 0 and self.frontier[self.frontiers[frontier_index][0]] != self.previousDestination and (self.frontier[self.frontiers[frontier_index][0]] != startCellCoords) :
                     print("Next cell coordinates: {}".format(self.frontier[self.frontiers[frontier_index][0]]))
