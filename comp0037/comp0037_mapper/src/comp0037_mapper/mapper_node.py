@@ -33,6 +33,7 @@ class MapperNode(object):
         rospy.init_node('mapper_node', anonymous=True)
         self.mapServer = rospy.ServiceProxy('static_map', GetMap)
         resp = self.mapServer()
+        self.i = 0
 
 
         # Drawing options
@@ -357,11 +358,13 @@ class MapperNode(object):
 
     def run(self):
 
-        # i = 1
+
         while not rospy.is_shutdown():
             self.updateVisualisation()
             rospy.sleep(0.1)
-            self.recordEntropy()
+
+            if self.i % 50 == 0:
+                self.recordEntropy()
 
 
         
