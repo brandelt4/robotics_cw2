@@ -356,7 +356,7 @@ class MapperNode(object):
 
             if i % 50 == 0:
                 self.entropy = self.recordEntropy()
-                with open('entropy.txt', 'a') as file:
+                with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/entropy.txt', 'a') as file:
                     file.write(str(self.entropy) + ',')
 
 
