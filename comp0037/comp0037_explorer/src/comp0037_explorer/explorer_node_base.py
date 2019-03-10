@@ -32,9 +32,6 @@ class ExplorerNodeBase(object):
         self.occupancyGrid = None
         self.deltaOccupancyGrid = None
 
-        self.counter = 0
-        self.frontier = []
-
         # Flags used to control the graphical output. Note that we
         # can't create the drawers until we receive the first map
         # message.
@@ -77,7 +74,6 @@ class ExplorerNodeBase(object):
     # This method determines if a cell is a frontier cell or not. A
     # frontier cell is open and has at least one neighbour which is
     # unknown.
-
     def isFrontierCell(self, x, y):
 
         # Check the cell to see if it's open
@@ -103,40 +99,7 @@ class ExplorerNodeBase(object):
     # False, it is assumed that the map is completely explored and the
     # explorer will exit.
     def updateFrontiers(self):
-
-        if self.counter == 1:
-            for x in range(0, self.occupancyGrid.getWidthInCells()):
-                for y in range(0, self.occupancyGrid.getHeightInCells()):
-                    if self.isFrontierCell(x, y) == True:
-                        self.frontier.append((x,y))
-                    else:
-                        continue
-
-        else:
-
-            # First, check all current frontier points
-
-            for idx, cell_coords in enumerate(self.frontier):
-                if self.isFrontierCell(cell_coords[0], cell_coords[1]) is True:
-                    continue
-                else:
-                    self.frontier.pop(idx)
-
-            # Second, get access to the cells just discovered
-
-            for x in range(0, self.deltaOccupancyGrid.getWidthInCells()):
-                for y in range(0, self.deltaOccupancyGrid.getHeightInCells()):
-                    if self.deltaOccupancyGrid.getCell(x,y) == 1.0:
-                        if self.isFrontierCell(x,y) is True:
-                            self.frontier.append((x,y))
-
-        print("Frontier updated {}".format(self.counter))
-        print(self.frontier)
-        self.counter += 1
-
-
-
-
+        raise NotImplementedError()
 
     def chooseNewDestination(self):
         raise NotImplementedError()
@@ -204,7 +167,7 @@ class ExplorerNodeBase(object):
             threading.Thread.__init__(self)
             self.explorer = explorer
             self.running = False
-            self.completed = False
+            self.completed = False;
 
 
         def isRunning(self):
@@ -223,7 +186,7 @@ class ExplorerNodeBase(object):
                 # has started, stdr needs a kicking to generate laser
                 # messages. To do this, we get the robot to
                 
-                self.explorer.updateFrontiers()
+
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
 
