@@ -344,15 +344,15 @@ class MapperNode(object):
             for y in self.occupancyGrid.getHeightInCells():
                 if self.occupancyGrid.getCell(x, y) == 0.5:
                     unknowns += 1
-
-        return -(unknowns * math.log(2))*math.log(unknowns * math.log(2))
+        self.entropy = -(unknowns * math.log(2))*math.log(unknowns * math.log(2))
+        print(self.entropy)
+        return self.entropy
 
 
 
 
     def run(self):
 
-        self.recordEntropy()
         # i = 1
         while not rospy.is_shutdown():
             self.updateVisualisation()
