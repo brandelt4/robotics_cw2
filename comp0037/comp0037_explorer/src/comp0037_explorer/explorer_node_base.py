@@ -166,7 +166,7 @@ class ExplorerNodeBase(object):
 
                     # If it is, add idx2 to that frontier:
                     if idxInFrontiers:
-                        self.frontiers[idxInFrontiers].append(idx2)
+                        self.frontiers[whereIsIdx].append(idx2)
 
                     # Otherwise, add idx as a new frontier
                     else:
