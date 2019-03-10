@@ -33,13 +33,10 @@ class ExplorerNodeBase(object):
         self.occupancyGrid = None
         self.deltaOccupancyGrid = None
 
-<<<<<<< HEAD
         self.counter = 0
         self.frontier = []
         self.previousFrontier = []
 
-=======
->>>>>>> original+master
         # Flags used to control the graphical output. Note that we
         # can't create the drawers until we receive the first map
         # message.
