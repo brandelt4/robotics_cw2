@@ -5,7 +5,7 @@ import rospy
 import math
 import tf
 import copy
-import time
+import threading
 
 import numpy as np
 from nav_msgs.srv import GetMap
@@ -338,6 +338,7 @@ class MapperNode(object):
 
 
     def recordEntropy(self):
+        threading.Timer(5.0, self.recordEntropy()).start()
         unknowns = 0
         for x in self.occupancyGrid.getWidthInCells():
             for y in self.occupancyGrid.getHeightInCells():
@@ -350,13 +351,13 @@ class MapperNode(object):
 
 
     def run(self):
+
+        self.recordEntropy()
         # i = 1
         while not rospy.is_shutdown():
-            print('here')
             self.updateVisualisation()
             rospy.sleep(0.1)
-            # time.sleep(0.1)
-            #
+
             # if i % 50 == 0:
             #     self.entropy = self.recordEntropy()
             #     with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/entropy.txt', 'a') as file:
