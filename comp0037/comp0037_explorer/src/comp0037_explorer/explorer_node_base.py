@@ -264,7 +264,7 @@ class ExplorerNodeBase(object):
                 # messages. To do this, we get the robot to
 
                 self.explorer.updateFrontiers()
-
+                print('while...')
                 # Create a new robot waypoint if required
                 newDestinationAvailable, newDestination = self.explorer.chooseNewDestination()
                 self.previousDestination = copy.copy(newDestination)
