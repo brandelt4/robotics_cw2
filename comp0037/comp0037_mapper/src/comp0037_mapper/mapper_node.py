@@ -338,7 +338,7 @@ class MapperNode(object):
 
 
     def recordEntropy(self):
-        threading.Timer(5.0, self.recordEntropy()).start()
+        threading.Timer(5.0, self.recordEntropy).start()
         unknowns = 0
         for x in range(self.occupancyGrid.getWidthInCells()):
             for y in range(self.occupancyGrid.getHeightInCells()):
