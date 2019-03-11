@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1088f30f-7eec-4c2a-916b-630b90794dc7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" afterPath="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py" afterPath="$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +28,7 @@
       <file leaf-file-name="explorer_node.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-284">
+            <state relative-caret-position="206">
               <caret line="23" column="45" lean-forward="false" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
               <folding />
             </state>
@@ -450,7 +449,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-284">
+        <state relative-caret-position="206">
           <caret line="23" column="45" lean-forward="false" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
           <folding />
         </state>
