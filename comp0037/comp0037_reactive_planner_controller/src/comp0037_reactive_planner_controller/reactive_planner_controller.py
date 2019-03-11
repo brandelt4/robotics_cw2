@@ -52,7 +52,7 @@ class ReactivePlannerController(PlannerControllerBase):
                 pose = self.controller.getCurrentPose()
                 start = (pose.x, pose.y)
                 currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
-                while (currentCell[0] != previousWaypoint.coords[0]) and (currentCell[1] != previousWaypoint.coords[1]):
+                while (currentCell[0] != self.currentPlannedPath.waypoints[pointIdx-1].coords[0]) and (currentCell[1] != self.currentPlannedPath.waypoints[pointIdx-1].coords[1]):
                     pose = self.controller.getCurrentPose()
                     start = (pose.x, pose.y)
                     currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
@@ -63,7 +63,7 @@ class ReactivePlannerController(PlannerControllerBase):
             else:
                 continue
             pointIdx += 1
-            previousWaypoint = waypoint
+
                 
         # If the route is not viable any more, call
         # self.controller.stopDrivingToCurrentGoal()
