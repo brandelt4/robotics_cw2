@@ -36,14 +36,13 @@ class ReactivePlannerController(PlannerControllerBase):
         # traversed
 
         # Iterate through the points of the current path
-        print(self.currentPlannedPath.waypoints[0].coords)
 
-        # for waypoint in self.currentPlannedPath.waypoints:
-        #     # If the cell is occuppied, find a new path
-        #     if self.occupancyGrid.getCell(waypoint[0], waypoint[1]) == 1.0:
-        #         self.controller.stopDrivingToCurrentGoal()
-        #     else:
-        #         continue
+        for waypoint in self.currentPlannedPath.waypoints:
+            # If the cell is occuppied, find a new path
+            if self.occupancyGrid.getCell(waypoint.coords[0], waypoint.coords[1]) == 1.0:
+                self.controller.stopDrivingToCurrentGoal()
+            else:
+                continue
 
                 
         # If the route is not viable any more, call
