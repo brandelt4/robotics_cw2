@@ -21,7 +21,7 @@ class ExplorerNode(ExplorerNodeBase):
     def __init__(self):
         ExplorerNodeBase.__init__(self)
 
-        self.selection = 'largest' # 'closest'
+        self.selection = 'closest' # 'largest'
         self.previousDestination = (0,0)
         self.blackList = []
 
@@ -55,9 +55,12 @@ class ExplorerNode(ExplorerNodeBase):
 
             with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/position.txt', 'r') as file:
                 try:
-                    positionX = float(file.readline())
-                    positionY = float(file.readline())
-                    start = (positionX, positionY)
+                    gotIt = False
+                    while(gotIt is False):
+                        positionX = float(file.readline())
+                        positionY = float(file.readline())
+                        start = (positionX, positionY)
+                        gotIt = True
                 except:
                     pass
 
@@ -90,6 +93,8 @@ class ExplorerNode(ExplorerNodeBase):
                         for idx, cost in enumerate(costs):
                             if cost == nextSmallest and not (idx in nextOne_blacklist):
                                 nextOne = idx
+
+                return True, self.frontier[nextOne]
 
             # CHOOSES THE FARTHEST POINT
             elif self.selection == 'largest':
