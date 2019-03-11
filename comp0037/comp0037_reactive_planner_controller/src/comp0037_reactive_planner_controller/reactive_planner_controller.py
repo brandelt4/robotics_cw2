@@ -52,7 +52,7 @@ class ReactivePlannerController(PlannerControllerBase):
                 pose = self.controller.getCurrentPose()
                 start = (pose.x, pose.y)
                 currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
-                while (currentCell[0] != self.currentPlannedPath.waypoints[pointIdx-1].coords[0]) and (currentCell[1] != self.currentPlannedPath.waypoints[pointIdx-1].coords[1]):
+                while (currentCell[0] != self.currentPlannedPath.waypoints[pointIdx+1].coords[0]) and (currentCell[1] != self.currentPlannedPath.waypoints[pointIdx+1].coords[1]):
                     pose = self.controller.getCurrentPose()
                     start = (pose.x, pose.y)
                     currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
