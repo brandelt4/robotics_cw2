@@ -36,14 +36,34 @@ class ReactivePlannerController(PlannerControllerBase):
         # traversed
 
         # Iterate through the points of the current path
+        # # Very basic implementation: simply calls the planner everytime an obstacle is found
+        # for waypoint in self.currentPlannedPath.waypoints:
+        #     # If the cell is occuppied, find a new path
+        #     if self.occupancyGrid.getCell(waypoint.coords[0], waypoint.coords[1]) == 1.0:
+        #         self.controller.stopDrivingToCurrentGoal()
+        #     else:
+        #         continue
 
+        # Implementation #2
+        pointIdx = 0
         for waypoint in self.currentPlannedPath.waypoints:
             # If the cell is occuppied, find a new path
             if self.occupancyGrid.getCell(waypoint.coords[0], waypoint.coords[1]) == 1.0:
+                pose = self.controller.getCurrentPose()
+                start = (pose.x, pose.y)
+                currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+                while (currentCell[0] != previousWaypoint.coords[0]) and (currentCell[1] != previousWaypoint.coords[1]):
+                    pose = self.controller.getCurrentPose()
+                    start = (pose.x, pose.y)
+                    currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+
                 self.controller.stopDrivingToCurrentGoal()
+
+
             else:
                 continue
-
+            pointIdx += 1
+            previousWaypoint = waypoint
                 
         # If the route is not viable any more, call
         # self.controller.stopDrivingToCurrentGoal()
