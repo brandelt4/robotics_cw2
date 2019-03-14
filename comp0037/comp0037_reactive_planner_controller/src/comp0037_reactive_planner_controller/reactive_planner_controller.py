@@ -52,11 +52,10 @@ class ReactivePlannerController(PlannerControllerBase):
             if self.occupancyGrid.getCell(waypoint.coords[0], waypoint.coords[1]) == 1.0:
                 pose = self.controller.getCurrentPose()
                 start = (pose.x, pose.y)
+                print(start)
                 currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
                 while (currentCell[0] != self.currentPlannedPath.waypoints[pointIdx+1].coords[0]) and (currentCell[1] != self.currentPlannedPath.waypoints[pointIdx+1].coords[1]):
-                    pose = self.controller.getCurrentPose()
-                    start = (pose.x, pose.y)
-                    currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+                    pass
 
                 self.controller.stopDrivingToCurrentGoal()
 
