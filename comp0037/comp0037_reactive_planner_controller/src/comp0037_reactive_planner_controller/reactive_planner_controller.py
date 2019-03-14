@@ -60,6 +60,7 @@ class ReactivePlannerController(PlannerControllerBase):
 
                 while (reached == False):
                     if (abs(currentCell[0] - waypoint.coords[0]) == 3) and (abs(currentCell[1] - waypoint.coords[1]) == 3):
+                        print('*****************'*20)
                         reached = True
 
                 self.controller.stopDrivingToCurrentGoal()
