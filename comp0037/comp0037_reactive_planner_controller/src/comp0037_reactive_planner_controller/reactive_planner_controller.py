@@ -60,7 +60,7 @@ class ReactivePlannerController(PlannerControllerBase):
 
 
                 # Calculate new path in the background
-                goalCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates((self.currentPlannedPath.waypoints[-1].coords[0], self.currentPlannedPath.waypoints[-1].coords[1]))
+                goalCellCoords = self.currentPlannedPath.waypoints[-1].coords
                 self.planner.search(currentCell, goalCellCoords)
                 self.newPlannedPath = self.planner.extractPathToGoal()
 
