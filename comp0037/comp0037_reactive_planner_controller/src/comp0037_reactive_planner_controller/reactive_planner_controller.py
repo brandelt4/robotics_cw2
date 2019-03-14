@@ -58,16 +58,27 @@ class ReactivePlannerController(PlannerControllerBase):
                 print('CURRENT CELL POSITION: {}'.format(currentCell))
                 print('WAYPOINT OCUPPIED: {}'.format(waypoint.coords))
 
-                while (reached == False):
-                    pose = self.controller.getCurrentPose()
-                    start = (pose.x, pose.y)
-                    currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
-                    if (abs(currentCell[0] - waypoint.coords[0]) < 3) and (abs(currentCell[1] - waypoint.coords[1]) < 3):
-                        print('*****************'*20)
-                        reached = True
 
-                self.controller.stopDrivingToCurrentGoal()
-                break
+                # Calculate new path in the background
+                goalCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates((self.goal.x, self.goal.y))
+                self.planner.search(currentCell, goalCellCoords)
+                self.newPlannedPath = self.planner.extractPathToGoal()
+
+                # If the new travel cost is 50% more, don't keep going
+                if abs(int(self.newPlannedPath.travelCost) - int(self.currentPlannedPath.travelCost))/int(self.currentPlannedPath.travelCost) < 0.2:
+                    while (reached == False):
+                        pose = self.controller.getCurrentPose()
+                        start = (pose.x, pose.y)
+                        currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+                        if (abs(currentCell[0] - waypoint.coords[0]) < 3) and (abs(currentCell[1] - waypoint.coords[1]) < 3):
+                            print('*****************'*20)
+                            reached = True
+
+                    self.controller.stopDrivingToCurrentGoal()
+                    break
+                else:
+                    self.controller.stopDrivingToCurrentGoal()
+
 
             else:
                 continue
