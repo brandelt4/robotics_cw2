@@ -62,8 +62,7 @@ class ReactivePlannerController(PlannerControllerBase):
                     pose = self.controller.getCurrentPose()
                     start = (pose.x, pose.y)
                     currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
-                    print(abs(currentCell[1] - waypoint.coords[1]))
-                    if (abs(currentCell[0] - waypoint.coords[0]) == 3) and (abs(currentCell[1] - waypoint.coords[1]) == 3):
+                    if (abs(currentCell[0] - waypoint.coords[0]) < 3) and (abs(currentCell[1] - waypoint.coords[1]) < 3):
                         print('*****************'*20)
                         reached = True
 
