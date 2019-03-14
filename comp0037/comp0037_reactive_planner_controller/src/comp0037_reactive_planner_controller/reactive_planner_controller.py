@@ -46,6 +46,8 @@ class ReactivePlannerController(PlannerControllerBase):
 
         # Implementation #2: the idea is to keep driving until the cell before the occupied one. #
         # ----------------------------- I AM HERE NOW -----------------------------------#
+        print('-'*100)
+
         pointIdx = 0
         for waypoint in self.currentPlannedPath.waypoints:
             # If the cell is occuppied, find a new path
