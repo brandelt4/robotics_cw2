@@ -62,6 +62,7 @@ class ReactivePlannerController(PlannerControllerBase):
                 self.controller.stopDrivingToCurrentGoal()
 
 
+
             else:
                 continue
             pointIdx += 1
