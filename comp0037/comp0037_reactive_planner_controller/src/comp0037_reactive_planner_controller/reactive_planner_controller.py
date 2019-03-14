@@ -6,6 +6,8 @@ import threading
 from cell import CellLabel
 from planner_controller_base import PlannerControllerBase
 from comp0037_mapper.msg import *
+from comp0037_reactive_planner_controller.dijkstra_planner import DijkstraPlanner
+
 
 class ReactivePlannerController(PlannerControllerBase):
 
@@ -60,9 +62,11 @@ class ReactivePlannerController(PlannerControllerBase):
 
 
                 # Calculate new path in the background
+                # Create a new planner object
                 goalCellCoords = self.currentPlannedPath.waypoints[-1].coords
-                self.planner.search(currentCell, goalCellCoords)
-                self.newPlannedPath = self.planner.extractPathToGoal()
+                self.planner_new = DijkstraPlanner('Dijkstra', self.occupancyGrid)
+                self.planner_new.search(currentCell, goalCellCoords)
+                self.newPlannedPath = self.planner_new.extractPathToGoal()
 
                 # If the new travel cost is 50% more, don't keep going
                 if abs(int(self.newPlannedPath.travelCost) - int(self.currentPlannedPath.travelCost))/int(self.currentPlannedPath.travelCost) < 0.2:
