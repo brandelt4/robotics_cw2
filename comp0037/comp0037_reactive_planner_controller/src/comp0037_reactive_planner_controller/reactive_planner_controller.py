@@ -59,7 +59,7 @@ class ReactivePlannerController(PlannerControllerBase):
                 print('WAYPOINT OCUPPIED: {}'.format(waypoint.coords))
 
                 while (reached == False):
-                    if (abs(currentCell[0] - waypoint.coords[0]) == 1) and (abs(currentCell[1] - waypoint.coords[1]) == 1):
+                    if (abs(currentCell[0] - waypoint.coords[0]) == 3) and (abs(currentCell[1] - waypoint.coords[1]) == 3):
                         reached = True
 
                 self.controller.stopDrivingToCurrentGoal()
