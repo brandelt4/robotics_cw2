@@ -47,7 +47,7 @@ class ReactivePlannerController(PlannerControllerBase):
         # Implementation #2: the idea is to keep driving until the cell before the occupied one. #
         # ----------------------------- I AM HERE NOW -----------------------------------#
 
-        pointIdx = 0
+        reached = False
         for waypoint in self.currentPlannedPath.waypoints:
             # If the cell is occuppied, find a new path
             if self.occupancyGrid.getCell(waypoint.coords[0], waypoint.coords[1]) == 1.0:
@@ -58,22 +58,20 @@ class ReactivePlannerController(PlannerControllerBase):
                 print('CURRENT CELL POSITION: {}'.format(currentCell))
                 print('WAYPOINT OCUPPIED: {}'.format(waypoint.coords))
 
-                while (currentCell[0] != self.currentPlannedPath.waypoints[pointIdx+1].coords[0]) and (currentCell[1] != self.currentPlannedPath.waypoints[pointIdx+1].coords[1]):
-                    pass
+                while (reached == False):
+                    if (abs(currentCell[0] - waypoint.coords[0]) == 1) and (abs(currentCell[1] - waypoint.coords[1]) == 1):
+                        reached = True
 
                 self.controller.stopDrivingToCurrentGoal()
-
-
+                break
 
             else:
                 continue
-            pointIdx += 1
 
                 
         # If the route is not viable any more, call
         # self.controller.stopDrivingToCurrentGoal()
 
-        pass
     
     def driveToGoal(self, goal):
 
