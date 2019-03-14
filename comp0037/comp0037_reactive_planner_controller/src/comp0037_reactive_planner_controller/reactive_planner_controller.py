@@ -63,10 +63,11 @@ class ReactivePlannerController(PlannerControllerBase):
 
                 # Calculate new path in the background
                 # Create a new planner object
-                # goalCellCoords = self.currentPlannedPath.waypoints[-1].coords
-                # self.planner_new = DijkstraPlanner('Dijkstra', self.occupancyGrid)
-                # self.planner_new.search(currentCell, goalCellCoords)
-                # self.newPlannedPath = self.planner_new.extractPathToGoal()
+                goalCellCoords = self.currentPlannedPath.waypoints[-1].coords
+                self.planner_new = DijkstraPlanner('Dijkstra', self.occupancyGrid)
+                self.planner_new.showGraphics = False
+                self.planner_new.search(currentCell, goalCellCoords)
+                self.newPlannedPath = self.planner_new.extractPathToGoal()
 
                 # If the new travel cost is 50% more, don't keep going
                 if abs(int(self.newPlannedPath.travelCost) - int(self.currentPlannedPath.travelCost))/int(self.currentPlannedPath.travelCost) < 0.2:
