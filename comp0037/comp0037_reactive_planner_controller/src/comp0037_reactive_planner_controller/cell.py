@@ -22,7 +22,7 @@ class Cell(object):
 
         # Label the cell
         if (isOccupied == 1):
-            self.label = CellLabel.OBSTRUCTED;
+            self.label = CellLabel.OBSTRUCTED
         else:
             self.label = CellLabel.UNVISITED
 
