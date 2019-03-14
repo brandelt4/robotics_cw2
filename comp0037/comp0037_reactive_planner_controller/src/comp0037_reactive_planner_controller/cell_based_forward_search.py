@@ -24,7 +24,7 @@ class CellBasedForwardSearch(GeneralForwardSearchAlgorithm):
     def getNextSetOfCellsToBeVisited(self, cell):
 
         # self stores the set of valid actions / cells
-        cells = list();
+        cells = list()
 
         # Go through all the neighbours and add the cells if they
         # don't fall outside the grid and they aren't the cell we
