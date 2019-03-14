@@ -54,7 +54,9 @@ class ReactivePlannerController(PlannerControllerBase):
                 pose = self.controller.getCurrentPose()
                 start = (pose.x, pose.y)
                 currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+                print('-'*40)
                 print('CURRENT CELL POSITION: {}'.format(currentCell))
+                print('WAYPOINT OCUPPIED: {}'.format(waypoint.coords))
 
                 while (currentCell[0] != self.currentPlannedPath.waypoints[pointIdx+1].coords[0]) and (currentCell[1] != self.currentPlannedPath.waypoints[pointIdx+1].coords[1]):
                     pass
