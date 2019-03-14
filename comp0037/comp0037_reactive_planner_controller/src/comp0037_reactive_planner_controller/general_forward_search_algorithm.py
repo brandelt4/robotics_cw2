@@ -146,7 +146,7 @@ class GeneralForwardSearchAlgorithm(PlannerBase):
             return False
 
         # Draw the initial state
-        self.resetGraphics()
+        # self.resetGraphics()
 
         # Insert the start on the queue to start the process going.
         self.markCellAsVisitedAndRecordParent(self.start, None)
