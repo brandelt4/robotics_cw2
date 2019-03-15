@@ -18,10 +18,12 @@ def get_distance(controller, last_x, last_y):
 
 
 def MyThread1(controller):
-    print('RUNNING *'*40)
+    # print('RUNNING *'*40)
     last_x = controller.pose.x
     last_y = controller.pose.y
     last_theta = controller.pose.theta
+
+    time.sleep(1)
 
     start = time.time()  # START
     total_distance = 0.0
