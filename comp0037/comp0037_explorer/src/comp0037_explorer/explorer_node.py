@@ -33,96 +33,112 @@ class ExplorerNode(ExplorerNodeBase):
 
     def chooseNewDestination(self):
 
+        # REFERENCE METHOD
+        for x in range(0, self.occupancyGrid.getWidthInCells()):
+            for y in range(0, self.occupancyGrid.getHeightInCells()):
+                candidate = (x, y)
+                if self.isFrontierCell(x, y) is True:
+                    candidateGood = True
+                    for k in range(0, len(self.blackList)):
+                        if self.blackList[k] == candidate:
+                            candidateGood = False
+                            break
 
-#         print 'blackList:'
-#         for coords in self.blackList:
-#             print str(coords)
-
-        costs = []
-        candidateGood = False
-
-        # Iterates through coordinates X and Y
-
-        # NOW IMPLEMENT THE BEST WAY TO CHOOSE THE NEW DESTINATION
-
-        if self.counter == 1:
-            return True, self.frontier[0]
-
-        else:
-            # pose = Pose2D()
-            # start = (pose.x, pose.y)
-            # print(pose.x, pose.y)
-
-            with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/position.txt', 'r') as file:
-                try:
-                    gotIt = False
-                    while(gotIt is False):
-                        positionX = float(file.readline())
-                        positionY = float(file.readline())
-                        start = (positionX, positionY)
-                        gotIt = True
-                except:
-                    pass
-
-            startCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
-            print("Start cell coordinates: {}".format(startCellCoords))
-            for idx, candidate in enumerate(self.frontier):
-                candidateGood = True
-                costs.append(self.calculateHeuristic(startCellCoords, candidate))
-
-            # CHOOSES THE CLOSEST CELL
-            if self.selection == 'closest':
-                nextOne = costs.index(min(costs))
-                nextOne_blacklist = []
-                # Check if in blacklist
-                while self.frontier[nextOne] in self.blackList or self.frontier[nextOne] == startCellCoords:
-                    # List of those indeces that you should not choose
-                    nextOne_blacklist.append(nextOne)
-                    if nextOne == len(self.frontier):
-                        return False, None
-                    else:
-                        # Find the next smallest number
-                        nextSmallest = max(costs)
-                        i = 0
-                        for cost in costs:
-                            # If the cost is smaller than the current smallest and the index is not the same
-                            if (cost < nextSmallest) and not (i in nextOne_blacklist):
-                                nextSmallest = cost
-                            i += 1
-                        # Find index of the next smallest
-                        for idx, cost in enumerate(costs):
-                            if cost == nextSmallest and not (idx in nextOne_blacklist):
-                                nextOne = idx
-
-                return True, self.frontier[nextOne]
-
-            # CHOOSES THE FARTHEST POINT
-            elif self.selection == 'largest':
-                largestSize = 0
-                frontier_index = None
-                for frontier in self.frontiers:
-                    if len(frontier) > largestSize:
-                        largestSize = len(frontier)
-                        frontier_index = self.frontiers.index(frontier)
-                    else:
-                        continue
-
-                # if no frontier larger than 0 was found
-                if frontier_index is None:
-                    return False, None
-
-                # print("CHOOSING THE POINT")
-                # print(self.frontiers)
-                # print(self.frontier[self.frontiers[frontier_index][0]])
-                # if all conditions are met
-                if largestSize != 0 and self.frontier[self.frontiers[frontier_index][0]] != self.previousDestination and (self.frontier[self.frontiers[frontier_index][0]] != startCellCoords) :
-                    print("Next cell coordinates: {}".format(self.frontier[self.frontiers[frontier_index][0]]))
-                    return True, self.frontier[self.frontiers[frontier_index][0]]
-                else:
-                    return False, None
-
+                    if candidateGood is True:
+                        return True, candidate
 
         return False, None
+
+
+# #         print 'blackList:'
+# #         for coords in self.blackList:
+# #             print str(coords)
+#
+#         costs = []
+#         candidateGood = False
+#
+#         # Iterates through coordinates X and Y
+#
+#         # NOW IMPLEMENT THE BEST WAY TO CHOOSE THE NEW DESTINATION
+#
+#         if self.counter == 1:
+#             return True, self.frontier[0]
+#
+#         else:
+#             # pose = Pose2D()
+#             # start = (pose.x, pose.y)
+#             # print(pose.x, pose.y)
+#
+#             with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/position.txt', 'r') as file:
+#                 try:
+#                     gotIt = False
+#                     while(gotIt is False):
+#                         positionX = float(file.readline())
+#                         positionY = float(file.readline())
+#                         start = (positionX, positionY)
+#                         gotIt = True
+#                 except:
+#                     pass
+#
+#             startCellCoords = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+#             print("Start cell coordinates: {}".format(startCellCoords))
+#             for idx, candidate in enumerate(self.frontier):
+#                 candidateGood = True
+#                 costs.append(self.calculateHeuristic(startCellCoords, candidate))
+#
+#             # CHOOSES THE CLOSEST CELL
+#             if self.selection == 'closest':
+#                 nextOne = costs.index(min(costs))
+#                 nextOne_blacklist = []
+#                 # Check if in blacklist
+#                 while self.frontier[nextOne] in self.blackList or self.frontier[nextOne] == startCellCoords:
+#                     # List of those indeces that you should not choose
+#                     nextOne_blacklist.append(nextOne)
+#                     if nextOne == len(self.frontier):
+#                         return False, None
+#                     else:
+#                         # Find the next smallest number
+#                         nextSmallest = max(costs)
+#                         i = 0
+#                         for cost in costs:
+#                             # If the cost is smaller than the current smallest and the index is not the same
+#                             if (cost < nextSmallest) and not (i in nextOne_blacklist):
+#                                 nextSmallest = cost
+#                             i += 1
+#                         # Find index of the next smallest
+#                         for idx, cost in enumerate(costs):
+#                             if cost == nextSmallest and not (idx in nextOne_blacklist):
+#                                 nextOne = idx
+#
+#                 return True, self.frontier[nextOne]
+#
+#             # CHOOSES THE FARTHEST POINT
+#             elif self.selection == 'largest':
+#                 largestSize = 0
+#                 frontier_index = None
+#                 for frontier in self.frontiers:
+#                     if len(frontier) > largestSize:
+#                         largestSize = len(frontier)
+#                         frontier_index = self.frontiers.index(frontier)
+#                     else:
+#                         continue
+#
+#                 # if no frontier larger than 0 was found
+#                 if frontier_index is None:
+#                     return False, None
+#
+#                 # print("CHOOSING THE POINT")
+#                 # print(self.frontiers)
+#                 # print(self.frontier[self.frontiers[frontier_index][0]])
+#                 # if all conditions are met
+#                 if largestSize != 0 and self.frontier[self.frontiers[frontier_index][0]] != self.previousDestination and (self.frontier[self.frontiers[frontier_index][0]] != startCellCoords) :
+#                     print("Next cell coordinates: {}".format(self.frontier[self.frontiers[frontier_index][0]]))
+#                     return True, self.frontier[self.frontiers[frontier_index][0]]
+#                 else:
+#                     return False, None
+#
+#
+#         return False, None
 
     def destinationReached(self, goal, goalReached):
         if goalReached is False:
