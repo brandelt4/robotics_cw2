@@ -53,12 +53,12 @@ class ReactivePlannerController(PlannerControllerBase):
         for waypoint in self.currentPlannedPath.waypoints:
             # If the cell is occuppied, find a new path
             if self.occupancyGrid.getCell(waypoint.coords[0], waypoint.coords[1]) == 1.0:
-                pose = self.controller.getCurrentPose()
-                start = (pose.x, pose.y)
-                currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
-                print('-'*40)
-                print('CURRENT CELL POSITION: {}'.format(currentCell))
-                print('WAYPOINT OCUPPIED: {}'.format(waypoint.coords))
+                # pose = self.controller.getCurrentPose()
+                # start = (pose.x, pose.y)
+                # currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+                # print('-'*40)
+                # print('CURRENT CELL POSITION: {}'.format(currentCell))
+                # print('WAYPOINT OCUPPIED: {}'.format(waypoint.coords))
 
 
                 # Calculate new path in the background
@@ -71,16 +71,16 @@ class ReactivePlannerController(PlannerControllerBase):
 
                 # If the new travel cost is 50% more, don't keep going
                 # if abs(int(self.newPlannedPath.travelCost) - int(self.currentPlannedPath.travelCost))/int(self.currentPlannedPath.travelCost) < 0.2:
-                while (reached == False):
-                    pose = self.controller.getCurrentPose()
-                    start = (pose.x, pose.y)
-                    currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
-                    if (abs(currentCell[0] - waypoint.coords[0]) < 4) and (abs(currentCell[1] - waypoint.coords[1]) < 4):
-                        print('*****************'*20)
-                        reached = True
+                # while (reached == False):
+                #     pose = self.controller.getCurrentPose()
+                #     start = (pose.x, pose.y)
+                #     currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+                #     if (abs(currentCell[0] - waypoint.coords[0]) < 4) and (abs(currentCell[1] - waypoint.coords[1]) < 4):
+                #         print('*****************'*20)
+                #         reached = True
 
                 self.controller.stopDrivingToCurrentGoal()
-                break
+                # break
                 # else:
                 #     self.controller.stopDrivingToCurrentGoal()
 
