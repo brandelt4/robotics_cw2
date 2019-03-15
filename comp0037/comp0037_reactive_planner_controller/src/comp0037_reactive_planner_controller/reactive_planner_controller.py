@@ -80,8 +80,8 @@ class ReactivePlannerController(PlannerControllerBase):
             self.currentPlannedPath = self.planner.extractPathToGoal()
             self.waypoints_counter += len(self.currentPlannedPath.waypoints)
 
-            f = open('../waypoints_counter.csv', 'w+')
-            f.write("Total number of waypoints:, {},".format(str(self.waypoints_counter)))
+            with open('../waypoints_counter.csv', 'w+') as file:
+                file.write("Total number of waypoints:, {},".format(str(self.waypoints_counter)))
 
 
 
