@@ -1,6 +1,14 @@
-import rospy
+import sys
+sys.path.append('/home/ros_user/catkin_ws/src/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller')
+sys.path.append('/home/ros_user/catkin_ws/src/comp0037/comp0037_mapper/src/comp0037_mapper')
 
+from geometry_msgs.msg  import Pose2D
+import rospy
+from math import sqrt
+from mapper_node import MapperNode
 from explorer_node_base import ExplorerNodeBase
+from reactive_planner_controller import ReactivePlannerController
+import copy
 
 # This class implements a super dumb explorer. It goes through the
 # current map and marks the first cell it sees as the one to go for
@@ -12,8 +20,10 @@ class ExplorerNode(ExplorerNodeBase):
 
         self.blackList = []
 
-    def updateFrontiers(self):
-        pass
+    def calculateHeuristic(self, start, goal):
+        dX = start[0] - goal[0]
+        dY = start[1] - goal[1]
+        return sqrt(dX ** 2 + dY ** 2)
 
     def chooseNewDestination(self):
 
@@ -41,4 +51,3 @@ class ExplorerNode(ExplorerNodeBase):
         if goalReached is False:
 #             print 'Adding ' + str(goal) + ' to the naughty step'
             self.blackList.append(goal)
-            
