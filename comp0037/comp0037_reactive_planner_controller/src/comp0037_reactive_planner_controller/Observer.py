@@ -18,15 +18,16 @@ def get_distance(controller, last_x, last_y):
 
 
 def MyThread1(controller):
+    while True:
+        if controller.allow:
+            break
+        time.sleep(0.2)
+
     # print('RUNNING *'*40)
     last_x = controller.pose.x
     last_y = controller.pose.y
     last_theta = controller.pose.theta
 
-    while True:
-        if controller.allow:
-            break
-        time.sleep(0.2)
 
     start = time.time()  # START
     total_distance = 0.0

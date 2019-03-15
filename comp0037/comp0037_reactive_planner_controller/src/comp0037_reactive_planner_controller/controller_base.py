@@ -110,7 +110,6 @@ class ControllerBase(object):
         # self.total_angle_asked = 0.0
 
         # Drive to each waypoint in turn
-        print('LALALALALALAL'*100)
         self.allow = True
         for waypointNumber in range(0, len(path.waypoints)):
             cell = path.waypoints[waypointNumber]
