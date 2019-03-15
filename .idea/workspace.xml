@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1088f30f-7eec-4c2a-916b-630b90794dc7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/reactive_planner_controller.py" afterPath="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/reactive_planner_controller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" afterPath="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,65 +13,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="reactive_planner_controller.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/reactive_planner_controller.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="67" column="51" lean-forward="false" selection-start-line="67" selection-start-column="51" selection-end-line="67" selection-end-column="51" />
-              <folding>
-                <element signature="e#114#126#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="part_2_2_reactive_planner.launch" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_2_2_reactive_planner.launch">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="41" lean-forward="false" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="explorer_node.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="73" column="27" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+            <state relative-caret-position="362">
+              <caret line="80" column="37" lean-forward="false" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cell_based_forward_search.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/cell_based_forward_search.py">
+      <file leaf-file-name="part_1_exploration_mapping.launch" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller_base.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/controller_base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1410">
-              <caret line="94" column="29" lean-forward="false" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="29" />
-              <folding>
-                <element signature="e#22#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="occupancy_grid.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/occupancy_grid.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2670">
-              <caret line="180" column="20" lean-forward="false" selection-start-line="180" selection-start-column="19" selection-end-line="180" selection-end-column="20" />
+            <state relative-caret-position="90">
+              <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -120,7 +76,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/controller_base.py" />
-        <option value="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_mapper/scripts/mapperNode" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py" />
@@ -130,6 +85,7 @@
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/cell_based_forward_search.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_2_2_reactive_planner.launch" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/reactive_planner_controller.py" />
+        <option value="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" />
       </list>
     </option>
   </component>
@@ -441,13 +397,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/bresenhamalgorithm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-271">
@@ -542,37 +491,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/occupancy_grid.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2670">
-          <caret line="180" column="20" lean-forward="false" selection-start-line="180" selection-start-column="19" selection-end-line="180" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/scripts/planner_controller_node.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/cell_based_forward_search.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/controller_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="94" column="29" lean-forward="false" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="29" />
-          <folding>
-            <element signature="e#22#34#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -600,11 +523,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
+    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/reactive_planner_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="73" column="27" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="293">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="e#114#126#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -616,13 +541,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/reactive_planner_controller.py">
+    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/cell_based_forward_search.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="67" column="51" lean-forward="false" selection-start-line="67" selection-start-column="51" selection-end-line="67" selection-end-column="51" />
+        <state relative-caret-position="204">
+          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/controller_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="94" column="29" lean-forward="false" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="29" />
           <folding>
-            <element signature="e#114#126#0" expanded="true" />
+            <element signature="e#22#34#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/occupancy_grid.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="180" column="20" lean-forward="false" selection-start-line="180" selection-start-column="19" selection-end-line="180" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="80" column="37" lean-forward="false" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
