@@ -27,6 +27,7 @@ def MyThread1(controller):
     total_distance = 0.0
     total_angle = 0.0
 
+    loop_counter = 0
     while True:
         total_angle = total_angle + abs(shortestAngularDistance(controller.pose.theta, last_theta))
         total_distance = total_distance + get_distance(controller, last_x, last_y)
@@ -35,13 +36,17 @@ def MyThread1(controller):
         last_y = controller.pose.y
         last_theta = controller.pose.theta
 
-        f = open('../recorded_data.csv', "a+")
-        f.write("Time: {},".format(str(time.time() - start)))
-        f.write("Distance: {},".format(str(total_distance)))
-        f.write("Angle: {}\n\n".format(str(total_angle * 360.0 / 6.28)))
-        f.close()
+        if loop_counter % 10:
+            f = open('../recorded_data.csv', "a+")
+            f.write("Time: {},".format(str(time.time() - start)))
+            f.write("Distance: {},".format(str(total_distance)))
+            f.write("Angle: {}\n\n".format(str(total_angle * 360.0 / 6.28)))
+            f.close()
+            loop_counter = 0
 
-        time.sleep(1)
+        loop_counter += 1
+        time.sleep(0.1)
+
 
 
 
