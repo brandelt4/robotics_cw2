@@ -16,7 +16,9 @@ import  Observer
 class ControllerBase(object):
 
     def __init__(self, occupancyGrid):
-
+        # Run the observer
+        Observer.runMyThread(self)
+        
         rospy.wait_for_message('/robot0/odom', Odometry)
 
         # Create the node, publishers and subscriber
@@ -42,6 +44,8 @@ class ControllerBase(object):
 
         # This flag says if the current goal should be aborted
         self.abortCurrentGoal = False
+
+
 
 
         
@@ -93,7 +97,7 @@ class ControllerBase(object):
     # the planner drawer because we have to keep updating it to
     # make sure the graphics are redrawn properly.
     def drivePathToGoal(self, path, goalOrientation, plannerDrawer):
-        Observer.runMyThread(self)
+
 
         self.abortCurrentGoal = False
         self.plannerDrawer = plannerDrawer

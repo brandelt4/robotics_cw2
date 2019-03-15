@@ -34,13 +34,13 @@ def MyThread1(controller):
         last_y = controller.pose.y
         last_theta = controller.pose.theta
 
-        f = open('../recorded_data.csv', "w")
+        f = open('../recorded_data.csv', "a")
         f.write("{},".format(str(time.time() - start)))
         f.write("{},".format(str(total_distance)))
         f.write("{},".format(str(total_angle * 360.0 / 6.28)))
         f.close()
 
-        time.sleep(0.1)
+        time.sleep(1)
 
 
 
