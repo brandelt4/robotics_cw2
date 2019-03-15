@@ -100,7 +100,8 @@ class ExplorerNodeBase(object):
     # False, it is assumed that the map is completely explored and the
     # explorer will exit.
     def updateFrontiers(self):
-        raise NotImplementedError()
+        pass
+        # raise NotImplementedError()
 
     def chooseNewDestination(self):
         raise NotImplementedError()
