@@ -44,9 +44,9 @@ def MyThread1(controller):
 
         if loop_counter % 10 == 0:
             f = open('../recorded_data.csv', "a+")
-            f.write("Time: {},".format(str(time.time() - start)))
-            f.write("Distance: {},".format(str(total_distance)))
-            f.write("Angle: {}\n\n".format(str(total_angle * 360.0 / 6.28)))
+            f.write("Time:, {},".format(str(time.time() - start)))
+            f.write("Distance:, {},".format(str(total_distance)))
+            f.write("Angle:, {},\n\n".format(str(total_angle * 360.0 / 6.28)))
             f.close()
             loop_counter = 0
 
