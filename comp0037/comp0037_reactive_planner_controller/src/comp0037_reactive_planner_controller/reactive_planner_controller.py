@@ -14,6 +14,7 @@ class ReactivePlannerController(PlannerControllerBase):
 
         self.mapUpdateSubscriber = rospy.Subscriber('updated_map', MapUpdate, self.mapUpdateCallback)
         self.gridUpdateLock =  threading.Condition()
+        self.waypoints_counter = 0
 
     def mapUpdateCallback(self, mapUpdateMessage):
 
