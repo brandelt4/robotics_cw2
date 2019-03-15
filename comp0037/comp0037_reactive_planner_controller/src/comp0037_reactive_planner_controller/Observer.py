@@ -36,7 +36,7 @@ def MyThread1(controller):
         last_y = controller.pose.y
         last_theta = controller.pose.theta
 
-        if loop_counter % 10:
+        if loop_counter % 10 == 0:
             f = open('../recorded_data.csv', "a+")
             f.write("Time: {},".format(str(time.time() - start)))
             f.write("Distance: {},".format(str(total_distance)))
