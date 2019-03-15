@@ -42,7 +42,7 @@ class ControllerBase(object):
 
         # This flag says if the current goal should be aborted
         self.abortCurrentGoal = False
-
+        self.allow = False
         # Run the observer
         Observer.runMyThread(self)
 
@@ -98,7 +98,7 @@ class ControllerBase(object):
     # the planner drawer because we have to keep updating it to
     # make sure the graphics are redrawn properly.
     def drivePathToGoal(self, path, goalOrientation, plannerDrawer):
-
+        self.allow = True
 
         self.abortCurrentGoal = False
         self.plannerDrawer = plannerDrawer

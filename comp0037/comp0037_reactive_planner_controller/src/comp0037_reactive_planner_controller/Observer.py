@@ -23,7 +23,10 @@ def MyThread1(controller):
     last_y = controller.pose.y
     last_theta = controller.pose.theta
 
-    time.sleep(1)
+    while True:
+        if controller.allow:
+            break
+        time.sleep(0.2)
 
     start = time.time()  # START
     total_distance = 0.0
