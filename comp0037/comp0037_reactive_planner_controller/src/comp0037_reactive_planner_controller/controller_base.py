@@ -9,15 +9,13 @@ from planned_path import PlannedPath
 import time
 import pickle
 import math
-import  Observer
+import Observer
 # This is the base class of the controller which moves the robot to its goal.
 # could do.
 
 class ControllerBase(object):
 
     def __init__(self, occupancyGrid):
-        # Run the observer
-        Observer.runMyThread(self)
 
         rospy.wait_for_message('/robot0/odom', Odometry)
 
@@ -38,17 +36,20 @@ class ControllerBase(object):
         # Store the occupancy grid. This is dynamically updated as a result of new map
         # information becoming available.
         self.occupancyGrid = occupancyGrid
-        
+
         # This is the rate at which we broadcast updates to the simulator in Hz.
         self.rate = rospy.Rate(10)
 
         # This flag says if the current goal should be aborted
         self.abortCurrentGoal = False
 
+        # Run the observer
+        Observer.runMyThread(self)
 
 
 
-        
+
+
 
     # Get the pose of the robot. Store this in a Pose2D structure because
     # this is easy to use. Use radians for angles because these are used
@@ -60,7 +61,7 @@ class ControllerBase(object):
 
         position = odometryPose.position
         orientation = odometryPose.orientation
-        
+
         pose.x = position.x
         pose.y = position.y
         pose.theta = 2 * atan2(orientation.z, orientation.w)
@@ -80,7 +81,7 @@ class ControllerBase(object):
     # If set to true, the robot should abort driving to the current goal.
     def stopDrivingToCurrentGoal(self):
         self.abortCurrentGoal = True
-    
+
     # Handle the logic of driving the robot to the next waypoint
     def driveToWaypoint(self, waypoint):
         raise NotImplementedError()
@@ -103,7 +104,7 @@ class ControllerBase(object):
         self.plannerDrawer = plannerDrawer
 
         rospy.loginfo('Driving path to goal with ' + str(len(path.waypoints)) + ' waypoint(s)')
-        
+
         # start = time.time() # START
         # self.total_distance = 0.0
         # self.total_angle = 0.0
@@ -139,7 +140,7 @@ class ControllerBase(object):
         # f.close()
 
         rospy.loginfo('Rotating to goal orientation (' + str(goalOrientation) + ')')
-        
+
         # Finish off by rotating the robot to the final configuration
         return self.rotateToGoalOrientation(goalOrientation)
  
