@@ -18,6 +18,7 @@ def get_distance(controller, last_x, last_y):
 
 
 def MyThread1(controller):
+    print('RUNNING *'*40)
     last_x = controller.pose.x
     last_y = controller.pose.y
     last_theta = controller.pose.theta
@@ -34,7 +35,7 @@ def MyThread1(controller):
         last_y = controller.pose.y
         last_theta = controller.pose.theta
 
-        f = open('../recorded_data.csv', "a")
+        f = open('../recorded_data.csv', "a+")
         f.write("{},".format(str(time.time() - start)))
         f.write("{},".format(str(total_distance)))
         f.write("{},".format(str(total_angle * 360.0 / 6.28)))

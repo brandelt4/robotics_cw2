@@ -18,7 +18,7 @@ class ControllerBase(object):
     def __init__(self, occupancyGrid):
         # Run the observer
         Observer.runMyThread(self)
-        
+
         rospy.wait_for_message('/robot0/odom', Odometry)
 
         # Create the node, publishers and subscriber
