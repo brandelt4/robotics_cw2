@@ -6,14 +6,20 @@ import threading
 from cell import CellLabel
 from planner_controller_base import PlannerControllerBase
 from comp0037_mapper.msg import *
+import Observer
+
+
 
 class ReactivePlannerController(PlannerControllerBase):
+
+
 
     def __init__(self, occupancyGrid, planner, controller):
         PlannerControllerBase.__init__(self, occupancyGrid, planner, controller)
 
         self.mapUpdateSubscriber = rospy.Subscriber('updated_map', MapUpdate, self.mapUpdateCallback)
         self.gridUpdateLock =  threading.Condition()
+        self.waypoints_counter = 0
 
     def mapUpdateCallback(self, mapUpdateMessage):
 
@@ -72,6 +78,14 @@ class ReactivePlannerController(PlannerControllerBase):
             
             # Extract the path
             self.currentPlannedPath = self.planner.extractPathToGoal()
+            self.waypoints_counter += len(self.currentPlannedPath.waypoints)
+
+            f = open('../waypoints_counter.csv')
+            f.write("Total number of waypoints:, {},".format(str(self.waypoints_counter)))
+
+
+
+
 
             # Drive along the path towards the goal. This returns True
             # if the goal was successfully reached. The controller

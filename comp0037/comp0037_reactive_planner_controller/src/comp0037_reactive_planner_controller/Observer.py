@@ -2,7 +2,6 @@ import math
 import threading
 import time
 
-
 def shortestAngularDistance(fromAngle, toAngle):
     delta = toAngle - fromAngle
     if delta < -math.pi:
@@ -41,6 +40,7 @@ def MyThread1(controller):
         last_x = controller.pose.x
         last_y = controller.pose.y
         last_theta = controller.pose.theta
+
 
         if loop_counter % 10 == 0:
             f = open('../recorded_data.csv', "a+")
