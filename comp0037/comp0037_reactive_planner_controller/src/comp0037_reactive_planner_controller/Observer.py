@@ -27,7 +27,7 @@ def MyThread1(controller):
     total_angle = 0.0
 
     while True:
-        total_angle = total_angle + shortestAngularDistance(controller.pose.theta, last_theta)
+        total_angle = total_angle + abs(shortestAngularDistance(controller.pose.theta, last_theta))
         total_distance = total_distance + get_distance(controller, last_x, last_y)
 
         last_x = controller.pose.x
@@ -40,7 +40,7 @@ def MyThread1(controller):
         f.write("{},".format(str(total_angle * 360.0 / 6.28)))
         f.close()
 
-        time.sleep(0.5)
+        time.sleep(0.1)
 
 
 
