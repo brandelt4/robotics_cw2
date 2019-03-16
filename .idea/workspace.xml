@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1088f30f-7eec-4c2a-916b-630b90794dc7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py" afterPath="$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" afterPath="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,16 +13,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="general_forward_search_algorithm.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/general_forward_search_algorithm.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="250" column="36" lean-forward="true" selection-start-line="250" selection-start-column="36" selection-end-line="250" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Observer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/Observer.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -33,13 +23,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mapper_node.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="explorer_node.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mapper_node.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="363" column="38" lean-forward="true" selection-start-line="363" selection-start-column="38" selection-end-line="363" selection-end-column="38" />
+            <state relative-caret-position="5250">
+              <caret line="350" column="0" lean-forward="false" selection-start-line="350" selection-start-column="0" selection-end-line="350" selection-end-column="0" />
               <folding>
                 <element signature="e#23#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="explorer_node_base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2353">
+              <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+              <folding>
+                <marker date="1552760381000" expanded="true" signature="12199:12761" ph="..." />
               </folding>
             </state>
           </provider>
@@ -100,10 +112,10 @@
         <option value="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/controller_base.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/Observer.py" />
-        <option value="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/general_forward_search_algorithm.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py" />
+        <option value="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" />
       </list>
     </option>
   </component>
@@ -426,7 +438,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="565">
           <caret line="91" column="92" lean-forward="false" selection-start-line="91" selection-start-column="92" selection-end-line="91" selection-end-column="92" />
-          <folding />
+          <folding>
+            <marker date="1552760381000" expanded="true" signature="12199:12761" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -675,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -716,17 +729,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="231">
+          <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="170" column="42" lean-forward="true" selection-start-line="170" selection-start-column="42" selection-end-line="170" selection-end-column="42" />
-          <folding />
+        <state relative-caret-position="-2353">
+          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding>
+            <marker date="1552760381000" expanded="true" signature="12199:12761" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -758,8 +773,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="363" column="38" lean-forward="true" selection-start-line="363" selection-start-column="38" selection-end-line="363" selection-end-column="38" />
+        <state relative-caret-position="5250">
+          <caret line="350" column="0" lean-forward="false" selection-start-line="350" selection-start-column="0" selection-end-line="350" selection-end-column="0" />
           <folding>
             <element signature="e#23#33#0" expanded="true" />
           </folding>
