@@ -119,7 +119,7 @@ class ExplorerNodeBase(object):
         # Otherwise, only check the Delta Grid
         else:
 
-            # First, check all current frontier points – are they still frontier points?
+            # First, check all current frontier points - are they still frontier points?
             for idx, cell_coords in enumerate(self.frontier):
                 if self.isFrontierCell(cell_coords[0], cell_coords[1]) is True:
                     continue
