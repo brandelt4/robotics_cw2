@@ -27,6 +27,7 @@ class GeneralForwardSearchAlgorithm(PlannerBase):
 
         # Flag to store if the last plan was successful
         self.goalReached = None
+        self.waypoints_counter = 0
 
     def setRemoveGoalCellFromPathIfOccupied(self, newValue):
         self.removeGoalCellFromPathIfOccupied = newValue
@@ -234,6 +235,10 @@ class GeneralForwardSearchAlgorithm(PlannerBase):
             
         # Update the stats on the size of the path
         path.numberOfWaypoints = len(path.waypoints)
+        self.waypoints_counter += len(path.waypoints)
+        with open('/home/ros_user/waypoints_counter.txt', 'w+') as file:
+            file.write('Waypoints counter: {}'.format(self.waypoints_counter))
+
 
         # Note that if we failed to reach the goal, the above mechanism computes a path length of 0.
         # Therefore, if we didn't reach the goal, change it to infinity
