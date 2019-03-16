@@ -15,7 +15,7 @@ class GeneralForwardSearchAlgorithm(PlannerBase):
     # template for forward search. It includes a lot of methods for
     # Make sure the queue is empty. We do this so that we can keep calling
         # the same method multiple times and have it work.
-    
+
     def __init__(self, title, occupancyGrid):
         PlannerBase.__init__(self, title, occupancyGrid)
 
@@ -25,7 +25,7 @@ class GeneralForwardSearchAlgorithm(PlannerBase):
         self.removeGoalCellFromPathIfOccupied = False
         self.goalCellLabel = None
 
-        self.counter = 0
+        self.waypoints_counter = 0
         # Flag to store if the last plan was successful
         self.goalReached = None
 
@@ -235,8 +235,9 @@ class GeneralForwardSearchAlgorithm(PlannerBase):
             
         # Update the stats on the size of the path
         path.numberOfWaypoints = len(path.waypoints)
+        self.waypoints_counter += path.numberOfWaypoints
         with open('/home/ros_user/waypoints_counter.txt', 'w+') as file:
-            file.write("Waypoints counter: {}".format(path.numberOfWaypoints))
+            file.write("Waypoints counter: {}".format(self.waypoints_counter))
 
         # Note that if we failed to reach the goal, the above mechanism computes a path length of 0.
         # Therefore, if we didn't reach the goal, change it to infinity

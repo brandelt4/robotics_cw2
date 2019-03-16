@@ -14,7 +14,6 @@ class ReactivePlannerController(PlannerControllerBase):
 
         self.mapUpdateSubscriber = rospy.Subscriber('updated_map', MapUpdate, self.mapUpdateCallback)
         self.gridUpdateLock =  threading.Condition()
-        self.waypoints_counter = 0
 
     def mapUpdateCallback(self, mapUpdateMessage):
 
@@ -73,9 +72,7 @@ class ReactivePlannerController(PlannerControllerBase):
             
             # Extract the path
             self.currentPlannedPath = self.planner.extractPathToGoal()
-            self.waypoints_counter += len(self.currentPlannedPath.waypoints)
-            with open('waypoints_counter.txt', 'w+') as file:
-                file.write('Waypoints counter: {}'.format(self.waypoints_counter))
+
 
             # Drive along the path towards the goal. This returns True
             # if the goal was successfully reached. The controller
