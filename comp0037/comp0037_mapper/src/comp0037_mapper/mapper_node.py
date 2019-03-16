@@ -5,6 +5,7 @@ import rospy
 import math
 import tf
 import copy
+import time
 
 import numpy as np
 from nav_msgs.srv import GetMap
