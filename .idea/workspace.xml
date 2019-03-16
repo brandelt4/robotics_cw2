@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1088f30f-7eec-4c2a-916b-630b90794dc7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py" afterPath="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" afterPath="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,11 +45,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="explorer_node_base.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="explorer_node_base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="183" column="19" lean-forward="true" selection-start-line="183" selection-start-column="19" selection-end-line="183" selection-end-column="19" />
+            <state relative-caret-position="218">
+              <caret line="157" column="82" lean-forward="true" selection-start-line="157" selection-start-column="82" selection-end-line="157" selection-end-column="82" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="part_1_exploration_mapping.launch" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="58" lean-forward="true" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -107,13 +117,13 @@
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/cell_based_forward_search.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_2_2_reactive_planner.launch" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/reactive_planner_controller.py" />
-        <option value="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/controller_base.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/Observer.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/general_forward_search_algorithm.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_mapper/src/comp0037_mapper/mapper_node.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node.py" />
         <option value="$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py" />
+        <option value="$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch" />
       </list>
     </option>
   </component>
@@ -154,64 +164,14 @@
               <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
               <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
               <item name="comp0037" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_explorer" type="462c0819:PsiDirectoryNode" />
+              <item name="comp0037_cw2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
               <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
               <item name="comp0037" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_explorer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_explorer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_explorer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_reactive_planner_controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_reactive_planner_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="robotics_cw2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="robotics_cw2" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_reactive_planner_controller" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="comp0037_reactive_planner_controller" type="462c0819:PsiDirectoryNode" />
+              <item name="comp0037_cw2" type="462c0819:PsiDirectoryNode" />
+              <item name="launch" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -709,13 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/scripts/explorerNode">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -769,8 +722,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/comp0037/comp0037_explorer/src/comp0037_explorer/explorer_node_base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="183" column="19" lean-forward="true" selection-start-line="183" selection-start-column="19" selection-end-line="183" selection-end-column="19" />
+        <state relative-caret-position="218">
+          <caret line="157" column="82" lean-forward="true" selection-start-line="157" selection-start-column="82" selection-end-line="157" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comp0037/comp0037_cw2/launch/part_1_exploration_mapping.launch">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="58" lean-forward="true" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
           <folding />
         </state>
       </provider>
