@@ -180,7 +180,7 @@ class ExplorerNodeBase(object):
 
 
 
-        print(self.frontiers)
+        # print(self.frontiers)
         print("Frontiers updated #{}".format(self.counter))
         self.counter += 1
 
