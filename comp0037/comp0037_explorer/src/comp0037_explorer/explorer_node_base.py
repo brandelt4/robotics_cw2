@@ -105,6 +105,7 @@ class ExplorerNodeBase(object):
     # explorer will exit.
 
     def updateFrontiers(self):
+        self.previousFrontier = copy.copy(self.frontier)
 
         # If the first time, check all cells
         if self.counter == 1:
@@ -131,11 +132,6 @@ class ExplorerNodeBase(object):
                     if (self.deltaOccupancyGrid.getCell(x,y) == 1.0) and not ((x,y) in self.frontier):
                         if self.isFrontierCell(x,y) is True:
                             self.frontier.append((x,y))
-
-        # Check if the length of the frontier is 0
-        if len(self.frontier) == 0:
-            return False
-
 
         # Now that we have all frontier points, let's split into multiple frontiers
 
@@ -191,7 +187,6 @@ class ExplorerNodeBase(object):
         if self.frontier == self.previousFrontier:
             return False
         else:
-            self.previousFrontier = copy.copy(self.frontier)
             return True
 
 

@@ -21,7 +21,7 @@ class ExplorerNode(ExplorerNodeBase):
     def __init__(self):
         ExplorerNodeBase.__init__(self)
 
-        self.selection = 'closest' # 'largest'
+        self.selection = 'largest' # 'closest'
         self.previousDestination = (0,0)
         self.blackList = []
 
@@ -74,14 +74,11 @@ class ExplorerNode(ExplorerNodeBase):
             if self.selection == 'closest':
                 nextOne = costs.index(min(costs))
                 nextOne_blacklist = []
-
                 # Check if in blacklist
-                # Continue this loop until nextOne index does not point to a blacklisted point OR to the start cell
                 while self.frontier[nextOne] in self.blackList or self.frontier[nextOne] == startCellCoords:
-                    # List of those indices that you should not choose
+                    # List of those indeces that you should not choose
                     nextOne_blacklist.append(nextOne)
-                    # if nextOne == len(self.frontier):
-                    if len(self.frontier) == 0:
+                    if nextOne == len(self.frontier):
                         return False, None
                     else:
                         # Find the next smallest number
