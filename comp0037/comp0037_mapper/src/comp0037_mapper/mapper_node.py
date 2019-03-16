@@ -336,10 +336,34 @@ class MapperNode(object):
         return mapUpdateMessage
 
         
+    def recordEntropy(self):
+        # threading.Timer(5.0, self.recordEntropy).start()
+        unknowns = 0
+        for x in range(self.occupancyGrid.getWidthInCells()):
+            for y in range(self.occupancyGrid.getHeightInCells()):
+                if self.occupancyGrid.getCell(x, y) == 0.5:
+                    unknowns += 1
+
+        self.entropy = (unknowns * math.log(2))*math.log(unknowns * math.log(2))
+
+        with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_explorer/src/comp0037_explorer/entropy.txt','a+') as file:
+            file.write(str(self.entropy) + ',')
+        # print(self.entropy)
+
+
     def run(self):
+        start = time.time()
+
         while not rospy.is_shutdown():
             self.updateVisualisation()
             rospy.sleep(0.1)
+
+            if time.time() - start > 5:
+                start = time.time()
+                print('*************************')
+                print("**** SAVING ENTROPY *****")
+                print('*************************')
+                self.recordEntropy()
         
   
 
