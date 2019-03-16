@@ -107,7 +107,7 @@ class ExplorerNodeBase(object):
     def updateFrontiers(self):
         self.previousFrontier = copy.copy(self.frontier)
 
-        # If it's the first time
+        # If the first time, check all cells
         if self.counter == 1:
             for x in range(0, self.occupancyGrid.getWidthInCells()):
                 for y in range(0, self.occupancyGrid.getHeightInCells()):
@@ -116,16 +116,17 @@ class ExplorerNodeBase(object):
                     else:
                         continue
 
+        # Otherwise, only check the Delta Grid
         else:
 
-            # First, check all current frontier points
+            # First, check all current frontier points – are they still frontier points?
             for idx, cell_coords in enumerate(self.frontier):
                 if self.isFrontierCell(cell_coords[0], cell_coords[1]) is True:
                     continue
                 else:
                     self.frontier.pop(idx)
 
-            # Second, get access to the cells just discovered
+            # Second, check the changed points from Delta Grid and add new frontier points
             for x in range(0, self.deltaOccupancyGrid.getWidthInCells()):
                 for y in range(0, self.deltaOccupancyGrid.getHeightInCells()):
                     if (self.deltaOccupancyGrid.getCell(x,y) == 1.0) and not ((x,y) in self.frontier):
@@ -137,10 +138,12 @@ class ExplorerNodeBase(object):
         # Stores indices of frontiers from self.frontier
         self.frontiers = []
         self.frontiers.append([0])
+
+        # Iterate through the points and find which points are next to each other
+        # If points are next to each other, group them into separate frontiers
         for idx, frontierPoint in enumerate(self.frontier):
             for idx2, frontierPoint2 in enumerate(self.frontier):
-                # print("idx2 vs. len(self.frontier): {} - {}".format(idx2, len(self.frontier)))
-                # Get the second point
+
                 if idx == idx2:
                     continue
 
