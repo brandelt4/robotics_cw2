@@ -186,7 +186,14 @@ class OccupancyGridDrawer(BaseDrawer):
                 colour = '#' + hexWeight + hexWeight + hexWeight
                 self.rectangles[i][j].setFill(colour)
 
-                
+
+    def drawFrontiers(self, frontier):
+        frontier = frontier
+        for cell in frontier:
+            self.rectangles[cell[0]][cell[1]].setFill('#008000')
+
+
+
     def reset(self):
         # Nothing to do - rendering is stateless
         pass

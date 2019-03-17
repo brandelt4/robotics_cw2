@@ -138,9 +138,7 @@ class ExplorerNodeBase(object):
                             self.frontier.append((x,y))
 
         if self.occupancyGridDrawer is not None:
-            for cell in self.frontier:
-                self.occupancyGridDrawer.rectangles[cell[0]][cell[1]].setFill('#008000')
-            self.occupancyGridDrawer.update()
+            self.occupancyGridDrawer.drawFrontiers(self.frontier)
 
 
         print('*********************')
