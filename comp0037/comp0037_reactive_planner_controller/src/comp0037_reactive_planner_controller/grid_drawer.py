@@ -181,6 +181,11 @@ class SearchGridDrawer(BaseDrawer):
                 if (i, j) in frontier:
                     self.rectangles[i][j].setFill('red')
 
+        self.rectangles[1][1].setFill('red')
+        self.rectangles[2][2].setFill('red')
+        self.rectangles[3][3].setFill('red')
+
+
 
 
 class OccupancyGridDrawer(BaseDrawer):
