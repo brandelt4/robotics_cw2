@@ -6,6 +6,7 @@ from cell import *
 from graphics import Rectangle
 from graphics import Point
 import graphics
+import pickle
 
 # This file contains some generic routines for managing the graphics display window.
 
@@ -113,6 +114,8 @@ class SearchGridDrawer(BaseDrawer):
         # Overlay on top the start and the goal
         self.drawStartAndGoalGraphics()
 
+        self.drawFrontiers()
+
         # Flush the graphics
         self.flushAndUpdateWindow()
 
@@ -165,6 +168,17 @@ class SearchGridDrawer(BaseDrawer):
         if (self.goal is not None):
             coords = self.goal.coords
             self.rectangles[coords[0]][coords[1]].setFill('blue')
+
+    def drawFrontiers(self):
+        file = open('frontier.pkl', 'rb')
+        frontier = pickle.load(file)
+        file.close()
+
+        for cell in frontier:
+            self.rectangles[cell[0]][cell[1]].setFill('red')
+
+
+
 
 class OccupancyGridDrawer(BaseDrawer):
 

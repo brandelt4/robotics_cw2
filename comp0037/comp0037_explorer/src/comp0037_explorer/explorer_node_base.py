@@ -2,6 +2,7 @@ import rospy
 import threading
 import math
 import copy
+import pickle
 
 from comp0037_mapper.msg import *
 from comp0037_mapper.srv import *
@@ -137,8 +138,9 @@ class ExplorerNodeBase(object):
                         if self.isFrontierCell(x,y) is True:
                             self.frontier.append((x,y))
 
-        if self.occupancyGridDrawer is not None:
-            self.occupancyGridDrawer.drawFrontiers(self.frontier)
+        # Write frontiers into a pickle
+        with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/frontier.pkl', 'w+b') as file:
+            pickle.dump(self.frontier, file)
 
 
         print('*********************')
