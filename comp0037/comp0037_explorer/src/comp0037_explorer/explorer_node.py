@@ -21,7 +21,7 @@ class ExplorerNode(ExplorerNodeBase):
     def __init__(self):
         ExplorerNodeBase.__init__(self)
 
-        self.selection = 'largest' # 'closest'
+        self.selection = 'closest' # 'largest'
         self.previousDestination = (0,0)
         self.blackList = []
 
@@ -41,9 +41,6 @@ class ExplorerNode(ExplorerNodeBase):
         costs = []
         candidateGood = False
 
-        # Iterates through coordinates X and Y
-
-        # NOW IMPLEMENT THE BEST WAY TO CHOOSE THE NEW DESTINATION
 
         if self.counter == 1:
             return True, self.frontier[0]
@@ -76,7 +73,7 @@ class ExplorerNode(ExplorerNodeBase):
                 nextOne_blacklist = []
                 # Check if in blacklist
                 while self.frontier[nextOne] in self.blackList or self.frontier[nextOne] == startCellCoords:
-                    # List of those indeces that you should not choose
+                    # List of those indices that you should not choose
                     nextOne_blacklist.append(nextOne)
                     if nextOne == len(self.frontier):
                         return False, None
@@ -96,7 +93,7 @@ class ExplorerNode(ExplorerNodeBase):
 
                 return True, self.frontier[nextOne]
 
-            # CHOOSES THE FARTHEST POINT
+            # CHOOSES A CELL FROM THE LARGEST FRONTIER
             elif self.selection == 'largest':
                 largestSize = 0
                 frontier_index = None
@@ -111,13 +108,9 @@ class ExplorerNode(ExplorerNodeBase):
                 if frontier_index is None:
                     return False, None
 
-                # print("CHOOSING THE POINT")
-                # print(self.frontiers)
-                # print(self.frontier[self.frontiers[frontier_index][0]])
                 # if all conditions are met
                 if largestSize != 0 and self.frontier[self.frontiers[frontier_index][0]] != self.previousDestination and (self.frontier[self.frontiers[frontier_index][0]] != startCellCoords) :
                     print("Next cell coordinates: {}".format(self.frontier[self.frontiers[frontier_index][0]]))
-                    print(self.frontiers[frontier_index])
                     return True, self.frontier[self.frontiers[frontier_index][0]]
                 else:
                     return False, None

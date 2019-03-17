@@ -143,11 +143,6 @@ class ExplorerNodeBase(object):
             pickle.dump(self.frontier, file)
 
 
-        print('*********************')
-        print('*****ALL POINTS******')
-        print(self.frontier)
-        print('*********************')
-
         # Now that we have all frontier points, let's split into multiple frontiers
 
         # Stores indices of frontiers from self.frontier
@@ -193,10 +188,6 @@ class ExplorerNodeBase(object):
                     else:
                         self.frontiers.append([idx])
 
-        print('*********************')
-        print('*******SORTED********')
-        print(self.frontiers)
-        print('*********************')
 
         print("Frontiers updated #{}".format(self.counter))
         self.counter += 1
