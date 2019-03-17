@@ -117,6 +117,7 @@ class ExplorerNode(ExplorerNodeBase):
                 # if all conditions are met
                 if largestSize != 0 and self.frontier[self.frontiers[frontier_index][0]] != self.previousDestination and (self.frontier[self.frontiers[frontier_index][0]] != startCellCoords) :
                     print("Next cell coordinates: {}".format(self.frontier[self.frontiers[frontier_index][0]]))
+                    print(self.frontiers[frontier_index])
                     return True, self.frontier[self.frontiers[frontier_index][0]]
                 else:
                     return False, None
