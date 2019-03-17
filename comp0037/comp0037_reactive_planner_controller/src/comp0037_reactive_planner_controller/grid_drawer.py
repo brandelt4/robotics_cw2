@@ -170,15 +170,14 @@ class SearchGridDrawer(BaseDrawer):
             self.rectangles[coords[0]][coords[1]].setFill('blue')
 
     def drawFrontiers(self):
-        try:
-            file = open('frontier.pkl', 'rb')
-            frontier = pickle.load(file)
-            file.close()
 
-            for cell in frontier:
-                self.rectangles[cell[0]][cell[1]].setFill('red')
-        except:
-            pass
+        file = open('/home/ros_user/catkin_ws/src/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/frontier.pkl', 'rb')
+        frontier = pickle.load(file)
+        file.close()
+
+        for cell in frontier:
+            self.rectangles[cell[0]][cell[1]].setFill('red')
+
 
 
 
