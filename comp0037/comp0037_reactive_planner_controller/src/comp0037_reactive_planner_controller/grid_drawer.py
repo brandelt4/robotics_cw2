@@ -170,13 +170,15 @@ class SearchGridDrawer(BaseDrawer):
             self.rectangles[coords[0]][coords[1]].setFill('blue')
 
     def drawFrontiers(self):
-        file = open('frontier.pkl', 'rb')
-        frontier = pickle.load(file)
-        file.close()
+        try:
+            file = open('frontier.pkl', 'rb')
+            frontier = pickle.load(file)
+            file.close()
 
-        for cell in frontier:
-            self.rectangles[cell[0]][cell[1]].setFill('red')
-
+            for cell in frontier:
+                self.rectangles[cell[0]][cell[1]].setFill('red')
+        except:
+            pass
 
 
 
@@ -199,12 +201,6 @@ class OccupancyGridDrawer(BaseDrawer):
                 hexWeight = '{:02x}'.format(int(cellWeight*255))
                 colour = '#' + hexWeight + hexWeight + hexWeight
                 self.rectangles[i][j].setFill(colour)
-
-
-    def drawFrontiers(self, frontier):
-        frontier = frontier
-        for cell in frontier:
-            self.rectangles[cell[0]][cell[1]].setFill('#008000')
 
 
 
