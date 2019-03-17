@@ -138,8 +138,8 @@ class ExplorerNodeBase(object):
                             self.frontier.append((x,y))
 
         for cell in self.frontier:
-            self.occupancyGrid.rectangles[cell[0]][cell[1]].setFill('#008000')
-        self.occupancyGrid.update()
+            self.occupancyGridDrawer.rectangles[cell[0]][cell[1]].setFill('#008000')
+        self.occupancyGridDrawer.update()
 
 
         print('*********************')
