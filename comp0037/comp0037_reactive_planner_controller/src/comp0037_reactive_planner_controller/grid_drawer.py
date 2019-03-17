@@ -177,7 +177,7 @@ class SearchGridDrawer(BaseDrawer):
 
         for cell in frontier:
             cell = self.convertWorkspaceCoordinateToScreenCoordinate(cell)
-            self.rectangles[cell[0]][cell[1]].setFill('red')
+            self.rectangles[int(cell[0])][int(cell[1])].setFill('red')
 
 
 
