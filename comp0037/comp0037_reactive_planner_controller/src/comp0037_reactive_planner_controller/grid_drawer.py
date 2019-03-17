@@ -175,10 +175,12 @@ class SearchGridDrawer(BaseDrawer):
         frontier = pickle.load(file)
         file.close()
 
-        for cell in frontier:
-            cell = self.convertWorkspaceCoordinateToScreenCoordinate(cell)
-            self.rectangles[int(cell[0])][int(cell[1])].setFill('red')
-
+        cellExtent = self.searchGrid.getExtentInCells()
+        for i in range(cellExtent[0]):
+            for j in range(cellExtent[1]):
+                cellLabel = self.searchGrid.getCellFromCoords((i, j)).label
+                if cellLabel == 5:
+                    self.rectangles[i][j].setFill('red')
 
 
 
