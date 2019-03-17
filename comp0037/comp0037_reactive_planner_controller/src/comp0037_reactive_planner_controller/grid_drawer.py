@@ -178,8 +178,7 @@ class SearchGridDrawer(BaseDrawer):
         cellExtent = self.searchGrid.getExtentInCells()
         for i in range(cellExtent[0]):
             for j in range(cellExtent[1]):
-                cellLabel = self.searchGrid.getCellFromCoords((i, j)).label
-                if cellLabel == 5:
+                if (i, j) in frontier:
                     self.rectangles[i][j].setFill('red')
 
 

@@ -193,10 +193,6 @@ class ExplorerNodeBase(object):
                     else:
                         self.frontiers.append([idx])
 
-
-        for cell in self.frontier:
-            self.occupancyGrid.setCell(cell[0], cell[1], 5)
-
         print('*********************')
         print('*******SORTED********')
         print(self.frontiers)
