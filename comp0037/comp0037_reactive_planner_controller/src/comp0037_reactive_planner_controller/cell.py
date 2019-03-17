@@ -12,6 +12,7 @@ class CellLabel(Enum):
     UNVISITED=0
     DEAD=1
     ALIVE=2
+    FRONTIER=5
 
 class Cell(object):
 

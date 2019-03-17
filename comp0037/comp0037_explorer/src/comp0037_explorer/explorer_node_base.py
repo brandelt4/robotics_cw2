@@ -109,6 +109,9 @@ class ExplorerNodeBase(object):
 
         # If the first time, check all cells
         if self.counter == 1:
+            print('.'*80)
+            print('First time updating frontiers')
+            print('.'*80)
             for x in range(0, self.occupancyGrid.getWidthInCells()):
                 for y in range(0, self.occupancyGrid.getHeightInCells()):
                     if self.isFrontierCell(x, y) == True:
@@ -129,9 +132,15 @@ class ExplorerNodeBase(object):
             # Second, check the changed points from Delta Grid and add new frontier points
             for x in range(0, self.deltaOccupancyGrid.getWidthInCells()):
                 for y in range(0, self.deltaOccupancyGrid.getHeightInCells()):
+                    # If the cell was changed and not in the frontier list already
                     if (self.deltaOccupancyGrid.getCell(x,y) == 1.0) and not ((x,y) in self.frontier):
                         if self.isFrontierCell(x,y) is True:
                             self.frontier.append((x,y))
+
+        for cell in self.frontier:
+            self.occupancyGrid.rectangles[cell[0]][cell[1]].setFill('#008000')
+        self.occupancyGrid.update()
+
 
         print('*********************')
         print('*****ALL POINTS******')
@@ -182,6 +191,8 @@ class ExplorerNodeBase(object):
                     # Otherwise, add idx as a new frontier
                     else:
                         self.frontiers.append([idx])
+
+
 
 
         print('*********************')

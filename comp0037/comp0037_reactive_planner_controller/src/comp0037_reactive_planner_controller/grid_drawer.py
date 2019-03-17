@@ -98,7 +98,7 @@ class SearchGridDrawer(BaseDrawer):
     def __init__(self, title, searchGrid, maximumWindowHeightInPixels):
         BaseDrawer.__init__(self, title, searchGrid.getExtentInCells(), 
                             maximumWindowHeightInPixels)
-        self.searchGrid = searchGrid;
+        self.searchGrid = searchGrid
                 
     def reset(self):
         self.start = None
@@ -141,7 +141,7 @@ class SearchGridDrawer(BaseDrawer):
                     colour = 'black'
                 else:
                     colour = 'white'
-                self.rectangles[i][j].setFill(colour);
+                self.rectangles[i][j].setFill(colour)
 
     # Draw the path with a custom colour
     def drawPathGraphicsWithCustomColour(self, path, colour):
@@ -171,7 +171,7 @@ class OccupancyGridDrawer(BaseDrawer):
     def __init__(self, title, occupancyGrid, maximumWindowHeightInPixels):
         BaseDrawer.__init__(self, title, occupancyGrid.getExtentInCells(), 
                             maximumWindowHeightInPixels)
-        self.occupancyGrid = occupancyGrid;
+        self.occupancyGrid = occupancyGrid
 
     def drawGrid(self):
 
@@ -184,7 +184,7 @@ class OccupancyGridDrawer(BaseDrawer):
                 cellWeight = 1.0 - self.occupancyGrid.getCell(i, j)
                 hexWeight = '{:02x}'.format(int(cellWeight*255))
                 colour = '#' + hexWeight + hexWeight + hexWeight
-                self.rectangles[i][j].setFill(colour);
+                self.rectangles[i][j].setFill(colour)
 
                 
     def reset(self):
