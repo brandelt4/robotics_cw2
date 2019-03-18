@@ -136,17 +136,18 @@ class PlannerControllerNode(object):
             self.waitForGoal.release()
 
             # If no path is found return break
-            if self.goalReached == False:
-                print('Map has been explored: Goal cannot be reached.')
-                break
+
 
             # If no goal has been allocated, cycle around
             if (self.goal is None):
-
                 continue
 
             self.goalReached = self.plannerController.driveToGoal(self.goal)
             self.goal = None
+
+            if self.goalReached == False:
+                print('Map has been explored: Goal cannot be reached.')
+                break
 
             # Signal back to the service handler that we are done
             self.waitForDriveCompleted.acquire()
