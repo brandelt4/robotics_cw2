@@ -56,9 +56,10 @@ class ReactivePlannerController(PlannerControllerBase):
                 pose = self.controller.getCurrentPose()
                 start = (pose.x, pose.y)
                 currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
-                print('-'*40)
-                print('CURRENT CELL POSITION: {}'.format(currentCell))
-                print('WAYPOINT OCUPPIED: {}'.format(waypoint.coords))
+                with open('log.txt','a+') as file:
+                    file.write('-'*40)
+                    file.write('CURRENT CELL POSITION: {}'.format(currentCell))
+                    file.write('WAYPOINT OCUPPIED: {}'.format(waypoint.coords))
 
 
                 # Calculate new path in the background
@@ -74,6 +75,8 @@ class ReactivePlannerController(PlannerControllerBase):
                 while (reached == False):
                     pose = self.controller.getCurrentPose()
                     start = (pose.x, pose.y)
+                    with open('log.txt', 'a+') as file:
+                        file.write('Current poisiton: {}'.format(self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)))
                     currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
                     if (abs(currentCell[0] - waypoint.coords[0]) < 4) and (abs(currentCell[1] - waypoint.coords[1]) < 4):
                         print('*****************'*20)
