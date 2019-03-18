@@ -137,6 +137,7 @@ class PlannerControllerNode(object):
 
             # If no goal has been allocated, cycle around
             if (self.goal is None):
+                print('NONE')
                 continue
 
             self.goalReached = self.plannerController.driveToGoal(self.goal)
