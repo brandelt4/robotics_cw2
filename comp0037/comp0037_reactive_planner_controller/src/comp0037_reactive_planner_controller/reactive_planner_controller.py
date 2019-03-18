@@ -50,7 +50,7 @@ class ReactivePlannerController(PlannerControllerBase):
         # ----------------------------- I AM HERE NOW -----------------------------------#
 
         reached = False
-        for waypoint in self.currentPlannedPath.waypoints:
+        for waypoint in reversed(self.currentPlannedPath.waypoints):
             # If the cell is occuppied, find a new path
             if self.occupancyGrid.getCell(waypoint.coords[0], waypoint.coords[1]) == 1.0:
                 pose = self.controller.getCurrentPose()
