@@ -3,6 +3,7 @@
 
 import rospy
 import threading
+import os
 from cell import CellLabel
 from planner_controller_base import PlannerControllerBase
 from comp0037_mapper.msg import *
@@ -17,6 +18,7 @@ class ReactivePlannerController(PlannerControllerBase):
         self.mapUpdateSubscriber = rospy.Subscriber('updated_map', MapUpdate, self.mapUpdateCallback)
         self.gridUpdateLock =  threading.Condition()
         self.method = 'basic' # 'other'
+        os.remove('/home/ros_user/catkin_ws/src/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/frontier.pkl')
 
     def mapUpdateCallback(self, mapUpdateMessage):
 
