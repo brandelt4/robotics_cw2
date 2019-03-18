@@ -73,7 +73,6 @@ class ReactivePlannerController(PlannerControllerBase):
                 # If the new travel cost is 50% more, don't keep going
                 # if abs(int(self.newPlannedPath.travelCost) - int(self.currentPlannedPath.travelCost))/int(self.currentPlannedPath.travelCost) < 0.2:
                 while (reached == False):
-                    pose = self.controller.getCurrentPose()
                     start = (pose.x, pose.y)
                     # with open('/home/ros_user/catkin_ws/src/comp0037/log.txt', 'a+') as file:
                     #     file.write('Current poisiton: {}'.format(self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)))
