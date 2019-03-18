@@ -16,6 +16,7 @@ class ReactivePlannerController(PlannerControllerBase):
 
         self.mapUpdateSubscriber = rospy.Subscriber('updated_map', MapUpdate, self.mapUpdateCallback)
         self.gridUpdateLock =  threading.Condition()
+        self.method = 'reference' # 'other'
 
     def mapUpdateCallback(self, mapUpdateMessage):
 
@@ -53,37 +54,41 @@ class ReactivePlannerController(PlannerControllerBase):
         for waypoint in reversed(self.currentPlannedPath.waypoints):
             # If the cell is occuppied, find a new path
             if self.occupancyGrid.getCell(waypoint.coords[0], waypoint.coords[1]) == 1.0:
-                pose = self.controller.getCurrentPose()
-                start = (pose.x, pose.y)
-                currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
-                with open('/home/ros_user/catkin_ws/src/comp0037/log.txt','a+') as file:
-                    file.write('-'*40)
-                    file.write('CURRENT CELL POSITION: {}'.format(currentCell))
-                    file.write('WAYPOINT OCUPPIED: {}'.format(waypoint.coords))
 
-
-                # Calculate new path in the background
-                # Create a new planner object
-                # goalCellCoords = self.currentPlannedPath.waypoints[-1].coords
-                # self.planner_new = DijkstraPlanner('Dijkstra', self.occupancyGrid)
-                # self.planner_new.showGraphics = False
-                # self.planner_new.search(currentCell, goalCellCoords)
-                # self.newPlannedPath = self.planner_new.extractPathToGoal()
-
-                # If the new travel cost is 50% more, don't keep going
-                # if abs(int(self.newPlannedPath.travelCost) - int(self.currentPlannedPath.travelCost))/int(self.currentPlannedPath.travelCost) < 0.2:
-                while (reached == False):
+                if self.method == 'reference':
+                    self.controller.stopDrivingToCurrentGoal()
+                else:
+                    pose = self.controller.getCurrentPose()
                     start = (pose.x, pose.y)
-                    # with open('/home/ros_user/catkin_ws/src/comp0037/log.txt', 'a+') as file:
-                    #     file.write('Current poisiton: {}'.format(self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)))
                     currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
-                    if (abs(currentCell[0] - waypoint.coords[0]) < 5) and (abs(currentCell[1] - waypoint.coords[1]) < 5):
-                        reached = True
+                    with open('/home/ros_user/catkin_ws/src/comp0037/log.txt','a+') as file:
+                        file.write('-'*40)
+                        file.write('CURRENT CELL POSITION: {}'.format(currentCell))
+                        file.write('WAYPOINT OCUPPIED: {}'.format(waypoint.coords))
 
-                self.controller.stopDrivingToCurrentGoal()
-                break
-                # else:
-                #     self.controller.stopDrivingToCurrentGoal()
+
+                    # Calculate new path in the background
+                    # Create a new planner object
+                    # goalCellCoords = self.currentPlannedPath.waypoints[-1].coords
+                    # self.planner_new = DijkstraPlanner('Dijkstra', self.occupancyGrid)
+                    # self.planner_new.showGraphics = False
+                    # self.planner_new.search(currentCell, goalCellCoords)
+                    # self.newPlannedPath = self.planner_new.extractPathToGoal()
+
+                    # If the new travel cost is 50% more, don't keep going
+                    # if abs(int(self.newPlannedPath.travelCost) - int(self.currentPlannedPath.travelCost))/int(self.currentPlannedPath.travelCost) < 0.2:
+                    while (reached == False):
+                        start = (pose.x, pose.y)
+                        # with open('/home/ros_user/catkin_ws/src/comp0037/log.txt', 'a+') as file:
+                        #     file.write('Current poisiton: {}'.format(self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)))
+                        currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
+                        if (abs(currentCell[0] - waypoint.coords[0]) < 5) and (abs(currentCell[1] - waypoint.coords[1]) < 5):
+                            reached = True
+
+                    self.controller.stopDrivingToCurrentGoal()
+                    break
+                    # else:
+                    #     self.controller.stopDrivingToCurrentGoal()
 
 
             else:
