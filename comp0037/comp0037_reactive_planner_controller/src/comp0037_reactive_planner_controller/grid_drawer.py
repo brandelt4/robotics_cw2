@@ -171,21 +171,18 @@ class SearchGridDrawer(BaseDrawer):
 
     def drawFrontiers(self):
 
-        file = open('/home/ros_user/catkin_ws/src/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/frontier.pkl', 'rb')
-        frontier = pickle.load(file)
-        file.close()
+        try:
+            file = open('/home/ros_user/catkin_ws/src/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/frontier.pkl', 'rb')
+            frontier = pickle.load(file)
+            file.close()
 
-        cellExtent = self.searchGrid.getExtentInCells()
-        for i in range(cellExtent[0]):
-            for j in range(cellExtent[1]):
-                if (i, j) in frontier:
-                    self.rectangles[i][j].setFill('red')
-
-        self.rectangles[1][1].setFill('red')
-        self.rectangles[2][2].setFill('red')
-        self.rectangles[3][3].setFill('red')
-
-
+            cellExtent = self.searchGrid.getExtentInCells()
+            for i in range(cellExtent[0]):
+                for j in range(cellExtent[1]):
+                    if (i, j) in frontier:
+                        self.rectangles[i][j].setFill('red')
+        except:
+            pass
 
 
 class OccupancyGridDrawer(BaseDrawer):
