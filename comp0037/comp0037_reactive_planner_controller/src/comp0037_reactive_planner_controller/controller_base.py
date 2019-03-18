@@ -110,8 +110,13 @@ class ControllerBase(object):
         # self.total_angle_asked = 0.0
 
         # Drive to each waypoint in turn
+        #
+        #
+        # Skipping the first waypoint due to inaccuracies in grid coordinates
+        #
+        #
         self.allow = True
-        for waypointNumber in range(0, len(path.waypoints)):
+        for waypointNumber in range(1, len(path.waypoints)):
             cell = path.waypoints[waypointNumber]
             waypoint = self.occupancyGrid.getWorldCoordinatesFromCellCoordinates(cell.coords)
 
