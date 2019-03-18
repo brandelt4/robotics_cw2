@@ -79,7 +79,6 @@ class ReactivePlannerController(PlannerControllerBase):
                     #     file.write('Current poisiton: {}'.format(self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)))
                     currentCell = self.occupancyGrid.getCellCoordinatesFromWorldCoordinates(start)
                     if (abs(currentCell[0] - waypoint.coords[0]) < 5) and (abs(currentCell[1] - waypoint.coords[1]) < 5):
-                        print('*****************'*20)
                         reached = True
 
                 self.controller.stopDrivingToCurrentGoal()
