@@ -178,7 +178,6 @@ class ExplorerNodeBase(object):
                 point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
                 self.frontiers[-1].append(self.frontier.index(point))
 
-
             if (frontierPoint[0] + 1, frontierPoint[1]) in self.frontier:
                 point = (frontierPoint[0] + 1, frontierPoint[1])
                 self.frontiers[-1].append(self.frontier.index(point))
@@ -188,7 +187,7 @@ class ExplorerNodeBase(object):
                 self.frontiers[-1].append(self.frontier.index(point))
 
             if (frontierPoint[0] - 1, frontierPoint[1] + 1) in self.frontier:
-                point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
+                point = (frontierPoint[0] - 1, frontierPoint[1] + 1)
                 self.frontiers[-1].append(self.frontier.index(point))
 
             if (frontierPoint[0] - 1, frontierPoint[1]) in self.frontier:
