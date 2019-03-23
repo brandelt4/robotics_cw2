@@ -147,7 +147,7 @@ class ExplorerNodeBase(object):
 
         # Stores indices of frontiers from self.frontier
         self.frontiers = []
-        self.frontiers.append([0])
+        self.frontiers.append(list(0))
 
         # Iterate through the points and find which points are next to each other
         # If points are next to each other, group them into separate frontiers
@@ -189,6 +189,7 @@ class ExplorerNodeBase(object):
                         self.frontiers.append([idx])
 
                 else:
+
                     # check if idx is in self.frontiers
                     idxInFrontiers = False
                     for f, frontier in enumerate(self.frontiers):
