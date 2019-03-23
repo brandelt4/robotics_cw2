@@ -206,6 +206,7 @@ class ExplorerNodeBase(object):
 
 
         with open('/home/ros_user/catkin_ws/frontiers.txt', 'a+') as file:
+            file.write(str(self.frontier))
             file.write(str(self.frontiers))
             file.write('\n\n')
 
