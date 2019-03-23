@@ -201,11 +201,8 @@ class ExplorerNodeBase(object):
 
                     # Otherwise, add idx as a new frontier
                     else:
-
-
                         if idx2InFrontiers:
-                            self.frontiers[whereIsIdx2].pop(self.frontiers[whereIsIdx2].index(idx2))
-                            self.frontiers.append([idx, idx2])
+                            self.frontiers[whereIsIdx2].append(idx)
                         else:
                             self.frontiers.append([idx, idx2])
 
