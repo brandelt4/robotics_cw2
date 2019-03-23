@@ -165,10 +165,10 @@ class ExplorerNodeBase(object):
 
         # Stores indices of frontiers from self.frontier
         self.frontiers = []
-        self.frontiers.append([0])
+        # self.frontiers.append([0])
 
         temp_blacklist = []
-        temp_blacklist.append(0)
+        # temp_blacklist.append(0)
 
 
         # 1. Take one cell
@@ -180,6 +180,7 @@ class ExplorerNodeBase(object):
             if idx in temp_blacklist:
                 continue
             temp_blacklist.append(idx)
+            self.frontiers.append([idx])
 
             for idx2, frontierPoint2 in enumerate(self.frontier):
 
@@ -197,20 +198,7 @@ class ExplorerNodeBase(object):
                     or (frontierPoint[0], frontierPoint[1] - 1) == frontierPoint2:
 
 
-                    # Is idx already in self.frontiers?
-                    idxInFrontiers = False
-                    for f, frontier in enumerate(self.frontiers):
-                        if idx in frontier:
-                            whereIsIdx = f
-                            idxInFrontiers = True
-                        else:
-                            continue
-
-                    # Append idx2 to where idx is
-                    if idxInFrontiers is True:
-                        self.frontiers[whereIsIdx].append(idx2)
-                    else:
-                        self.frontiers.append([idx, idx2])
+                    self.frontiers[idx].append(idx2)
 
 
                     # If idx2 appended, add it to the blacklist:
