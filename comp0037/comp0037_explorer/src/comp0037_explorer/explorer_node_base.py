@@ -186,7 +186,6 @@ class ExplorerNodeBase(object):
                     or (frontierPoint[0], frontierPoint[1] + 1) == frontierPoint2 \
                     or (frontierPoint[0], frontierPoint[1] - 1) == frontierPoint2:
 
-                    self.frontiers.append([idx, idx2])
 
                     # Is idx already in self.frontiers?
                     idxInFrontiers = False
