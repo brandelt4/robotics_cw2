@@ -188,6 +188,22 @@ class ExplorerNodeBase(object):
                     else:
                         self.frontiers.append([idx])
 
+                else:
+                    # check if idx is in self.frontiers
+                    idxInFrontiers = False
+                    for f, frontier in enumerate(self.frontiers):
+                        if idx in frontier:
+                            whereIsIdx = f
+                            idxInFrontiers = True
+                        else:
+                            continue
+
+                    if idxInFrontiers:
+                        continue
+                    else:
+                        self.frontiers.append(idx)
+
+
         with open('/home/ros_user/catkin_ws/frontiers.txt', 'w+') as file:
             file.write(str(self.frontier))
             file.write('\n\n')
