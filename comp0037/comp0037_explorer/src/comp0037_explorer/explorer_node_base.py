@@ -189,8 +189,13 @@ class ExplorerNodeBase(object):
                         self.frontiers.append([idx])
 
         with open('/home/ros_user/catkin_ws/frontiers.txt', 'w+') as file:
-            file.write(str(self.frontiers))
+            file.write(str(self.frontier))
             file.write('\n\n')
+
+
+            for frontier in self.frontiers:
+                file.write(str(frontier))
+                file.write('\n')
 
         print("Frontiers updated #{}".format(self.counter))
         self.counter += 1
