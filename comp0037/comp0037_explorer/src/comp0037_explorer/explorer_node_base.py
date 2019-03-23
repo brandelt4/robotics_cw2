@@ -180,7 +180,8 @@ class ExplorerNodeBase(object):
             if idx in temp_blacklist:
                 continue
             temp_blacklist.append(idx)
-            self.frontiers.append([idx])
+            self.frontiers.append(list())
+            self.frontiers[idx].append(idx)
 
             for idx2, frontierPoint2 in enumerate(self.frontier):
 
