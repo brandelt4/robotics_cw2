@@ -193,8 +193,29 @@ class ExplorerNodeBase(object):
                     if not appended:
                         self.frontiers.append([idx, idx2])
 
+        i = 0
+        while i < len(self.frontiers):
+            j = 0 
+            while j < len(self.frontiers):
+                merge = False
+                for idx in self.frontiers[i]:
+                    for idx2 in self.frontiers[j]:
+                        if (abs(self.frontier[idx][0] - self.frontier[idx2][0]) < 2 and abs(self.frontier[idx][1] - self.frontier[idx2][1]) < 2):
+                            merge = True
+                if merge:
+                    temp = self.frontiers[i] + self.frontiers[j]
+                    self.frontiers.remove(self.frontiers[i])
+                    self.frontiers.remove(self.frontiers[j])
+                    self.frontiers.append(temp)
+                    j = 0 
+                    i = 0
+
+                j = j + 1
+            i = i + 1
+
         #sort by len
         self.frontiers.sort(key=len, reverse=True)
+
 
 
 
