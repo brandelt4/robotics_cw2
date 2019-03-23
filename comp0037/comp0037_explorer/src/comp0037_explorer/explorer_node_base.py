@@ -251,7 +251,7 @@ class ExplorerNodeBase(object):
                         continue
                     else:
                         self.frontiers[whereIsIdx].append(point_index)
-                        
+
             else:
 
                 self.frontiers.append([idx])

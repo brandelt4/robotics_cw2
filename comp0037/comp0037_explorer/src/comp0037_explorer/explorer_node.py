@@ -122,3 +122,4 @@ class ExplorerNode(ExplorerNodeBase):
         if goalReached is False:
 #             print 'Adding ' + str(goal) + ' to the naughty step'
             self.blackList.append(goal)
+            self.frontier.pop(self.frontier.index(goal))
