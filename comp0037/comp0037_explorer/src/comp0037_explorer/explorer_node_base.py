@@ -169,7 +169,7 @@ class ExplorerNodeBase(object):
         self.frontiers.append([0])
 
 
-        # My old, not working solution
+        # My old, working (BUT NOT ALWAYS) solution
         # Iterate through the points and find which points are next to each other
         # If points are next to each other, group them into separate frontiers
         for idx, frontierPoint in enumerate(self.frontier):
