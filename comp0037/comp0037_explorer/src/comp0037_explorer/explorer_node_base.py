@@ -181,6 +181,7 @@ class ExplorerNodeBase(object):
                 continue
             temp_blacklist.append(idx)
             self.frontiers.append(list())
+            print(self.frontiers)
             self.frontiers[idx].append(idx)
 
             for idx2, frontierPoint2 in enumerate(self.frontier):
