@@ -167,127 +167,169 @@ class ExplorerNodeBase(object):
         self.frontiers = []
         self.frontiers.append([0])
 
-
+        temp_blacklist = []
 
         for idx, frontierPoint in enumerate(self.frontier):
+            temp_blacklist.append(idx)
+            for idx2, frontierPoint2 in enumerate(self.frontier):
 
-            there, whereIsIdx = self.isThePointThere(idx, self.frontiers)
+                if idx2 in temp_blacklist:
+                    continue
 
-            if there:
+                # If they are next to each other
+                if (frontierPoint[0] + 1, frontierPoint[1] + 1) == frontierPoint2 \
+                    or (frontierPoint[0] + 1, frontierPoint[1]) == frontierPoint2 \
+                    or (frontierPoint[0] + 1, frontierPoint[1]-1) == frontierPoint2 \
+                    or (frontierPoint[0] - 1, frontierPoint[1] + 1) == frontierPoint2 \
+                    or (frontierPoint[0] - 1, frontierPoint[1]) == frontierPoint2 \
+                    or (frontierPoint[0] - 1, frontierPoint[1]-1) == frontierPoint2 \
+                    or (frontierPoint[0], frontierPoint[1] + 1) == frontierPoint2 \
+                    or (frontierPoint[0], frontierPoint[1] - 1) == frontierPoint2:
 
-                if (frontierPoint[0] + 1, frontierPoint[1] + 1) in self.frontier:
-                    point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
-                    point_index = self.frontier.index(point)
-                    p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
-                    if p_there:
-                        continue
+                    self.frontiers.append([idx, idx2])
+
+                    # Is idx already in self.frontiers?
+                    idxInFrontiers = False
+                    for f, frontier in enumerate(self.frontiers):
+                        if idx in frontier:
+                            whereIsIdx = f
+                            idxInFrontiers = True
+                        else:
+                            continue
+
+                    # Append idx2 to where idx is
+                    if idxInFrontiers:
+                        self.frontiers[whereIsIdx].append(idx2)
                     else:
-                        self.frontiers[whereIsIdx].append(point_index)
-
-                if (frontierPoint[0] + 1, frontierPoint[1]) in self.frontier:
-                    point = (frontierPoint[0] + 1, frontierPoint[1])
-                    point_index = self.frontier.index(point)
-                    p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
-
-                    if p_there:
-                        continue
-                    else:
-                        self.frontiers[whereIsIdx].append(point_index)
-
-                if (frontierPoint[0] + 1, frontierPoint[1] - 1) in self.frontier:
-                    point = (frontierPoint[0] + 1, frontierPoint[1] - 1)
-                    point_index = self.frontier.index(point)
-                    p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
-
-                    if p_there:
-                        continue
-                    else:
-                        self.frontiers[whereIsIdx].append(point_index)
-
-                if (frontierPoint[0] - 1, frontierPoint[1] + 1) in self.frontier:
-                    point = (frontierPoint[0] - 1, frontierPoint[1] + 1)
-                    point_index = self.frontier.index(point)
-                    p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
-
-                    if p_there:
-                        continue
-                    else:
-                        self.frontiers[whereIsIdx].append(point_index)
-
-                if (frontierPoint[0] - 1, frontierPoint[1]) in self.frontier:
-                    point = (frontierPoint[0] - 1, frontierPoint[1])
-                    point_index = self.frontier.index(point)
-                    p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
-
-                    self.frontiers[whereIsIdx].append(point_index)
-
-                if (frontierPoint[0] - 1, frontierPoint[1] - 1) in self.frontier:
-                    point = (frontierPoint[0] - 1, frontierPoint[1] - 1)
-                    point_index = self.frontier.index(point)
-                    p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
+                        self.frontiers.append([idx, idx2])
 
 
-                    if p_there:
-                        continue
-                    else:
-                        self.frontiers[whereIsIdx].append(point_index)
+                    # If idx2 appended, add it to the blacklist:
+                    temp_blacklist.append(idx2)
 
-                if (frontierPoint[0], frontierPoint[1] + 1) in self.frontier:
-                    point = (frontierPoint[0], frontierPoint[1] + 1)
-                    point_index = self.frontier.index(point)
-                    p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
 
-                    if p_there:
-                        continue
-                    else:
-                        self.frontiers[whereIsIdx].append(point_index)
 
-                if (frontierPoint[0], frontierPoint[1] - 1) in self.frontier:
-                    point = (frontierPoint[0], frontierPoint[1] - 1)
-                    point_index = self.frontier.index(point)
-                    p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
 
-                    if p_there:
-                        continue
-                    else:
-                        self.frontiers[whereIsIdx].append(point_index)
-
-            else:
-
-                self.frontiers.append([idx])
-
-                # If self.frontier contains a point next to idx
-                if (frontierPoint[0] + 1, frontierPoint[1] + 1) in self.frontier:
-                    point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
-                    self.frontiers[-1].append(self.frontier.index(point))
-
-                if (frontierPoint[0] + 1, frontierPoint[1]) in self.frontier:
-                    point = (frontierPoint[0] + 1, frontierPoint[1])
-                    self.frontiers[-1].append(self.frontier.index(point))
-
-                if (frontierPoint[0] + 1, frontierPoint[1] - 1) in self.frontier:
-                    point = (frontierPoint[0] + 1, frontierPoint[1] - 1)
-                    self.frontiers[-1].append(self.frontier.index(point))
-
-                if (frontierPoint[0] - 1, frontierPoint[1] + 1) in self.frontier:
-                    point = (frontierPoint[0] - 1, frontierPoint[1] + 1)
-                    self.frontiers[-1].append(self.frontier.index(point))
-
-                if (frontierPoint[0] - 1, frontierPoint[1]) in self.frontier:
-                    point = (frontierPoint[0] - 1, frontierPoint[1])
-                    self.frontiers[-1].append(self.frontier.index(point))
-
-                if (frontierPoint[0] - 1, frontierPoint[1] - 1) in self.frontier:
-                    point = (frontierPoint[0] - 1, frontierPoint[1] - 1)
-                    self.frontiers[-1].append(self.frontier.index(point))
-
-                if (frontierPoint[0], frontierPoint[1] + 1) in self.frontier:
-                    point = (frontierPoint[0], frontierPoint[1] + 1)
-                    self.frontiers[-1].append(self.frontier.index(point))
-
-                if (frontierPoint[0], frontierPoint[1] - 1) in self.frontier:
-                    point = (frontierPoint[0], frontierPoint[1] - 1)
-                    self.frontiers[-1].append(self.frontier.index(point))
+        #
+        # for idx, frontierPoint in enumerate(self.frontier):
+        #
+        #     there, whereIsIdx = self.isThePointThere(idx, self.frontiers)
+        #
+        #     if there:
+        #
+        #         if (frontierPoint[0] + 1, frontierPoint[1] + 1) in self.frontier:
+        #             point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
+        #             point_index = self.frontier.index(point)
+        #             p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
+        #             if p_there:
+        #                 continue
+        #             else:
+        #                 self.frontiers[whereIsIdx].append(point_index)
+        #
+        #         if (frontierPoint[0] + 1, frontierPoint[1]) in self.frontier:
+        #             point = (frontierPoint[0] + 1, frontierPoint[1])
+        #             point_index = self.frontier.index(point)
+        #             p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
+        #
+        #             if p_there:
+        #                 continue
+        #             else:
+        #                 self.frontiers[whereIsIdx].append(point_index)
+        #
+        #         if (frontierPoint[0] + 1, frontierPoint[1] - 1) in self.frontier:
+        #             point = (frontierPoint[0] + 1, frontierPoint[1] - 1)
+        #             point_index = self.frontier.index(point)
+        #             p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
+        #
+        #             if p_there:
+        #                 continue
+        #             else:
+        #                 self.frontiers[whereIsIdx].append(point_index)
+        #
+        #         if (frontierPoint[0] - 1, frontierPoint[1] + 1) in self.frontier:
+        #             point = (frontierPoint[0] - 1, frontierPoint[1] + 1)
+        #             point_index = self.frontier.index(point)
+        #             p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
+        #
+        #             if p_there:
+        #                 continue
+        #             else:
+        #                 self.frontiers[whereIsIdx].append(point_index)
+        #
+        #         if (frontierPoint[0] - 1, frontierPoint[1]) in self.frontier:
+        #             point = (frontierPoint[0] - 1, frontierPoint[1])
+        #             point_index = self.frontier.index(point)
+        #             p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
+        #
+        #             self.frontiers[whereIsIdx].append(point_index)
+        #
+        #         if (frontierPoint[0] - 1, frontierPoint[1] - 1) in self.frontier:
+        #             point = (frontierPoint[0] - 1, frontierPoint[1] - 1)
+        #             point_index = self.frontier.index(point)
+        #             p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
+        #
+        #
+        #             if p_there:
+        #                 continue
+        #             else:
+        #                 self.frontiers[whereIsIdx].append(point_index)
+        #
+        #         if (frontierPoint[0], frontierPoint[1] + 1) in self.frontier:
+        #             point = (frontierPoint[0], frontierPoint[1] + 1)
+        #             point_index = self.frontier.index(point)
+        #             p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
+        #
+        #             if p_there:
+        #                 continue
+        #             else:
+        #                 self.frontiers[whereIsIdx].append(point_index)
+        #
+        #         if (frontierPoint[0], frontierPoint[1] - 1) in self.frontier:
+        #             point = (frontierPoint[0], frontierPoint[1] - 1)
+        #             point_index = self.frontier.index(point)
+        #             p_there, p_idx = self.isThePointThere(point_index, self.frontiers)
+        #
+        #             if p_there:
+        #                 continue
+        #             else:
+        #                 self.frontiers[whereIsIdx].append(point_index)
+        #
+        #     else:
+        #
+        #         self.frontiers.append([idx])
+        #
+        #         # If self.frontier contains a point next to idx
+        #         if (frontierPoint[0] + 1, frontierPoint[1] + 1) in self.frontier:
+        #             point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
+        #             self.frontiers[-1].append(self.frontier.index(point))
+        #
+        #         if (frontierPoint[0] + 1, frontierPoint[1]) in self.frontier:
+        #             point = (frontierPoint[0] + 1, frontierPoint[1])
+        #             self.frontiers[-1].append(self.frontier.index(point))
+        #
+        #         if (frontierPoint[0] + 1, frontierPoint[1] - 1) in self.frontier:
+        #             point = (frontierPoint[0] + 1, frontierPoint[1] - 1)
+        #             self.frontiers[-1].append(self.frontier.index(point))
+        #
+        #         if (frontierPoint[0] - 1, frontierPoint[1] + 1) in self.frontier:
+        #             point = (frontierPoint[0] - 1, frontierPoint[1] + 1)
+        #             self.frontiers[-1].append(self.frontier.index(point))
+        #
+        #         if (frontierPoint[0] - 1, frontierPoint[1]) in self.frontier:
+        #             point = (frontierPoint[0] - 1, frontierPoint[1])
+        #             self.frontiers[-1].append(self.frontier.index(point))
+        #
+        #         if (frontierPoint[0] - 1, frontierPoint[1] - 1) in self.frontier:
+        #             point = (frontierPoint[0] - 1, frontierPoint[1] - 1)
+        #             self.frontiers[-1].append(self.frontier.index(point))
+        #
+        #         if (frontierPoint[0], frontierPoint[1] + 1) in self.frontier:
+        #             point = (frontierPoint[0], frontierPoint[1] + 1)
+        #             self.frontiers[-1].append(self.frontier.index(point))
+        #
+        #         if (frontierPoint[0], frontierPoint[1] - 1) in self.frontier:
+        #             point = (frontierPoint[0], frontierPoint[1] - 1)
+        #             self.frontiers[-1].append(self.frontier.index(point))
 
 
 
