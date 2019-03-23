@@ -177,8 +177,7 @@ class ExplorerNodeBase(object):
         # 4.
 
         for idx, frontierPoint in enumerate(self.frontier):
-            if idx in temp_blacklist:
-                continue
+    
             temp_blacklist.append(idx)
             self.frontiers.append(list())
             print(self.frontiers)
