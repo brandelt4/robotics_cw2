@@ -205,7 +205,7 @@ class ExplorerNodeBase(object):
                 if merge:
                     temp = self.frontiers[i] + self.frontiers[j]
                     self.frontiers.remove(self.frontiers[i])
-                    self.frontiers.remove(self.frontiers[j])
+                    self.frontiers.remove(self.frontiers[j-1])
                     self.frontiers.append(temp)
                     j = 0 
                     i = 0
