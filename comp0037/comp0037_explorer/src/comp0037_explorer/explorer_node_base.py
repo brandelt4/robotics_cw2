@@ -170,11 +170,17 @@ class ExplorerNodeBase(object):
         temp_blacklist = []
         temp_blacklist.append(0)
 
+
+        # 1. Take one cell
+        # 2. Check all the points
+        # 3. If the point is near
+        # 4.
+
         for idx, frontierPoint in enumerate(self.frontier):
             if idx in temp_blacklist:
                 continue
             temp_blacklist.append(idx)
-            
+
             for idx2, frontierPoint2 in enumerate(self.frontier):
 
                 if idx2 in temp_blacklist:
@@ -201,7 +207,7 @@ class ExplorerNodeBase(object):
                             continue
 
                     # Append idx2 to where idx is
-                    if idxInFrontiers:
+                    if idxInFrontiers is True:
                         self.frontiers[whereIsIdx].append(idx2)
                     else:
                         self.frontiers.append([idx, idx2])
@@ -402,14 +408,9 @@ class ExplorerNodeBase(object):
 
 
 
-        with open('/home/ros_user/catkin_ws/frontiers.txt', 'w+') as file:
-            file.write(str(self.frontier))
+        with open('/home/ros_user/catkin_ws/frontiers.txt', 'a+') as file:
+            file.write(str(self.frontiers))
             file.write('\n\n')
-
-
-            for frontier in self.frontiers:
-                file.write(str(frontier))
-                file.write('\n')
 
         print("Frontiers updated #{}".format(self.counter))
         self.counter += 1
