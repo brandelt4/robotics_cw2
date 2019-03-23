@@ -176,11 +176,26 @@ class ExplorerNodeBase(object):
                         else:
                             continue
 
-                    # If it is, add idx2 to that frontier:
+                    # Is idx2 already in self.frontiers?
+                    idx2InFrontiers = False
+                    for f2, frontier in enumerate(self.frontiers):
+                        if idx2 in frontier:
+                            whereIsIdx2 = f2
+                            idx2InFrontiers = True
+                        else:
+                            continue
+
+
+                    # If idx in self.frontiers, add idx2 to that frontier:
                     if idxInFrontiers:
                         # If idx2 is already in that frontier, skip!
                         if idx2 in self.frontiers[whereIsIdx]:
                             continue
+
+                        # If idx2 was in self.frontiers already, pop it and then add to idx
+                        elif idx2InFrontiers:
+                            self.frontiers[whereIsIdx2].pop(idx2)
+                            self.frontiers[whereIsIdx].append(idx2)
                         else:
                             self.frontiers[whereIsIdx].append(idx2)
 
@@ -188,23 +203,7 @@ class ExplorerNodeBase(object):
                     else:
                         self.frontiers.append([idx])
 
-                else:
-                    if self.counter == 1:
-                        break
 
-                    # check if idx is in self.frontiers
-                    idxInFrontiers = False
-                    for f, frontier in enumerate(self.frontiers):
-                        if idx in frontier:
-                            whereIsIdx = f
-                            idxInFrontiers = True
-                        else:
-                            continue
-
-                    if idxInFrontiers:
-                        continue
-                    else:
-                        self.frontiers.append(idx)
 
 
         with open('/home/ros_user/catkin_ws/frontiers.txt', 'w+') as file:
