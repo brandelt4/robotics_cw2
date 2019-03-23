@@ -106,6 +106,7 @@ class ExplorerNode(ExplorerNodeBase):
 
                 # if no frontier larger than 0 was found
                 if frontier_index is None:
+                    print('NONE')
                     return False, None
 
                 # if all conditions are met
@@ -113,6 +114,7 @@ class ExplorerNode(ExplorerNodeBase):
                     print("Next cell coordinates: {}".format(self.frontier[self.frontiers[frontier_index][0]]))
                     return True, self.frontier[self.frontiers[frontier_index][0]]
                 else:
+                    print('FALSE')
                     return False, None
 
 
