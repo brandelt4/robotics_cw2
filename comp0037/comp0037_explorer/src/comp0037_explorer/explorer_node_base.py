@@ -99,6 +99,21 @@ class ExplorerNodeBase(object):
             & (newY >= 0) & (newY < self.occupancyGrid.getHeightInCells()) \
             & (self.occupancyGrid.getCell(newX, newY) == 0.5)
 
+
+    def isThePointThere(self, point, frontiers):
+
+        inFrontier = False
+        for frontier in frontiers:
+            if point in frontier:
+                inFrontier = True
+            else:
+                continue
+
+        return inFrontier
+
+
+
+
     # You should provide your own implementation of this method which
     # maintains and updates the frontiers.  The method should return
     # True if any outstanding frontiers exist. If the method returns
@@ -149,62 +164,109 @@ class ExplorerNodeBase(object):
         self.frontiers = []
         self.frontiers.append([0])
 
-        # Iterate through the points and find which points are next to each other
-        # If points are next to each other, group them into separate frontiers
+
+
         for idx, frontierPoint in enumerate(self.frontier):
-            for idx2, frontierPoint2 in enumerate(self.frontier):
 
-                if idx == idx2:
-                    continue
+            if self.isThePointThere(idx, self.frontiers):
+                continue
 
-                # If they are next to each other
-                if (frontierPoint[0] + 1, frontierPoint[1] + 1) == frontierPoint2 \
-                    or (frontierPoint[0] + 1, frontierPoint[1]) == frontierPoint2 \
-                    or (frontierPoint[0] + 1, frontierPoint[1]-1) == frontierPoint2 \
-                    or (frontierPoint[0] - 1, frontierPoint[1] + 1) == frontierPoint2 \
-                    or (frontierPoint[0] - 1, frontierPoint[1]) == frontierPoint2 \
-                    or (frontierPoint[0] - 1, frontierPoint[1]-1) == frontierPoint2 \
-                    or (frontierPoint[0], frontierPoint[1] + 1) == frontierPoint2 \
-                    or (frontierPoint[0], frontierPoint[1] - 1) == frontierPoint2:
+            self.frontiers.append([idx])
 
-                    # Is idx already in self.frontiers?
-                    idxInFrontiers = False
-                    for f, frontier in enumerate(self.frontiers):
-                        if idx in frontier:
-                            whereIsIdx = f
-                            idxInFrontiers = True
-                        else:
-                            continue
-
-                    # Is idx2 already in self.frontiers?
-                    idx2InFrontiers = False
-                    for f2, frontier in enumerate(self.frontiers):
-                        if idx2 in frontier:
-                            whereIsIdx2 = f2
-                            idx2InFrontiers = True
-                        else:
-                            continue
+            # If self.frontier contains a point next to idx
+            if (frontierPoint[0] + 1, frontierPoint[1] + 1) in self.frontier:
+                point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
+                self.frontiers[-1].append(self.frontier.index(point))
 
 
-                    # If idx in self.frontiers, add idx2 to that frontier:
-                    if idxInFrontiers:
-                        # If idx2 is already in that frontier, skip!
-                        if idx2 in self.frontiers[whereIsIdx]:
-                            continue
+            if (frontierPoint[0] + 1, frontierPoint[1]) in self.frontier:
+                point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
+                self.frontiers[-1].append(self.frontier.index(point))
 
-                        # If idx2 was in self.frontiers already, pop it and then add to idx
-                        elif idx2InFrontiers:
-                            self.frontiers[whereIsIdx2].pop(self.frontiers[whereIsIdx2].index(idx2))
-                            self.frontiers[whereIsIdx].append(idx2)
-                        else:
-                            self.frontiers[whereIsIdx].append(idx2)
+            if (frontierPoint[0] + 1, frontierPoint[1] - 1) in self.frontier:
+                point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
+                self.frontiers[-1].append(self.frontier.index(point))
 
-                    # Otherwise, add idx as a new frontier
-                    else:
-                        if idx2InFrontiers:
-                            self.frontiers[whereIsIdx2].append(idx)
-                        else:
-                            self.frontiers.append([idx, idx2])
+            if (frontierPoint[0] - 1, frontierPoint[1] + 1) in self.frontier:
+                point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
+                self.frontiers[-1].append(self.frontier.index(point))
+
+            if (frontierPoint[0] - 1, frontierPoint[1]) in self.frontier:
+                point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
+                self.frontiers[-1].append(self.frontier.index(point))
+
+            if (frontierPoint[0] - 1, frontierPoint[1] - 1) in self.frontier:
+                point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
+                self.frontiers[-1].append(self.frontier.index(point))
+
+            if (frontierPoint[0], frontierPoint[1] + 1) in self.frontier:
+                point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
+                self.frontiers[-1].append(self.frontier.index(point))
+
+            if (frontierPoint[0], frontierPoint[1] - 1) in self.frontier:
+                point = (frontierPoint[0] + 1, frontierPoint[1] + 1)
+                self.frontiers[-1].append(self.frontier.index(point))
+
+
+
+
+
+        # # Iterate through the points and find which points are next to each other
+        # # If points are next to each other, group them into separate frontiers
+        # for idx, frontierPoint in enumerate(self.frontier):
+        #     for idx2, frontierPoint2 in enumerate(self.frontier):
+        #
+        #         if idx == idx2:
+        #             continue
+        #
+        #         # If they are next to each other
+        #         if (frontierPoint[0] + 1, frontierPoint[1] + 1) == frontierPoint2 \
+        #             or (frontierPoint[0] + 1, frontierPoint[1]) == frontierPoint2 \
+        #             or (frontierPoint[0] + 1, frontierPoint[1]-1) == frontierPoint2 \
+        #             or (frontierPoint[0] - 1, frontierPoint[1] + 1) == frontierPoint2 \
+        #             or (frontierPoint[0] - 1, frontierPoint[1]) == frontierPoint2 \
+        #             or (frontierPoint[0] - 1, frontierPoint[1]-1) == frontierPoint2 \
+        #             or (frontierPoint[0], frontierPoint[1] + 1) == frontierPoint2 \
+        #             or (frontierPoint[0], frontierPoint[1] - 1) == frontierPoint2:
+        #
+        #             # Is idx already in self.frontiers?
+        #             idxInFrontiers = False
+        #             for f, frontier in enumerate(self.frontiers):
+        #                 if idx in frontier:
+        #                     whereIsIdx = f
+        #                     idxInFrontiers = True
+        #                 else:
+        #                     continue
+        #
+        #             # Is idx2 already in self.frontiers?
+        #             idx2InFrontiers = False
+        #             for f2, frontier in enumerate(self.frontiers):
+        #                 if idx2 in frontier:
+        #                     whereIsIdx2 = f2
+        #                     idx2InFrontiers = True
+        #                 else:
+        #                     continue
+        #
+        #
+        #             # If idx in self.frontiers, add idx2 to that frontier:
+        #             if idxInFrontiers:
+        #                 # If idx2 is already in that frontier, skip!
+        #                 if idx2 in self.frontiers[whereIsIdx]:
+        #                     continue
+        #
+        #                 # If idx2 was in self.frontiers already, pop it and then add to idx
+        #                 elif idx2InFrontiers:
+        #                     self.frontiers[whereIsIdx2].pop(self.frontiers[whereIsIdx2].index(idx2))
+        #                     self.frontiers[whereIsIdx].append(idx2)
+        #                 else:
+        #                     self.frontiers[whereIsIdx].append(idx2)
+        #
+        #             # Otherwise, add idx as a new frontier
+        #             else:
+        #                 if idx2InFrontiers:
+        #                     self.frontiers[whereIsIdx2].append(idx)
+        #                 else:
+        #                     self.frontiers.append([idx, idx2])
 
 
 
