@@ -175,20 +175,19 @@ class ExplorerNodeBase(object):
                     continue
 
                 # If they are next to each other
-                if (abs(frontierPoint[0] - frontierPoint2[0]) == 1 or abs(frontierPoint[1] - frontierPoint2[1]) == 1):
+                if (abs(frontierPoint[0] - frontierPoint2[0]) < 2 and abs(frontierPoint[1] - frontierPoint2[1]) < 2):
                     
                     appended = False
 
                     #append to existing ones
                     for i in range(len(self.frontiers)):
-                        if idx in self.frontiers[i] or idx2 in self.frontiers[i]:
+                        if (idx in self.frontiers[i] or idx2 in self.frontiers[i]) and not appended:
                             #add both
                             self.frontiers[i].append(idx)
                             self.frontiers[i].append(idx2)
                             #remove duplicates
                             self.frontiers[i] = list(dict.fromkeys(self.frontiers[i]))
                             appended = True
-                            break
 
                     #append new frontier
                     if not appended:
