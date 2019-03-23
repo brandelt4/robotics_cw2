@@ -108,10 +108,14 @@ class ExplorerNode(ExplorerNodeBase):
                 if frontier_index is None:
                     return False, None
 
+                index = 0
+                while self.frontier[self.frontiers[frontier_index][index]] in self.blackList:
+                    index += 1
+
                 # if all conditions are met
-                if largestSize != 0 and self.frontier[self.frontiers[frontier_index][0]] != self.previousDestination and (self.frontier[self.frontiers[frontier_index][0]] != startCellCoords) :
-                    print("Next cell coordinates: {}".format(self.frontier[self.frontiers[frontier_index][0]]))
-                    return True, self.frontier[self.frontiers[frontier_index][0]]
+                if largestSize != 0 and self.frontier[self.frontiers[frontier_index][index]] != self.previousDestination and (self.frontier[self.frontiers[frontier_index][index]] != startCellCoords) :
+                    print("Next cell coordinates: {}".format(self.frontier[self.frontiers[frontier_index][index]]))
+                    return True, self.frontier[self.frontiers[frontier_index][index]]
                 else:
                     return False, None
 
@@ -122,4 +126,4 @@ class ExplorerNode(ExplorerNodeBase):
         if goalReached is False:
 #             print 'Adding ' + str(goal) + ' to the naughty step'
             self.blackList.append(goal)
-            self.frontier.pop(self.frontier.index(goal))
+
