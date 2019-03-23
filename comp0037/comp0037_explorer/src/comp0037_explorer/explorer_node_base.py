@@ -188,7 +188,7 @@ class ExplorerNodeBase(object):
                     else:
                         self.frontiers.append([idx])
 
-        with open('/home/catkin_ws/frontiers.txt', 'w+') as file:
+        with open('/home/ros_user/catkin_ws/frontiers.txt', 'w+') as file:
             file.write(self.frontiers)
             file.write('\n\n')
 
