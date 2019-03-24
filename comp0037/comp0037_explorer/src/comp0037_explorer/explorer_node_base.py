@@ -197,9 +197,11 @@ class ExplorerNodeBase(object):
         while i < len(self.frontiers):
             j = 0 
             while j < len(self.frontiers):
+
                 if i == j:
                     continue 
-                    
+                    j = j + 1
+
                 merge = False
                 for idx in self.frontiers[i]:
                     for idx2 in self.frontiers[j]:
