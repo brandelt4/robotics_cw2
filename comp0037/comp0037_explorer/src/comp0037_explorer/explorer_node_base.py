@@ -194,61 +194,63 @@ class ExplorerNodeBase(object):
                         self.frontiers.append([idx, idx2])
 
 
-        mod = True
-        while (mod):
-            mod = False
-            new_frontiers = []
-            for i in range(len(self.frontiers)):
-                for j in range(len(self.frontiers)):
-                    if i == j:
-                        continue  
+        # mod = True
+        # while (mod):
+        #     mod = False
+        #     new_frontiers = []
+        #     for i in range(len(self.frontiers)):
+        #         for j in range(len(self.frontiers)):
+        #             if i == j:
+        #                 continue  
 
-                    merge = False
-                    for idx in self.frontiers[i]:
-                        for idx2 in self.frontiers[j]:
-                            if (abs(self.frontier[idx][0] - self.frontier[idx2][0]) < 2 and abs(self.frontier[idx][1] - self.frontier[idx2][1]) < 2):
-                                merge = True
-                                mod = True
+        #             merge = False
+        #             for idx in self.frontiers[i]:
+        #                 for idx2 in self.frontiers[j]:
+        #                     if (abs(self.frontier[idx][0] - self.frontier[idx2][0]) < 2 and abs(self.frontier[idx][1] - self.frontier[idx2][1]) < 2):
+        #                         merge = True
+        #                         mod = True
 
-                    if merge:
-                        temp = self.frontiers[i] + self.frontiers[j]
-                        a = self.frontiers[i] + []
-                        b = self.frontiers[j] + []
-                        self.frontiers.remove(a)
-                        self.frontiers.remove(b)
-                        self.frontiers.append([])
-                        self.frontiers.append([])
-                        new_frontiers.append(temp)
+        #             if merge:
+        #                 temp = self.frontiers[i] + self.frontiers[j]
+        #                 a = self.frontiers[i] + []
+        #                 b = self.frontiers[j] + []
+        #                 self.frontiers.remove(a)
+        #                 self.frontiers.remove(b)
+        #                 self.frontiers.append([])
+        #                 self.frontiers.append([])
+        #                 new_frontiers.append(temp)
 
 
-            self.frontiers = self.frontiers + new_frontiers
+        #     self.frontiers = self.frontiers + new_frontiers
 
-        # i = 0
-        # while i < len(self.frontiers):
-        #     j = 0 
-        #     while j < len(self.frontiers):
+        i = 0
+        while i < len(self.frontiers):
+            j = 0 
+            while j < len(self.frontiers):
 
-        #         if i == j:
-        #             j = j + 1
-        #             continue 
+                if i == j:
+                    j = j + 1
+                    continue 
 
-        #         merge = False
-        #         for idx in self.frontiers[i]:
-        #             for idx2 in self.frontiers[j]:
-        #                 if (abs(self.frontier[idx][0] - self.frontier[idx2][0]) < 2 and abs(self.frontier[idx][1] - self.frontier[idx2][1]) < 2):
-        #                     merge = True
-        #         if merge:
-        #             temp = self.frontiers[i] + self.frontiers[j]
-        #             a = self.frontiers[i]
-        #             b = self.frontiers[j]
-        #             self.frontiers.remove(a)
-        #             self.frontiers.remove(b)
-        #             self.frontiers.append(temp)
-        #             j = 0 
-        #             i = 0
+                merge = False
+                for idx in self.frontiers[i]:
+                    for idx2 in self.frontiers[j]:
+                        if (abs(self.frontier[idx][0] - self.frontier[idx2][0]) < 2 and abs(self.frontier[idx][1] - self.frontier[idx2][1]) < 2):
+                            merge = True
+                if merge:
+                    temp = self.frontiers[i] + self.frontiers[j]
+                    a = self.frontiers[i]
+                    b = self.frontiers[j]
+                    self.frontiers.remove(a)
+                    self.frontiers.remove(b)
+                    self.frontiers.append([])
+                    self.frontiers.append([])
+                    self.frontiers.append(temp)
+                    j = 0 
+                    i = 0
 
-        #         j = j + 1
-        #     i = i + 1
+                j = j + 1
+            i = i + 1
 
         #sort by len
         self.frontiers.sort(key=len, reverse=True)
