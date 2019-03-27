@@ -184,14 +184,18 @@ class ExplorerNodeBase(object):
                         if idx in self.frontiers[i]:
                             a = self.frontiers[i] + []
                             self.frontiers.remove(a)
+                            break
 
                     for i in range(len(self.frontiers)):
                         if idx2 in self.frontiers[i]:
                             b = self.frontiers[i] + []
                             self.frontiers.remove(b)
+                            break
 
                     self.frontiers.append(a+b)
 
+        for i in range(len(self.frontiers)):
+            self.frontiers[i] = list(dict.fromkeys(self.frontiers[i]))
         #sort by len
         self.frontiers.sort(key=len, reverse=True)
 
