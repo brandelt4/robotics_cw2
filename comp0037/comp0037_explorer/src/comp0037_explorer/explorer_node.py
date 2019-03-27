@@ -104,7 +104,7 @@ class ExplorerNode(ExplorerNodeBase):
 
                 print('-'*40)
                 print('LENGTH: {}'.format(largestSize))
-                print(reversed(sorted([len(x) for x in self.frontiers])))
+                print([len(x) for x in self.frontiers].remove(0))
                 print('-'*40)
                 # if no frontier larger than 0 was found
                 if frontier_index is None:
