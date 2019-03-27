@@ -194,6 +194,8 @@ class ExplorerNodeBase(object):
 
                     self.frontiers.append(a+b)
 
+        for i in range(len(self.frontiers)):
+            self.frontiers[i] = list(dict.fromkeys(self.frontiers[i]))
         #sort by len
         self.frontiers.sort(key=len, reverse=True)
 
