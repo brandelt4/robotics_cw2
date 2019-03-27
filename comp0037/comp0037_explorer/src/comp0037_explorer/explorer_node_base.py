@@ -193,6 +193,14 @@ class ExplorerNodeBase(object):
 
         for i in range(len(self.frontiers)):
             self.frontiers[i] = list(dict.fromkeys(self.frontiers[i]))
+
+        for idx, frontierPoint in enumerate(self.frontier):
+            add = True
+            for front in self.frontiers:
+                if idx in front:
+                    add = False
+            if add:
+                self.frontiers.append([idx]) 
         #sort by len
         self.frontiers.sort(key=len, reverse=True)
 
