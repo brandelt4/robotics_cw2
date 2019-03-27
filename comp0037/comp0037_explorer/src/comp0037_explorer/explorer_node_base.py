@@ -128,6 +128,7 @@ class ExplorerNodeBase(object):
 
         # If the first time, check all cells
         if self.counter == 1:
+            self.frontier = []
             print('.'*80)
             print('First time updating frontiers')
             print('.'*80)
@@ -268,7 +269,7 @@ class ExplorerNodeBase(object):
             file.write('\n\n')
 
         print("Frontiers updated #{}".format(self.counter))
-        self.counter += 1
+        # self.counter += 1
 
         if self.frontier == self.previousFrontier:
             return False

@@ -101,8 +101,6 @@ class ExplorerNode(ExplorerNodeBase):
                     if len(frontier) > largestSize:
                         largestSize = len(frontier)
                         frontier_index = self.frontiers.index(frontier)
-                    else:
-                        continue
 
                 # if no frontier larger than 0 was found
                 if frontier_index is None:
