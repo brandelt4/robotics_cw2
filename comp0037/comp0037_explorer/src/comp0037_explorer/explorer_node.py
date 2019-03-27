@@ -33,7 +33,6 @@ class ExplorerNode(ExplorerNodeBase):
 
     def chooseNewDestination(self):
 
-
 #         print 'blackList:'
 #         for coords in self.blackList:
 #             print str(coords)
@@ -102,10 +101,6 @@ class ExplorerNode(ExplorerNodeBase):
                         largestSize = len(frontier)
                         frontier_index = self.frontiers.index(frontier)
 
-                print('-'*40)
-                print('LENGTH: {}'.format(largestSize))
-                print([len(x) for x in self.frontiers])
-                print('-'*40)
                 # if no frontier larger than 0 was found
                 if frontier_index is None:
                     return False, None

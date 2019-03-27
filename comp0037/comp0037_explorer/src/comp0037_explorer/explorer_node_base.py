@@ -157,12 +157,9 @@ class ExplorerNodeBase(object):
                         if self.isFrontierCell(x,y) is True:
                             self.frontier.append((x,y))
 
-        # Write frontiers into a pickle
+        # Write frontiers into a pickle (used for visualisation)
         with open('/home/ros_user/catkin_ws/src/comp0037/comp0037_reactive_planner_controller/src/comp0037_reactive_planner_controller/frontier.pkl', 'w+b') as file:
             pickle.dump(self.frontier, file)
-
-
-        # ********** ZAKHAR START HERE ************
 
 
         # Stores indices of frontiers from self.frontier
@@ -199,19 +196,6 @@ class ExplorerNodeBase(object):
         #sort by len
         self.frontiers.sort(key=len, reverse=True)
 
-
-
-
-
-
-
-
-
-
-        with open('/home/ros_user/catkin_ws/frontiers.txt', 'a+') as file:
-            file.write(str(self.frontier))
-            file.write(str(self.frontiers))
-            file.write('\n\n')
 
         print("Frontiers updated #{}".format(self.counter))
         self.counter += 1
