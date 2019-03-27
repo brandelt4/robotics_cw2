@@ -210,7 +210,7 @@ class ExplorerNodeBase(object):
             file.write('\n\n')
 
         print("Frontiers updated #{}".format(self.counter))
-        # self.counter += 1
+        self.counter += 1
 
         if self.frontier == self.previousFrontier:
             return False
