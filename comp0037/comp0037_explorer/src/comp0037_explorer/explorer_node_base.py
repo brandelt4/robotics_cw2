@@ -177,81 +177,20 @@ class ExplorerNodeBase(object):
 
                 # If they are next to each other
                 if (abs(frontierPoint[0] - frontierPoint2[0]) < 2 and abs(frontierPoint[1] - frontierPoint2[1]) < 2):
-                    
-                    appended = False
+                    a = [idx]
+                    b = [idx2]
 
-                    #append to existing ones
                     for i in range(len(self.frontiers)):
-                        if (idx in self.frontiers[i] or idx2 in self.frontiers[i]) and not appended:
-                            #add both
-                            self.frontiers[i].append(idx)
-                            self.frontiers[i].append(idx2)
-                            #remove duplicates
-                            self.frontiers[i] = list(dict.fromkeys(self.frontiers[i]))
-                            appended = True
+                        if idx in self.frontiers[i]:
+                            a = self.frontiers[i] + []
+                            self.frontiers.remove(a)
 
-                    #append new frontier
-                    if not appended:
-                        self.frontiers.append([idx, idx2])
+                    for i in range(len(self.frontiers)):
+                        if idx2 in self.frontiers[i]:
+                            b = self.frontiers[i] + []
+                            self.frontiers.remove(b)
 
-
-        # mod = True
-        # while (mod):
-        #     mod = False
-        #     new_frontiers = []
-        #     for i in range(len(self.frontiers)):
-        #         for j in range(len(self.frontiers)):
-        #             if i == j:
-        #                 continue  
-
-        #             merge = False
-        #             for idx in self.frontiers[i]:
-        #                 for idx2 in self.frontiers[j]:
-        #                     if (abs(self.frontier[idx][0] - self.frontier[idx2][0]) < 2 and abs(self.frontier[idx][1] - self.frontier[idx2][1]) < 2):
-        #                         merge = True
-        #                         mod = True
-
-        #             if merge:
-        #                 temp = self.frontiers[i] + self.frontiers[j]
-        #                 a = self.frontiers[i] + []
-        #                 b = self.frontiers[j] + []
-        #                 self.frontiers.remove(a)
-        #                 self.frontiers.remove(b)
-        #                 self.frontiers.append([])
-        #                 self.frontiers.append([])
-        #                 new_frontiers.append(temp)
-
-
-        #     self.frontiers = self.frontiers + new_frontiers
-
-        i = 0
-        while i < len(self.frontiers):
-            j = 0 
-            while j < len(self.frontiers):
-
-                if i == j:
-                    j = j + 1
-                    continue 
-
-                merge = False
-                for idx in self.frontiers[i]:
-                    for idx2 in self.frontiers[j]:
-                        if (abs(self.frontier[idx][0] - self.frontier[idx2][0]) < 2 and abs(self.frontier[idx][1] - self.frontier[idx2][1]) < 2):
-                            merge = True
-                if merge:
-                    temp = self.frontiers[i] + self.frontiers[j]
-                    a = self.frontiers[i]
-                    b = self.frontiers[j]
-                    self.frontiers.remove(a)
-                    self.frontiers.remove(b)
-                    self.frontiers.append([])
-                    self.frontiers.append([])
-                    self.frontiers.append(temp)
-                    j = 0 
-                    i = 0
-
-                j = j + 1
-            i = i + 1
+                    self.frontiers.append(a+b)
 
         #sort by len
         self.frontiers.sort(key=len, reverse=True)
