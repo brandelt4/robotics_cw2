@@ -216,7 +216,10 @@ class ExplorerNodeBase(object):
                         b = self.frontiers[j] + []
                         self.frontiers.remove(a)
                         self.frontiers.remove(b)
+                        self.frontiers.append([])
+                        self.frontiers.append([])
                         new_frontiers.append(temp)
+
 
             self.frontiers = self.frontiers + new_frontiers
 
