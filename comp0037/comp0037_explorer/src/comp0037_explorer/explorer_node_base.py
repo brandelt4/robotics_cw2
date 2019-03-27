@@ -198,8 +198,8 @@ class ExplorerNodeBase(object):
         while (mod):
             mod = False
             new_frontiers = []
-            for i in range(self.frontiers):
-                for j in range(self.frontiers):
+            for i in range(len(self.frontiers)):
+                for j in range(len(self.frontiers)):
                     if i == j:
                         continue  
 
@@ -212,8 +212,8 @@ class ExplorerNodeBase(object):
 
                     if merge:
                         temp = self.frontiers[i] + self.frontiers[j]
-                        a = self.frontiers[i]
-                        b = self.frontiers[j]
+                        a = self.frontiers[i] + []
+                        b = self.frontiers[j] + []
                         self.frontiers.remove(a)
                         self.frontiers.remove(b)
                         new_frontiers.append(temp)
