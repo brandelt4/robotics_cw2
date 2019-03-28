@@ -348,6 +348,8 @@ class MapperNode(object):
                     unknowns += 1
 
         print('/'*30)
+        print(self.occupancyGrid.getWidthInCells())
+        print(self.occupancyGrid.getHeightInCells())
         print(unknowns)
         self.entropy = (unknowns * math.log(2)) # *math.log(unknowns * math.log(2))
 
