@@ -21,7 +21,7 @@ class ExplorerNode(ExplorerNodeBase):
     def __init__(self):
         ExplorerNodeBase.__init__(self)
 
-        self.selection = 'closest' # 'largest'
+        self.selection = 'largest' # 'largest'
         self.previousDestination = (0,0)
         self.blackList = []
 
